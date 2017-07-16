@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>form</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Comment</h1>
+
+
+<div style="display: block;">
+    <div>
+        <form commandName="project" th:action="@{/course/form/add}" th:object="${comment}" th:method="post">
+
+            <input type="text" th:field="*{content}"/>
+            <input type="submit"/>
+        </form>
+    </div>
+
+    <div>
+        <ul>
+            <tr th:each=" lis : ${list}">
+                <li class="pl-list clearfix">
+                    <td th:text="${lis.content}"></td>
+                    <br>
+                    时间:   <td th:text="${lis.createtime}"></td>
+                    <br><br>
+                    <a title="赞" >
+                        <i class="icon-thumb-revert"></i>
+                    </a>
+                    <hr/>
+                </li>
+            </tr>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>

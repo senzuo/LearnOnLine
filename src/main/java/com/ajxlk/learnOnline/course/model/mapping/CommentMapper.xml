@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.course.dao.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Comment">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="ReviewerId" property="reviewerid" jdbcType="INTEGER"/>
+        <result column="createTime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="zan" property="zan" jdbcType="INTEGER"/>
+        <result column="index" property="index" jdbcType="INTEGER"/>
+        <result column="courseId" property="courseid" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, pid, ReviewerId, createTime, zan, index, courseId, content
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_comment
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Comment">
+    insert into tb_comment (pid, ReviewerId,
+      createTime, zan, index, 
+      courseId, content)
+    values (#{pid,jdbcType=INTEGER}, #{reviewerid,jdbcType=INTEGER},
+      #{createtime,jdbcType=TIMESTAMP}, #{zan,jdbcType=INTEGER}, #{index,jdbcType=INTEGER}, 
+      #{courseid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.Comment">
+        insert into tb_comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="pid != null">
+                pid,
+            </if>
+            <if test="reviewerid != null">
+                ReviewerId,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+            <if test="zan != null">
+                zan,
+            </if>
+            <if test="index != null">
+                index,
+            </if>
+            <if test="courseid != null">
+                courseId,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="pid != null">
+                #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="reviewerid != null">
+                #{reviewerid,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="zan != null">
+                #{zan,jdbcType=INTEGER},
+            </if>
+            <if test="index != null">
+                #{index,jdbcType=INTEGER},
+            </if>
+            <if test="courseid != null">
+                #{courseid,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.Comment">
+        update tb_comment
+        <set>
+            <if test="pid != null">
+                pid = #{pid,jdbcType=INTEGER},
+            </if>
+            <if test="reviewerid != null">
+                ReviewerId = #{reviewerid,jdbcType=INTEGER},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="zan != null">
+                zan = #{zan,jdbcType=INTEGER},
+            </if>
+            <if test="index != null">
+                index = #{index,jdbcType=INTEGER},
+            </if>
+            <if test="courseid != null">
+                courseId = #{courseid,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Comment">
+    update tb_comment
+    set pid = #{pid,jdbcType=INTEGER},
+      ReviewerId = #{reviewerid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      zan = #{zan,jdbcType=INTEGER},
+      index = #{index,jdbcType=INTEGER},
+      courseId = #{courseid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+    <select id="getAllComment" resultMap="BaseResultMap">
+        SELECT * FROM tb_comment
+    </select>
+</mapper>

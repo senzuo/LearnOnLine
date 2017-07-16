@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ajxlk.learnOnline.user.dao.StuMapper">
+
+    <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.user.model.Stu">
+        <id column="stuId" property="stuid" jdbcType="INTEGER"/>
+        <result column="StuName" property="stuname" jdbcType="VARCHAR"/>
+        <result column="StuPwd" property="stupwd" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      stuId, StuName, StuPwd
+    </sql>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_stu
+        where stuId = #{stuid,jdbcType=INTEGER}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from tb_stu
+        where stuId = #{stuid,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+      insert into tb_stu (StuName, StuPwd)
+      values (#{stuname,jdbcType=VARCHAR}, #{stupwd,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+        insert into tb_stu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">
+                stuId,
+            </if>
+            <if test="stuname != null">
+                StuName,
+            </if>
+            <if test="stupwd != null">
+                StuPwd,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">
+                #{stuid,jdbcType=INTEGER},
+            </if>
+            <if test="stuname != null">
+                #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stupwd != null">
+                #{stupwd,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+        update tb_stu
+        <set>
+            <if test="stuname != null">
+                StuName = #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stupwd != null">
+                StuPwd = #{stupwd,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where stuId = #{stuid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+    update tb_stu
+    set StuName = #{stuname,jdbcType=VARCHAR},
+      StuPwd = #{stupwd,jdbcType=VARCHAR}
+    where stuId = #{stuid,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectAllStu" resultMap="BaseResultMap">
+        select * FROM tb_stu
+    </select>
+
+    <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_stu
+        where StuName = #{stuname,jdbcType=VARCHAR}
+    </select>
+
+
+   <select id="selectSelectiveStu" resultMap="BaseResultMap">
+       SELECT
+       <include refid="Base_Column_List"/>
+       FROM tb_stu WHERE 1 = 1
+       <if test="#{0}!=null and #{0}!=''">
+           AND stuId = #{0}
+       </if>
+       <if test="#{1}!=null and #{1}!=''">
+           AND StuName = #{1}
+       </if>
+   </select>
+
+
+</mapper>

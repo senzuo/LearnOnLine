@@ -1,0 +1,75 @@
+/*reset*/
+html,body,p,input,textarea,h1,h2,h3,h4,h5,ul,li,dl,dt,dd,button,input{margin:0;padding:0;}
+html,body{font: 16px/1.5 microsoft yahei,tahoma;color:#636363;background:#e9eef5;}
+ul,dl{list-style-type: none;}
+/*common*/
+.clearfix:after,.clearfix:before,.horizontal:after,.horizontal:before{content:'';clear:both;height: 0;display: table;visibility:hidden;}
+.fl{float:left;}
+.fr{float:right;}
+a,a:active,a:visited{color:inherit;text-decoration:none;}
+.bg-white{background: white;}
+.tabs{font-size: 1.2rem;text-align: center;line-height: 2.2}
+.tabs .item{border-bottom:4px solid transparent;}
+.tabs .item.current{border-bottom-color:#e70011;color:#e70011;}
+.tabs-cont .item{display: none;}
+.tabs .item.current,.tabs-cont .item.current{display: block;}
+.horizontal > li {
+    float: left;
+}
+.horizontal.cell3 > li{
+    width:33.3%;
+}
+.horizontal.cell2 > li{
+    width:50%;
+}
+.horizontal.cell4 > li{
+    width:25%;
+}
+.horizontal.cell5 > li{
+    width:20%;
+}
+.flex-box{display:flex;}
+.flex-box.row{flex-flow:row;}
+.flex-box.wrap{flex-flow:row wrap;}
+.flex1{flex:1;}
+@media all and (max-width: 320px){
+    html,body{font-size: 14px;}
+}
+@media all and (min-width: 760px){
+    html,body{font-size: 20px;}
+}
+@media all and (min-width: 1080px){
+    html,body{font-size: 30px;}
+}
+/*list*/
+
+.list-state .time{color:#e70011;margin: 0 .5rem;/* float:left; */margin-right: 3rem;font-size: .825rem;/* text-align: right; */}
+.list-state .title{color:black;font-weight: bold;}
+.list-state .state{font-size: .825em;background: #babec4;color:white;padding:.2em;line-height: 1;}
+.list-state .desc-list li{padding: 1em 0 0;position: relative;/* overflow: hidden; */}
+/*.list-state .desc-list li:before{position: absolute;content:'';width: 10px;height: 10px;background: #E70011;left: 3em;display: block;border-radius: 50%;box-shadow: 0 0 0 5px #E9EEF5,0 6px 6px rgba(0,0,0,.15);border: 3px solid #FFBBC0;margin-top: 3px;}*/
+.list-state .desc-list li:before{position: absolute;height: 100%;width: 1px;background: white;content: '';left: 3em;margin-left:7px;/* top: -.1em; */}
+.after{position: absolute;height: 100%;width: 0px;background: white;content: '';left: 3em;margin-left:7px;}
+.after div:after{position: absolute;content:'';width: 10px;height: 10px;background: #E70011;left: -1em;display: block;border-radius: 50%;box-shadow: 0 0 0 5px #E9EEF5,0 6px 6px rgba(0,0,0,.15);border: 3px solid #FFBBC0;margin-top: 3px;}
+.list-state .description{margin: .5em 0 0;padding: 0 0 1em;border-bottom:1px dashed #ddd;}
+.list-state .cont{margin-right: .5em;}
+.list-state .ok .state,.list-state .ok .time{display: none;}
+.list-state .ok .cont{margin-left:4em;}
+.list-state .ok li:after,.list-state .ok li:before{left:2.5em;}
+.xxx{font-size: 1em;color:black;font-weight: bold;text-align:center;margin-top: auto;background-color:#23bcaf;}
+.show-more{position: relative;text-align: center;margin: 2em;}
+.show-more:before,.show-more:after{position: absolute;content:'';width: 2px;height: 13px;background: #636363;left: 50%;top: 50%;margin-left: -3em;margin-top: -7px;}
+.show-more:after{-webkit-transform:rotate(90deg);}
+.list-state .leader{margin-left: 1em;}
+/*home*/
+.home-page .logo{margin: 2em auto 0em;background: url(../images/logo.png) no-repeat center center;height: 4em;background-size: contain;}
+.home-page .home-cont{text-align: center;}
+.home-cont dt{width:5rem;height:5rem;border-radius: 10px;display: inline-block;background-repeat: no-repeat;background-position: center center;background-size: 3.5em auto;}
+.home-cont a{display: block;width:33.33%;text-align: center;font-size: .825em;margin-top:2em;}
+.expense-1 dt{background-image:url(../images/expense-1.png);background-color:#e86767;}
+.expense-2 dt{background-image:url(../images/expense-2.png);background-color:#558fd6;}
+.expense-3 dt{background-image:url(../images/expense-3.png);background-color:#6abe5c;}
+.expense-4 dt{background-image:url(../images/expense-4.png);background-color:#23bcaf;}
+.expense-5 dt{background-image:url(../images/expense-5.png);background-color:#e29a33;}
+.expense-6 dt{background-image:url(../images/expense-6.png);background-color:#f5755c;}
+
