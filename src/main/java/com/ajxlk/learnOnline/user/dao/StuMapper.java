@@ -20,7 +20,7 @@ public interface StuMapper {
 
     List<Stu> selectAllStu();
 
-    List<Stu> selectSelectiveStu( String user_id,  String user_name);
+    List<Stu> selectSelectiveStu(Stu stu);
 
     Stu selectByName(String name);
 }

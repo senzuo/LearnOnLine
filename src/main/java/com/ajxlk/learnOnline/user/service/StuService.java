@@ -24,11 +24,10 @@ public class StuService {
         return page;
     }
 
-    public Page<Stu> selectSelectiveStu(String user_id,String user_name){
-        System.out.println(user_id);
-        System.out.println(user_name==null);
-        System.out.println(user_name);
-        List<Stu> stus =  stuMapper.selectSelectiveStu(user_id,user_name);
+    public Page<Stu> selectSelectiveStu(Stu stu){
+
+
+        List<Stu> stus =  stuMapper.selectSelectiveStu(stu);
         Page<Stu> page = new PageImpl<Stu>(stus);
         return page;
     }

@@ -28,10 +28,17 @@ public class StuController {
     ) {
         RestResponse response = RestUtil.getResponse();
         Page<Stu> stus = null;
-        System.out.println(user_id);
-        System.out.println(user_name);
+        System.out.println("user_id is " + user_id);
+        System.out.println("stuname is " + user_name);
+        Stu stu = new Stu();
+        stu.setStuname(user_name);
+        if ("".equals(user_id)){
+            stu.setStuid(null);
+        }else {
+            stu.setStuid(Integer.parseInt(user_id));
+        }
 //        stus = stuService.selectAllStu();
-        stus = stuService.selectSelectiveStu(user_id,user_name);
+        stus = stuService.selectSelectiveStu(stu);
 
         response.setPageData(stus);
         return response;
