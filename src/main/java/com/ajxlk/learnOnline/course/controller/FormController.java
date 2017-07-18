@@ -17,7 +17,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/course")
-public class CourserController {
+public class FormController {
 
     @Autowired
     private FormService formService;

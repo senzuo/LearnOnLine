@@ -3,12 +3,13 @@
 <mapper namespace="com.ajxlk.learnOnline.course.dao.CourseMapper" >
   <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Course" >
     <id column="courseID" property="courseid" jdbcType="INTEGER" />
+    <result column="courseName" property="coursename" jdbcType="VARCHAR" />
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="duration" property="duration" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    courseID, description, createtime, duration
+    courseID, courseName, description, createtime, duration
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -21,16 +22,19 @@
     where courseID = #{courseid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Course" >
-    insert into tb_course (courseID, description, createtime, 
-      duration)
-    values (#{courseid,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{duration,jdbcType=INTEGER})
+    insert into tb_course (courseID, courseName, description, 
+      createtime, duration)
+    values (#{courseid,jdbcType=INTEGER}, #{coursename,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{duration,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.Course" >
     insert into tb_course
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="courseid != null" >
         courseID,
+      </if>
+      <if test="coursename != null" >
+        courseName,
       </if>
       <if test="description != null" >
         description,
@@ -46,6 +50,9 @@
       <if test="courseid != null" >
         #{courseid,jdbcType=INTEGER},
       </if>
+      <if test="coursename != null" >
+        #{coursename,jdbcType=VARCHAR},
+      </if>
       <if test="description != null" >
         #{description,jdbcType=VARCHAR},
       </if>
@@ -60,6 +67,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.Course" >
     update tb_course
     <set >
+      <if test="coursename != null" >
+        courseName = #{coursename,jdbcType=VARCHAR},
+      </if>
       <if test="description != null" >
         description = #{description,jdbcType=VARCHAR},
       </if>
@@ -74,7 +84,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Course" >
     update tb_course
-    set description = #{description,jdbcType=VARCHAR},
+    set courseName = #{coursename,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       duration = #{duration,jdbcType=INTEGER}
     where courseID = #{courseid,jdbcType=INTEGER}

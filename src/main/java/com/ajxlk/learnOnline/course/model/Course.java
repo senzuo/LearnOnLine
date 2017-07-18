@@ -1,12 +1,11 @@
 package com.ajxlk.learnOnline.course.model;
 
-import org.springframework.stereotype.Component;
-
 import java.util.Date;
 
-@Component
 public class Course {
     private Integer courseid;
+
+    private String coursename;
 
     private String description;
 
@@ -20,6 +19,14 @@ public class Course {
 
     public void setCourseid(Integer courseid) {
         this.courseid = courseid;
+    }
+
+    public String getCoursename() {
+        return coursename;
+    }
+
+    public void setCoursename(String coursename) {
+        this.coursename = coursename == null ? null : coursename.trim();
     }
 
     public String getDescription() {

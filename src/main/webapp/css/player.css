@@ -1,0 +1,256 @@
+.head{
+	width: 100%;
+	height: 60px;
+	background: #14191e;
+}
+.pre{
+	width: 70px;
+    height: 60px;
+    /*display: inline-block;*/
+    /*line-height: 60px;*/
+    text-align: center;
+    color: #cab6b6;
+    font-size: 18px;
+    float: left;
+    	line-height: 60px;
+}
+.back{
+	width: 40px;
+	width: 40px;
+}
+.pre:hover{
+	background: #524c4c;
+	cursor: pointer;
+}
+.coursename{
+    color: #cab6b6;
+    padding: 0 16px;
+    height: 60px;
+    float: left;
+    line-height: 60px;
+}
+.name{
+	font-size: 16px;
+	padding-right: 10px;
+	color: #cab6b6;
+}
+.section{
+	font-size: 12px;
+}
+.share{
+	height: 60px;
+    line-height: 60px;
+    float: left;
+}
+.share li{
+	list-style: none;
+	float: left;
+}
+.logoarea{
+	float: right;
+    line-height: 60px;
+    padding: 0 40px;
+}
+.logo{
+	border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+.list0{
+	color: #cab6b6
+}
+.list1 img , .list2 img, .list3 img{
+	width: 23px;
+	padding-left: 10px;
+}
+.player{
+	width: 100%;
+    height: 640px;
+    background: #000;
+    text-align: center;
+        overflow: hidden;
+}
+.vedio{
+	width: 100%;
+	height: 640px;
+	float: left;
+	position: absolute;
+}
+.control{
+	width: 0;
+	height: 640px;
+	float: right;
+	background: #14191e;
+    border-top: 1px solid #403e3e;
+    overflow: scroll;
+}
+.control::-webkit-scrollbar {/*滚动条整体样式*/
+    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 0px;
+}
+.control::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background:#000
+}
+.control::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 0;
+	background:#403e3e
+}
+
+
+
+
+video{
+	width: 100%;
+	height: 100%;
+}
+.clear{
+	clear: both;
+}
+.tabs{
+	list-style: none;
+	position: relative;
+    float: right;
+    bottom: 370px;
+}
+.tabs li{
+	left: 0px;
+	margin-bottom: 4px;
+}
+#section img:hover{
+	cursor: pointer;
+
+}
+#note img:hover{
+	cursor: pointer;
+}
+#question img:hover{
+	cursor: pointer;
+}
+.sectionname{
+	text-align: left;
+    color: #cab6b6;
+    padding-left: 20px;
+    font-size: 16px;
+}
+.classname{
+	    color: #cab6b6;
+    text-decoration: none;
+    text-align: left;
+    /* width: 100%; */
+    display: inline-block;
+    width: 100%;
+    padding: 3px 40px;
+    font-size: 12px;
+}
+.classname:hover{
+	text-decoration: none;
+	color: #b16969;
+}
+.ico1{
+	font-size: 1px;
+    padding-right: 5px;
+}
+.ico2{
+	font-size: 1px;
+	float: right;
+}
+.name-catalogue{
+	display: block;
+    text-align: left;
+    padding: 10px 20px;
+    border-bottom: 1px solid #403e3e;
+}
+.popbox{
+	position: fixed;
+    top: 40%;
+    left: 29%;
+    width: 600px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
+    display: none;
+}
+.popboxhead{
+	padding: 24px 32px 0;
+}
+.control-click{
+	font-size: 16px;
+    font-weight: bold;
+    color: #07111b;
+}
+.text{
+	padding: 20px 0;
+}
+.tabstyle{
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.body{
+	margin-top: 20px;
+}
+.commentbox{
+	list-style: none;
+}
+.userlist{
+	float: left;
+	width: 40px;
+	height: 40px;
+}
+.userlist img{
+	border-radius: 50%;
+}
+.comment{
+	margin-left: 60px;
+}
+.commentbox{
+	    padding: 0;
+}
+.commentbox li{
+	padding: 20px 24px;
+    border-bottom: 1px solid #d9dde1;
+}
+.comment .username{
+	margin-bottom: 6px;
+}
+.comment .username a{
+	font-size: 14px;
+    color: #736666;
+    font-weight: 700;
+}
+.comment .username a:hover{
+	text-decoration: none;
+}
+.publish-time{
+	font-size: 12px;
+    color: #93999f;
+    float: left;
+}
+.time-good, .allreply{
+	    margin-top: 8px;
+}
+.same{
+	padding-left: 10px;
+}
+.click-good, .reply, .same{
+	float: right;
+	font-size: 12px;
+    color: #93999f;
+}
+.click-good:hover{
+	text-decoration: none;
+}
+.reply:hover{
+	cursor: pointer;
+}
+.same:hover{
+	text-decoration: none;
+}
+.replybox{
+	    margin-top: 20px;
+	    margin-left: 60px;
+	    display: none;
+/*	    display: none;
+*/}

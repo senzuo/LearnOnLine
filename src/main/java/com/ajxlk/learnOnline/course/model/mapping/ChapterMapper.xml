@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.course.dao.ChapterMapper" >
+  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Chapter" >
+    <id column="chapterId" property="chapterid" jdbcType="INTEGER" />
+    <result column="courseID" property="courseid" jdbcType="INTEGER" />
+    <result column="chapterName" property="chaptername" jdbcType="VARCHAR" />
+    <result column="chapterDuration" property="chapterduration" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    chapterId, courseID, chapterName, chapterDuration
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_chapter
+    where chapterId = #{chapterid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_chapter
+    where chapterId = #{chapterid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Chapter" >
+    insert into tb_chapter (chapterId, courseID, chapterName, 
+      chapterDuration)
+    values (#{chapterid,jdbcType=INTEGER}, #{courseid,jdbcType=INTEGER}, #{chaptername,jdbcType=VARCHAR}, 
+      #{chapterduration,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.Chapter" >
+    insert into tb_chapter
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="chapterid != null" >
+        chapterId,
+      </if>
+      <if test="courseid != null" >
+        courseID,
+      </if>
+      <if test="chaptername != null" >
+        chapterName,
+      </if>
+      <if test="chapterduration != null" >
+        chapterDuration,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="chapterid != null" >
+        #{chapterid,jdbcType=INTEGER},
+      </if>
+      <if test="courseid != null" >
+        #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="chaptername != null" >
+        #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterduration != null" >
+        #{chapterduration,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.Chapter" >
+    update tb_chapter
+    <set >
+      <if test="courseid != null" >
+        courseID = #{courseid,jdbcType=INTEGER},
+      </if>
+      <if test="chaptername != null" >
+        chapterName = #{chaptername,jdbcType=VARCHAR},
+      </if>
+      <if test="chapterduration != null" >
+        chapterDuration = #{chapterduration,jdbcType=INTEGER},
+      </if>
+    </set>
+    where chapterId = #{chapterid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Chapter" >
+    update tb_chapter
+    set courseID = #{courseid,jdbcType=INTEGER},
+      chapterName = #{chaptername,jdbcType=VARCHAR},
+      chapterDuration = #{chapterduration,jdbcType=INTEGER}
+    where chapterId = #{chapterid,jdbcType=INTEGER}
+  </update>
+</mapper>

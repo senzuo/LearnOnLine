@@ -1,0 +1,104 @@
+.cont{
+	overflow: hidden;
+}
+.head{
+	background: #000;
+}
+#head-logo{
+	padding-top: 10px;
+    padding-bottom: 10px;
+}
+#tab{
+	list-style: none;
+	padding-left: 0;
+}
+#tab li{
+	float: left;
+	width: 33%;
+	line-height: 73px;
+	text-align: center;
+}
+#tab li a{
+	/*font-size: 17px;*/
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+    width: 100%;
+}
+#tab li a:hover{
+	color: #a10f13;
+}
+
+.search{
+	margin-top: 18px;
+}
+.userinf{
+	margin-top: 18px;
+    line-height: 34px;
+    text-align: right;
+}
+#username{
+	color: #fff;
+}
+.bg{
+	width: 100%;
+}
+#myTab{
+	border-style: none;
+}
+#myTab li{
+	clear: both;
+	width: 100%;
+	margin-bottom: 5px;
+}
+#myTab li a{
+	color: #000;
+}
+#myTab li img{
+	width: 20%;
+}
+.userInffather{
+	position: relative;
+	overflow: hidden;
+}
+.userInf{
+	position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 80%;
+}
+.headPortrait{
+	text-align: right;
+	padding-right: 0px;
+}
+.words, .click, .time{
+	color: #fff;
+}
+.name{
+	font-size: 30px;
+	color: #fff;
+}
+.sig{
+	color: #fff;
+}
+.controlList{
+	padding-left: 65px;
+}
+.controlPanel{
+	padding-top: 40px;
+}
+.active{
+	border-style: none;
+}
+
+.learntime{
+	border-right: 1px solid #fff;
+}
+.glyphicon-chevron-right{
+	float: right;
+    padding-top: 3px;
+}
+
+.clear{
+	clear: both;
+}
