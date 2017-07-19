@@ -19,5 +19,5 @@ public interface CommentMapper {
 
     int updateByPrimaryKey(Comment record);
 
-    List<Comment> getAllComment();
+    List<Comment> getCommentByCourse(int CourseId);
 }

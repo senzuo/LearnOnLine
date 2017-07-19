@@ -126,7 +126,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-    <select id="getAllComment" resultMap="BaseResultMap">
-        SELECT * FROM tb_comment
+    <select id="getCommentByCourse" resultMap="BaseResultMap" resultType="java.lang.Integer">
+        SELECT * FROM tb_comment WHERE courseId = #{courseid,jdbcType=INTEGER}
     </select>
 </mapper>

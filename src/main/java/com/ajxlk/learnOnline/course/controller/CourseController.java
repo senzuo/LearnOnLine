@@ -8,6 +8,7 @@ import com.ajxlk.learnOnline.course.service.CourseService;
 import com.ajxlk.learnOnline.course.service.SectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,8 +33,7 @@ public class CourseController {
     private SectionService sectionService;
 
     @RequestMapping("/{courseId}")
-    @ResponseBody
-    public Course test(@PathVariable(value = "courseId") int courseId) {
+    public String test(@PathVariable(value = "courseId") int courseId, Model model) {
         Course course = courseService.getCourseById(courseId);
 
         List<Chapter> chapters = chapterService.getChaptersByCourseId(courseId);
@@ -46,11 +46,8 @@ public class CourseController {
         }
         course.setChapters(chapters);
 
-        return course;
+        model.addAttribute("course",course);
 
-//        return sectionsss;
-//        return course;
-//        return chapters;
-//        return "course/courseDetail";
+        return "course/courseDetail";
     }
 }

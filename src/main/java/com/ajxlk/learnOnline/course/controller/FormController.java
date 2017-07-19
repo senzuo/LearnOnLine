@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 import java.util.List;
@@ -22,16 +24,11 @@ public class FormController {
     @Autowired
     private FormService formService;
 
-    @RequestMapping("/form")
-    public String form(Model model) {
-        Comment comment = new Comment();
-        comment.setCreatetime(new Date());
-        model.addAttribute("comment",comment);
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Comment> form(int CourseId) {
 
-        List<Comment> list = formService.getAllComment();
-
-        model.addAttribute("list",list);
-        return "course/form";
+        return formService.getCommentByCourse(CourseId);
     }
 
     @RequestMapping("/form/add")
