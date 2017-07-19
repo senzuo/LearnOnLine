@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50714
+Source Server         : root
+Source Server Version : 50709
 Source Host           : localhost:3306
 Source Database       : learnonline
 
 Target Server Type    : MYSQL
-Target Server Version : 50714
+Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2017-07-19 13:47:29
+Date: 2017-07-19 17:28:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS `tb_chapter`;
 CREATE TABLE `tb_chapter` (
   `chapterId` int(11) NOT NULL COMMENT '章节ID',
   `courseID` int(5) NOT NULL,
-  `chapterName` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `chapterName` varchar(255) DEFAULT NULL,
   `chapterDuration` int(11) DEFAULT NULL COMMENT '章节时长 单位 s',
   PRIMARY KEY (`chapterId`),
   KEY `courseID` (`courseID`),
@@ -78,6 +78,7 @@ CREATE TABLE `tb_chapter` (
 -- Records of tb_chapter
 -- ----------------------------
 INSERT INTO `tb_chapter` VALUES ('1', '1', '第一章', '180');
+INSERT INTO `tb_chapter` VALUES ('2', '1', '第二章', '80');
 
 -- ----------------------------
 -- Table structure for tb_comment
@@ -91,7 +92,7 @@ CREATE TABLE `tb_comment` (
   `zan` int(11) DEFAULT NULL,
   `index` int(11) DEFAULT NULL COMMENT '几楼',
   `courseId` int(11) DEFAULT NULL,
-  `content` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ReviewerId` (`ReviewerId`),
   KEY `courseId` (`courseId`),
@@ -120,6 +121,7 @@ CREATE TABLE `tb_course` (
 -- Records of tb_course
 -- ----------------------------
 INSERT INTO `tb_course` VALUES ('1', 'name', 'name', '2017-06-28 23:11:14', '123');
+INSERT INTO `tb_course` VALUES ('2', '语文', '写作', null, null);
 
 -- ----------------------------
 -- Table structure for tb_ppt
@@ -146,7 +148,7 @@ DROP TABLE IF EXISTS `tb_section`;
 CREATE TABLE `tb_section` (
   `SectionId` int(11) NOT NULL,
   `ChapterId` int(11) DEFAULT NULL,
-  `SectionName` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `SectionName` varchar(255) DEFAULT NULL,
   `SectionDuration` int(11) DEFAULT NULL COMMENT '小节时间长度单位s',
   PRIMARY KEY (`SectionId`),
   KEY `ChapterId` (`ChapterId`),
@@ -157,6 +159,9 @@ CREATE TABLE `tb_section` (
 -- Records of tb_section
 -- ----------------------------
 INSERT INTO `tb_section` VALUES ('1', '1', '第一节', null);
+INSERT INTO `tb_section` VALUES ('2', '1', '第二节', null);
+INSERT INTO `tb_section` VALUES ('3', '1', '第三节', null);
+INSERT INTO `tb_section` VALUES ('4', '1', '第四节', null);
 
 -- ----------------------------
 -- Table structure for tb_stu
@@ -164,8 +169,8 @@ INSERT INTO `tb_section` VALUES ('1', '1', '第一节', null);
 DROP TABLE IF EXISTS `tb_stu`;
 CREATE TABLE `tb_stu` (
   `stuId` int(11) NOT NULL AUTO_INCREMENT,
-  `StuName` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `StuPwd` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `StuName` varchar(255) DEFAULT NULL,
+  `StuPwd` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`stuId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
