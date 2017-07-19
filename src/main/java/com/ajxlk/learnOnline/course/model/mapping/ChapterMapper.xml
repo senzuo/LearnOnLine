@@ -79,4 +79,11 @@
       chapterDuration = #{chapterduration,jdbcType=INTEGER}
     where chapterId = #{chapterid,jdbcType=INTEGER}
   </update>
+
+  <select id="getChaptersByCourseId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from tb_chapter
+    where courseID = #{courseid,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -1,5 +1,7 @@
 package com.ajxlk.learnOnline.course.model;
 
+import java.util.List;
+
 public class Chapter {
     private Integer chapterid;
 
@@ -8,6 +10,16 @@ public class Chapter {
     private String chaptername;
 
     private Integer chapterduration;
+
+    private List<Section> sections;
+
+    public List<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
+    }
 
     public Integer getChapterid() {
         return chapterid;

@@ -1,6 +1,7 @@
 package com.ajxlk.learnOnline.course.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Course {
     private Integer courseid;
@@ -12,6 +13,16 @@ public class Course {
     private Date createtime;
 
     private Integer duration;
+
+    private List<Chapter> chapters;
+
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
+    }
 
     public Integer getCourseid() {
         return courseid;
