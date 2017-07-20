@@ -21,5 +21,4 @@ public interface StuMapper {
 
     List<Stu> selectSelectiveStu(Stu stu);
 
-    Stu selectByName(String name);
 }

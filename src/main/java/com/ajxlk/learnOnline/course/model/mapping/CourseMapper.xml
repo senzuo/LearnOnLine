@@ -7,9 +7,16 @@
     <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="duration" property="duration" jdbcType="INTEGER" />
+    <result column="difficulty" property="difficulty" jdbcType="VARCHAR" />
+    <result column="courseCoverUrl" property="coursecoverurl" jdbcType="VARCHAR" />
+    <result column="teacherID" property="teacherid" jdbcType="INTEGER" />
+    <result column="hits" property="hits" jdbcType="INTEGER" />
+    <result column="scoreNumber" property="scorenumber" jdbcType="INTEGER" />
+    <result column="totalScore" property="totalscore" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    courseID, courseName, description, createtime, duration
+    courseID, courseName, description, createtime, duration, difficulty, courseCoverUrl, 
+    teacherID, hits, scoreNumber, totalScore
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -23,9 +30,13 @@
   </delete>
   <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Course" >
     insert into tb_course (courseID, courseName, description, 
-      createtime, duration)
+      createtime, duration, difficulty, 
+      courseCoverUrl, teacherID, hits, 
+      scoreNumber, totalScore)
     values (#{courseid,jdbcType=INTEGER}, #{coursename,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{createtime,jdbcType=TIMESTAMP}, #{duration,jdbcType=INTEGER})
+      #{createtime,jdbcType=TIMESTAMP}, #{duration,jdbcType=INTEGER}, #{difficulty,jdbcType=VARCHAR}, 
+      #{coursecoverurl,jdbcType=VARCHAR}, #{teacherid,jdbcType=INTEGER}, #{hits,jdbcType=INTEGER}, 
+      #{scorenumber,jdbcType=INTEGER}, #{totalscore,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.Course" >
     insert into tb_course
@@ -45,6 +56,24 @@
       <if test="duration != null" >
         duration,
       </if>
+      <if test="difficulty != null" >
+        difficulty,
+      </if>
+      <if test="coursecoverurl != null" >
+        courseCoverUrl,
+      </if>
+      <if test="teacherid != null" >
+        teacherID,
+      </if>
+      <if test="hits != null" >
+        hits,
+      </if>
+      <if test="scorenumber != null" >
+        scoreNumber,
+      </if>
+      <if test="totalscore != null" >
+        totalScore,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="courseid != null" >
@@ -61,6 +90,24 @@
       </if>
       <if test="duration != null" >
         #{duration,jdbcType=INTEGER},
+      </if>
+      <if test="difficulty != null" >
+        #{difficulty,jdbcType=VARCHAR},
+      </if>
+      <if test="coursecoverurl != null" >
+        #{coursecoverurl,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null" >
+        #{teacherid,jdbcType=INTEGER},
+      </if>
+      <if test="hits != null" >
+        #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="scorenumber != null" >
+        #{scorenumber,jdbcType=INTEGER},
+      </if>
+      <if test="totalscore != null" >
+        #{totalscore,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -79,6 +126,24 @@
       <if test="duration != null" >
         duration = #{duration,jdbcType=INTEGER},
       </if>
+      <if test="difficulty != null" >
+        difficulty = #{difficulty,jdbcType=VARCHAR},
+      </if>
+      <if test="coursecoverurl != null" >
+        courseCoverUrl = #{coursecoverurl,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherid != null" >
+        teacherID = #{teacherid,jdbcType=INTEGER},
+      </if>
+      <if test="hits != null" >
+        hits = #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="scorenumber != null" >
+        scoreNumber = #{scorenumber,jdbcType=INTEGER},
+      </if>
+      <if test="totalscore != null" >
+        totalScore = #{totalscore,jdbcType=INTEGER},
+      </if>
     </set>
     where courseID = #{courseid,jdbcType=INTEGER}
   </update>
@@ -87,7 +152,14 @@
     set courseName = #{coursename,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP},
-      duration = #{duration,jdbcType=INTEGER}
+      duration = #{duration,jdbcType=INTEGER},
+      difficulty = #{difficulty,jdbcType=VARCHAR},
+      courseCoverUrl = #{coursecoverurl,jdbcType=VARCHAR},
+      teacherID = #{teacherid,jdbcType=INTEGER},
+      hits = #{hits,jdbcType=INTEGER},
+      scoreNumber = #{scorenumber,jdbcType=INTEGER},
+      totalScore = #{totalscore,jdbcType=INTEGER}
     where courseID = #{courseid,jdbcType=INTEGER}
   </update>
+
 </mapper>

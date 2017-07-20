@@ -1,102 +1,118 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ajxlk.learnOnline.user.dao.StuMapper" >
-  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.user.model.Stu" >
-    <id column="stuId" property="stuid" jdbcType="INTEGER" />
-    <result column="StuName" property="stuname" jdbcType="VARCHAR" />
-    <result column="StuPwd" property="stupwd" jdbcType="VARCHAR" />
-    <result column="StuIconUrl" property="stuiconurl" jdbcType="VARCHAR" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    stuId, StuName, StuPwd, StuIconUrl
+<mapper namespace="com.ajxlk.learnOnline.user.dao.StuMapper">
+    <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.user.model.Stu">
+        <id column="stuId" property="stuid" jdbcType="INTEGER"/>
+        <result column="StuName" property="stuname" jdbcType="VARCHAR"/>
+        <result column="StuPwd" property="stupwd" jdbcType="VARCHAR"/>
+        <result column="StuIconUrl" property="stuiconurl" jdbcType="VARCHAR"/>
+        <result column="departId" property="departid" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    stuId, StuName, StuPwd, StuIconUrl, departId
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from tb_stu
-    where stuId = #{stuid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_stu
+        where stuId = #{stuid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from tb_stu
     where stuId = #{stuid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ajxlk.learnOnline.user.model.Stu" >
+    <insert id="insert" parameterType="com.ajxlk.learnOnline.user.model.Stu">
     insert into tb_stu (stuId, StuName, StuPwd, 
-      StuIconUrl)
+      StuIconUrl, departId)
     values (#{stuid,jdbcType=INTEGER}, #{stuname,jdbcType=VARCHAR}, #{stupwd,jdbcType=VARCHAR}, 
-      #{stuiconurl,jdbcType=VARCHAR})
+      #{stuiconurl,jdbcType=VARCHAR}, #{departid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.user.model.Stu" >
-    insert into tb_stu
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="stuid != null" >
-        stuId,
-      </if>
-      <if test="stuname != null" >
-        StuName,
-      </if>
-      <if test="stupwd != null" >
-        StuPwd,
-      </if>
-      <if test="stuiconurl != null" >
-        StuIconUrl,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="stuid != null" >
-        #{stuid,jdbcType=INTEGER},
-      </if>
-      <if test="stuname != null" >
-        #{stuname,jdbcType=VARCHAR},
-      </if>
-      <if test="stupwd != null" >
-        #{stupwd,jdbcType=VARCHAR},
-      </if>
-      <if test="stuiconurl != null" >
-        #{stuiconurl,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.user.model.Stu" >
-    update tb_stu
-    <set >
-      <if test="stuname != null" >
-        StuName = #{stuname,jdbcType=VARCHAR},
-      </if>
-      <if test="stupwd != null" >
-        StuPwd = #{stupwd,jdbcType=VARCHAR},
-      </if>
-      <if test="stuiconurl != null" >
-        StuIconUrl = #{stuiconurl,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where stuId = #{stuid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.user.model.Stu" >
+    <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+        insert into tb_stu
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">
+                stuId,
+            </if>
+            <if test="stuname != null">
+                StuName,
+            </if>
+            <if test="stupwd != null">
+                StuPwd,
+            </if>
+            <if test="stuiconurl != null">
+                StuIconUrl,
+            </if>
+            <if test="departid != null">
+                departId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="stuid != null">
+                #{stuid,jdbcType=INTEGER},
+            </if>
+            <if test="stuname != null">
+                #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stupwd != null">
+                #{stupwd,jdbcType=VARCHAR},
+            </if>
+            <if test="stuiconurl != null">
+                #{stuiconurl,jdbcType=VARCHAR},
+            </if>
+            <if test="departid != null">
+                #{departid,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+        update tb_stu
+        <set>
+            <if test="stuname != null">
+                StuName = #{stuname,jdbcType=VARCHAR},
+            </if>
+            <if test="stupwd != null">
+                StuPwd = #{stupwd,jdbcType=VARCHAR},
+            </if>
+            <if test="stuiconurl != null">
+                StuIconUrl = #{stuiconurl,jdbcType=VARCHAR},
+            </if>
+            <if test="departid != null">
+                departId = #{departid,jdbcType=INTEGER},
+            </if>
+        </set>
+        where stuId = #{stuid,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.user.model.Stu">
     update tb_stu
     set StuName = #{stuname,jdbcType=VARCHAR},
       StuPwd = #{stupwd,jdbcType=VARCHAR},
-      StuIconUrl = #{stuiconurl,jdbcType=VARCHAR}
+      StuIconUrl = #{stuiconurl,jdbcType=VARCHAR},
+      departId = #{departid,jdbcType=INTEGER}
     where stuId = #{stuid,jdbcType=INTEGER}
   </update>
 
-  <select id="selectAllStu" resultMap="BaseResultMap">
-    select * FROM tb_stu
-  </select>
+    <select id="selectAllStu" resultMap="BaseResultMap">
+        SELECT * FROM tb_stu
+    </select>
 
-  <select id="selectSelectiveStu" resultMap="BaseResultMap" parameterType="com.ajxlk.learnOnline.user.model.Stu">
-    SELECT *
-    FROM tb_stu
-    <where>
-      <if test="stuid != null">
-        stuId = #{stuid,jdbcType=INTEGER}
-      </if>
+    <select id="selectSelectiveStu" resultMap="BaseResultMap" parameterType="com.ajxlk.learnOnline.user.model.Stu">
+        SELECT *
+        FROM tb_stu
+        <where>
+            <if test="stuid != null">
+                stuId = #{stuid,jdbcType=INTEGER}
+            </if>
 
-      <if test="stuname != null and stuname != '' ">
-        and  StuName = #{stuname,jdbcType=VARCHAR}
-      </if>
-    </where>
+            <if test="stuname != null and stuname != '' ">
+                and StuName = #{stuname,jdbcType=VARCHAR}
+            </if>
 
-  </select>
+            <if test="departid != null and departid != '' ">
+                and StuName = #{departid,jdbcType=INTEGER}
+            </if>
+        </where>
+
+    </select>
 
 </mapper>

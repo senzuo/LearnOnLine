@@ -14,6 +14,18 @@ public class Course {
 
     private Integer duration;
 
+    private String difficulty;
+
+    private String coursecoverurl;
+
+    private Integer teacherid;
+
+    private Integer hits;
+
+    private Integer scorenumber;
+
+    private Integer totalscore;
+
     private List<Chapter> chapters;
 
     public List<Chapter> getChapters() {
@@ -62,5 +74,53 @@ public class Course {
 
     public void setDuration(Integer duration) {
         this.duration = duration;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty == null ? null : difficulty.trim();
+    }
+
+    public String getCoursecoverurl() {
+        return coursecoverurl;
+    }
+
+    public void setCoursecoverurl(String coursecoverurl) {
+        this.coursecoverurl = coursecoverurl == null ? null : coursecoverurl.trim();
+    }
+
+    public Integer getTeacherid() {
+        return teacherid;
+    }
+
+    public void setTeacherid(Integer teacherid) {
+        this.teacherid = teacherid;
+    }
+
+    public Integer getHits() {
+        return hits;
+    }
+
+    public void setHits(Integer hits) {
+        this.hits = hits;
+    }
+
+    public Integer getScorenumber() {
+        return scorenumber;
+    }
+
+    public void setScorenumber(Integer scorenumber) {
+        this.scorenumber = scorenumber;
+    }
+
+    public Integer getTotalscore() {
+        return totalscore;
+    }
+
+    public void setTotalscore(Integer totalscore) {
+        this.totalscore = totalscore;
     }
 }

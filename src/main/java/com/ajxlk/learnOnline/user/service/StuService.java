@@ -3,8 +3,6 @@ package com.ajxlk.learnOnline.user.service;
 import com.ajxlk.learnOnline.user.dao.StuMapper;
 import com.ajxlk.learnOnline.user.model.Stu;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,24 +16,15 @@ public class StuService {
     @Autowired
     private StuMapper stuMapper;
 
-    public Page<Stu> selectAllStu(){
-        List<Stu> stus =  stuMapper.selectAllStu();
-        Page<Stu> page = new PageImpl<Stu>(stus);
-        return page;
+    public List<Stu> selectAllStu(){
+        return stuMapper.selectAllStu();
     }
 
-    public Page<Stu> selectSelectiveStu(Stu stu){
-
-
-        List<Stu> stus =  stuMapper.selectSelectiveStu(stu);
-        Page<Stu> page = new PageImpl<Stu>(stus);
-        return page;
+    public List<Stu> selectSelectiveStu(Stu stu){
+        return stuMapper.selectSelectiveStu(stu);
     }
 
 
-    public Stu findByName(String name) {
-        return stuMapper.selectByName(name);
-    }
 
     public void save(Stu stu) {
         stuMapper.insert(stu);

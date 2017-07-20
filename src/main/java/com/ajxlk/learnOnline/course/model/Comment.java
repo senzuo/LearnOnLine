@@ -1,11 +1,7 @@
 package com.ajxlk.learnOnline.course.model;
 
-import org.springframework.stereotype.Component;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Component
 public class Comment {
     private Integer id;
 
@@ -15,11 +11,9 @@ public class Comment {
 
     private Date createtime;
 
-    private Integer zan = 0;
+    private Integer zan;
 
-    private Integer index;
-
-    private Integer courseid;
+    private Integer sectionid;
 
     private String content;
 
@@ -47,10 +41,8 @@ public class Comment {
         this.reviewerid = reviewerid;
     }
 
-    public String getCreatetime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String dateString = formatter.format(createtime);
-        return dateString;
+    public Date getCreatetime() {
+        return createtime;
     }
 
     public void setCreatetime(Date createtime) {
@@ -65,20 +57,12 @@ public class Comment {
         this.zan = zan;
     }
 
-    public Integer getIndex() {
-        return index;
+    public Integer getSectionid() {
+        return sectionid;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
-    }
-
-    public Integer getCourseid() {
-        return courseid;
-    }
-
-    public void setCourseid(Integer courseid) {
-        this.courseid = courseid;
+    public void setSectionid(Integer sectionid) {
+        this.sectionid = sectionid;
     }
 
     public String getContent() {
@@ -87,19 +71,5 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                "id=" + id +
-                ", pid=" + pid +
-                ", reviewerid=" + reviewerid +
-                ", createtime=" + createtime +
-                ", zan=" + zan +
-                ", index=" + index +
-                ", courseid=" + courseid +
-                ", content='" + content + '\'' +
-                '}';
     }
 }

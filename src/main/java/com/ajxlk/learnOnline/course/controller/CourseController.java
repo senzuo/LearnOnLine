@@ -34,9 +34,11 @@ public class CourseController {
 
     @RequestMapping("/{courseId}")
     public String test(@PathVariable(value = "courseId") int courseId, Model model) {
+
         Course course = courseService.getCourseById(courseId);
 
         List<Chapter> chapters = chapterService.getChaptersByCourseId(courseId);
+
         List<List<Section>> sectionsss = new ArrayList<List<Section>>();
 
         for (Chapter chapter : chapters){

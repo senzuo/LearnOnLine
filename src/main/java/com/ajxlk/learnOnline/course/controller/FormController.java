@@ -38,12 +38,12 @@ public class FormController {
         List<Comment> comments = formService.getCommentByCourse(CourseId);
 
         List<CommentDTO> commentDTOs = new ArrayList<>(comments.size());
+
         CommentDTO commentDTO = null;
         Stu stu = null;
         for (Comment comment : comments){
             commentDTO = new CommentDTO();
             commentDTO.setComment(comment);
-            stu = new Stu();
             stu = stuService.findByID(comment.getReviewerid());
             commentDTO.setStu(stu);
             commentDTOs.add(commentDTO);
@@ -58,7 +58,7 @@ public class FormController {
         comment.setReviewerid(stuid);
         comment.setContent(content);
         comment.setCreatetime(new Date());
-        comment.setCourseid(1);
+        comment.setSectionid(1);
         comment.setPid(-1);
 
         System.out.println(comment);

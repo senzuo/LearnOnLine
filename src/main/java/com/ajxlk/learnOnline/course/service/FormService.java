@@ -21,7 +21,7 @@ public class FormService {
         commentMapper.insertSelective(comment);
     }
 
-    public List<Comment> getCommentByCourse(int CourseId) {
-        return commentMapper.getCommentByCourse(CourseId);
+    public List<Comment> getCommentByCourse(int SectionId) {
+        return commentMapper.getCommentBySectionId(SectionId);
     }
 }

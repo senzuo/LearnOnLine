@@ -9,6 +9,8 @@ public class Stu {
 
     private String stuiconurl;
 
+    private Integer departid;
+
     public Integer getStuid() {
         return stuid;
     }
@@ -39,5 +41,13 @@ public class Stu {
 
     public void setStuiconurl(String stuiconurl) {
         this.stuiconurl = stuiconurl == null ? null : stuiconurl.trim();
+    }
+
+    public Integer getDepartid() {
+        return departid;
+    }
+
+    public void setDepartid(Integer departid) {
+        this.departid = departid;
     }
 }

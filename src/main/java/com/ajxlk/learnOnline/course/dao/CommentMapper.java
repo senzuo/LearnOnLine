@@ -1,11 +1,9 @@
 package com.ajxlk.learnOnline.course.dao;
 
 import com.ajxlk.learnOnline.course.model.Comment;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface CommentMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -19,5 +17,5 @@ public interface CommentMapper {
 
     int updateByPrimaryKey(Comment record);
 
-    List<Comment> getCommentByCourse(int CourseId);
+    List<Comment> getCommentBySectionId(int SectionID);
 }

@@ -6,10 +6,12 @@ import com.ajxlk.learnOnline.user.model.Stu;
 import com.ajxlk.learnOnline.user.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by Administrator on 7/15/2017.
@@ -27,7 +29,7 @@ public class StuController {
                                     @RequestParam(required = false, defaultValue = "") String user_name
     ) {
         RestResponse response = RestUtil.getResponse();
-        Page<Stu> stus = null;
+        List<Stu> stus = null;
         System.out.println("user_id is " + user_id);
         System.out.println("stuname is " + user_name);
         Stu stu = new Stu();
@@ -39,8 +41,8 @@ public class StuController {
         }
 //        stus = stuService.selectAllStu();
         stus = stuService.selectSelectiveStu(stu);
-
-        response.setPageData(stus);
+        Page<Stu> page = new PageImpl<Stu>(stus);
+        response.setPageData(page);
         return response;
     }
 

@@ -50,6 +50,7 @@
                     <property name="databaseType">
                         <value>mysql</value>
                     </property>
+
                 </bean>
             </array>
         </property>
