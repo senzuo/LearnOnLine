@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2017-07-19 17:28:38
+Date: 2017-07-20 17:46:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -91,18 +91,27 @@ CREATE TABLE `tb_comment` (
   `createtime` datetime DEFAULT NULL,
   `zan` int(11) DEFAULT NULL,
   `index` int(11) DEFAULT NULL COMMENT '几楼',
-  `courseId` int(11) DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
+  `courseId` int(11) NOT NULL,
+  `content` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ReviewerId` (`ReviewerId`),
   KEY `courseId` (`courseId`),
   CONSTRAINT `tb_comment_ibfk_1` FOREIGN KEY (`ReviewerId`) REFERENCES `tb_stu` (`stuId`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `tb_comment_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `tb_course` (`courseID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_comment
 -- ----------------------------
+INSERT INTO `tb_comment` VALUES ('1', '1', '1', '2017-07-15 11:06:55', '500', null, '1', 'yxl1 say content1');
+INSERT INTO `tb_comment` VALUES ('2', '1', '1', '2017-07-09 11:07:02', '6', null, '1', 'yxl1 say content2');
+INSERT INTO `tb_comment` VALUES ('3', '-1', '1', '2017-07-20 16:08:23', null, null, '1', '提交');
+INSERT INTO `tb_comment` VALUES ('4', '-1', '1', '2017-07-20 16:09:25', null, null, '1', '提交');
+INSERT INTO `tb_comment` VALUES ('5', '-1', '1', '2017-07-20 16:09:47', null, null, '1', '提交');
+INSERT INTO `tb_comment` VALUES ('6', '-1', '1', '2017-07-20 16:10:26', null, null, '1', '提交啦啦啦啦啦');
+INSERT INTO `tb_comment` VALUES ('7', '-1', '1', '2017-07-20 16:20:52', null, null, '1', '提交hhhh');
+INSERT INTO `tb_comment` VALUES ('8', '-1', '1', '2017-07-20 16:27:53', '0', null, '1', '提交ssss');
+INSERT INTO `tb_comment` VALUES ('9', '-1', '1', '2017-07-20 16:28:05', '0', null, '1', '提交aaaaa');
 
 -- ----------------------------
 -- Table structure for tb_course
@@ -142,6 +151,31 @@ CREATE TABLE `tb_ppt` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for tb_quesans
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_quesans`;
+CREATE TABLE `tb_quesans` (
+  `QuesAnsId` int(11) NOT NULL COMMENT '父id 如果为负数 则是问题 正数为回答',
+  `pid` int(11) DEFAULT NULL,
+  `courseId` int(11) DEFAULT NULL,
+  `ReviewerId` int(11) DEFAULT NULL,
+  `zan` int(5) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`QuesAnsId`),
+  KEY `pid` (`pid`),
+  KEY `courseId` (`courseId`),
+  KEY `ReviewerId` (`ReviewerId`),
+  CONSTRAINT `tb_quesans_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `tb_quesans` (`QuesAnsId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tb_quesans_ibfk_2` FOREIGN KEY (`courseId`) REFERENCES `tb_course` (`courseID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tb_quesans_ibfk_3` FOREIGN KEY (`ReviewerId`) REFERENCES `tb_stu` (`stuId`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tb_quesans
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tb_section
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_section`;
@@ -171,14 +205,14 @@ CREATE TABLE `tb_stu` (
   `stuId` int(11) NOT NULL AUTO_INCREMENT,
   `StuName` varchar(255) DEFAULT NULL,
   `StuPwd` varchar(255) DEFAULT NULL,
+  `StuIconUrl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`stuId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_stu
 -- ----------------------------
-INSERT INTO `tb_stu` VALUES ('9', '9', '9999999999');
-INSERT INTO `tb_stu` VALUES ('12', '2', '299299');
+INSERT INTO `tb_stu` VALUES ('1', 'yxl1', '9999999999', '/img/Player/user.jpg');
 
 -- ----------------------------
 -- Table structure for tb_video

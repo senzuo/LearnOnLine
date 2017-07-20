@@ -1,14 +1,13 @@
 package com.ajxlk.learnOnline.user.model;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class Stu {
     private Integer stuid;
 
     private String stuname;
 
     private String stupwd;
+
+    private String stuiconurl;
 
     public Integer getStuid() {
         return stuid;
@@ -32,5 +31,13 @@ public class Stu {
 
     public void setStupwd(String stupwd) {
         this.stupwd = stupwd == null ? null : stupwd.trim();
+    }
+
+    public String getStuiconurl() {
+        return stuiconurl;
+    }
+
+    public void setStuiconurl(String stuiconurl) {
+        this.stuiconurl = stuiconurl == null ? null : stuiconurl.trim();
     }
 }

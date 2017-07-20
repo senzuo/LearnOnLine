@@ -15,7 +15,7 @@ public class Comment {
 
     private Date createtime;
 
-    private Integer zan;
+    private Integer zan = 0;
 
     private Integer index;
 

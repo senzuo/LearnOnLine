@@ -1,7 +1,6 @@
 package com.ajxlk.learnOnline.user.dao;
 
 import com.ajxlk.learnOnline.user.model.Stu;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

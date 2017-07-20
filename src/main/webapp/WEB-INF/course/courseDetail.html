@@ -5,14 +5,19 @@
     <title th:text="${course.coursename}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--引入CSS-->
+    <link href="/ajxlk/toastr/toastr.css">
+    <link rel="stylesheet" type="text/css" href="/css/player.css">
+
+
     <!-- 引入 Bootstrap -->
     <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
     <script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
 
-
-    <link rel="stylesheet" type="text/css" href="/css/player.css">
     <script src="/js/player.js"></script>
+    <script src="/ajxlk/toastr/toastr.js"></script>
+
 
     <!-- <script type="text/javascript" src="js/player.js"></script> -->
     <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
@@ -37,6 +42,7 @@
         <div class="coursename">
 				<span class="name">
                     <span th:text="${course.coursename}"></span>
+                    <span id = "courseid" th:text="${course.courseid}"></span>
 				</span>
             <span class="section">
 					第X章-第X节
@@ -59,6 +65,7 @@
         </div>
         <div class="logoarea">
             <a href="">
+                <span  id = "stuid">1</span>
                 <img src="/img/Player/user.jpg" class="logo">
             </a>
         </div>
@@ -149,6 +156,13 @@
         <div class="row">
             <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                 <div class="col-md-8 col-sm-8">
+                    <div id="inputt" >
+                        <form >
+                            <input type="text" id = "addContent" value="提交"/>
+                            <button onclick="addFormInfo()">提交</button>
+                        </form>
+
+                    </div>
                     <div class="contain">
                         <ul id="myTab" class="nav nav-tabs">
                             <li class="active">
@@ -160,124 +174,10 @@
                             <li><a href="#notes" data-toggle="tab" class="tabstyle">笔记</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade in active" id="comment">
-                                <div  class="pl-input-wrap clearfix">
-                                    <a href="/u/3403998" class="user-head l">
-                                        <img src="http://img.mukewang.com/5333a21e0001eb4102000200-100-100.jpg" alt="senzuo">
-                                    </a>
-                                    <div id="js-pl-input-fake" class="pl-input-inner l">
-                                        <textarea id="js-pl-textarea" class="js-placeholder" placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！"></textarea>
-                                        <span class="num-limit"><span id="js-pl-limit">0</span>/300</span>
-                                    </div>
-                                    <div class="pl-input-btm input-btm clearfix">
-                                        <div class="verify-code l"></div>
-                                        <input type="button" id="js-pl-submit" class="r course-btn" value="发表评论">
-                                    </div>
-                                </div>
-                                <ul class="commentbox">
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="time-good">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="click-good"><span
-                                                        class="glyphicon glyphicon-thumbs-up"></span> 30</a>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="time-good">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="click-good"><span
-                                                        class="glyphicon glyphicon-thumbs-up"></span> 30</a>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="time-good">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="click-good"><span
-                                                        class="glyphicon glyphicon-thumbs-up"></span> 30</a>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="time-good">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="click-good"><span
-                                                        class="glyphicon glyphicon-thumbs-up"></span> 30</a>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="time-good">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="click-good"><span
-                                                        class="glyphicon glyphicon-thumbs-up"></span> 30</a>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                </ul>
-                            </div>
 
+                            <!--课程评论-->
+                            <div class="tab-pane fade in active" id="comment">
+                            </div>
 
                             <div class="tab-pane fade" id="quest-answ">
                                 <ul class="commentbox" id="commentnum">
@@ -310,95 +210,6 @@
                                         </div>
                                         <div style="clear: both;"></div>
                                     </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="allreply">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="same">同问 5</a>
-                                                <span href="" class="reply">回复 30</span>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="replybox">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-default" style="float: right;">回复
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="allreply">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="same">同问 5</a>
-                                                <span href="" class="reply">回复 30</span>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="replybox">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-default" style="float: right;">回复
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-                                    <li class="commentlist">
-                                        <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
-                                        </div>
-                                        <div class="comment">
-                                            <div class="username">
-                                                <a href="">用户1</a>
-                                            </div>
-                                            <div class="commentwords">
-                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                                            </div>
-                                            <div class="allreply">
-                                                <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="same">同问 5</a>
-                                                <span href="" class="reply">回复 30</span>
-                                                <div style="clear: both;"></div>
-                                            </div>
-                                        </div>
-                                        <div class="replybox">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-default" style="float: right;">回复
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                    </li>
-
-
                                 </ul>
                             </div>
                             <div class="tab-pane fade" id="notes">
@@ -421,6 +232,43 @@
 </html>
 
 <script type="text/javascript">
+
+    /**
+     * 添加评论
+     */
+    function addFormInfo() {
+        var courseid = document.getElementById("courseid").innerText;
+        var stuid = document.getElementById("stuid").innerText;
+        var content = $("#addContent").val();
+        $.ajax({
+            url: "/course/" + courseid + "/form/add",
+            type: "post",
+            data: {
+                content:content,
+                stuid: stuid
+            },
+            success: function (data, status) {
+                if (status != "success") {
+                    toastr.error("删除失败，请检查网络和服务器运行情况！");
+                    return;
+                }
+                if (data.code != 200) {
+                    toastr.error(data.msg);
+                    return;
+                }
+                toastr.success(data.msg);
+                $("#tableUser").bootstrapTable('remove', {
+                    field: 'id',
+                    values: !isNaN(userId) ? [userId] : userId
+                });
+            },
+            error: function (data, status) {
+                toastr.error("删除失败，请检查网络和服务器运行情况！");
+            }
+        })
+
+    }
+
     $(function () {
         $.ajax({
             type: "get",
@@ -428,14 +276,26 @@
             data: {CourseId: 1},
             url: "/course/form",
             success: function (data) {
-                ajaxobj=eval("("+data+")");
-
-                alert(data.status);
-                if (data.status == 100) {
-
-                } else {
-                    Y.alert(data.msg);
+                var comment = ' <ul class="commentbox">';
+                for (var i = 0; i < data.length; i++) {
+                    comment += "<li class='commentlist'>" +
+                            '<div class="userlist">' +
+                            '<a href=""><img src=' + data[i].stu["stuiconurl"] + '></a>' +
+                            ' </div>' +
+                            '<div class="comment">' +
+                            ' <div class="username">' +
+                            '<a href="">' + data[i].stu["stuname"] + '</a>' +
+                            '</div>' +
+                            '<div class="commentwords">' + data[i].comment["content"] +
+                            '</div>' +
+                            ' <div class="time-good">' +
+                            '<span class="publish-time">时间:'+ data[i].comment["createtime"] + '</span>' +
+                            '<a href="" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span>' + data[i].comment["zan"] + '</a>' +
+                            '<div style="clear: both;"></div>' +
+                            '</div></div><div style="clear: both;"></div></li>'
                 }
+                comment += '</ul>';
+               $('#comment').append(comment);
             },
             error: function (err) {
                 Y.alert("通讯失败。");
@@ -443,4 +303,8 @@
         });
 
     });
+
+
+
 </script>
+
