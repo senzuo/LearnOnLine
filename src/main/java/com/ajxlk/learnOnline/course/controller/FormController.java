@@ -31,7 +31,7 @@ public class FormController {
     @Autowired
     private StuService stuService;
 
-    @RequestMapping(value = "/form",method = RequestMethod.GET)
+    @RequestMapping(value = "/form", method = RequestMethod.GET)
     @ResponseBody
     public List<CommentDTO> form(@RequestParam int CourseId) {
 
@@ -41,7 +41,7 @@ public class FormController {
 
         CommentDTO commentDTO = null;
         Stu stu = null;
-        for (Comment comment : comments){
+        for (Comment comment : comments) {
             commentDTO = new CommentDTO();
             commentDTO.setComment(comment);
             stu = stuService.findByID(comment.getReviewerid());
@@ -52,9 +52,15 @@ public class FormController {
         return commentDTOs;
     }
 
+    /**
+     * @param content
+     * @param stuid
+     * @return
+     */
     @RequestMapping("/{courseId}/form/add")
-    public String addComment(@RequestParam String content, @RequestParam int stuid){
-        Comment comment =new Comment();
+    @ResponseBody
+    public void addComment(@RequestParam String content, @RequestParam int stuid) {
+        Comment comment = new Comment();
         comment.setReviewerid(stuid);
         comment.setContent(content);
         comment.setCreatetime(new Date());
@@ -62,8 +68,13 @@ public class FormController {
         comment.setPid(-1);
 
         System.out.println(comment);
+        System.out.println(comment);
+        System.out.println(comment);
+        System.out.println(comment);
+        System.out.println(comment);
+        System.out.println(comment);
 
         formService.addComment(comment);
-        return "redirect:/course/form";
+//        return "redirect:/course/form";
     }
 }

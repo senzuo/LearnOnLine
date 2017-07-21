@@ -11,7 +11,7 @@ public class Comment {
 
     private Date createtime;
 
-    private Integer zan;
+    private Integer zan = 0;
 
     private Integer sectionid;
 
@@ -71,5 +71,18 @@ public class Comment {
 
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", pid=" + pid +
+                ", reviewerid=" + reviewerid +
+                ", createtime=" + createtime +
+                ", zan=" + zan +
+                ", sectionid=" + sectionid +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

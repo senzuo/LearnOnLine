@@ -29,4 +29,9 @@ public class AdminController {
         return admin;
     }
 
+    @RequestMapping("/index")
+    public String index() {
+        return "admin/manage";
+    }
+
 }

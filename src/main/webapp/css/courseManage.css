@@ -1,0 +1,171 @@
+.courseinfo{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #f9c1c1;
+    box-sizing: border-box;
+    padding: 10px 45px;
+}
+.courseinfo img{
+    width: 100px;
+    border-radius: 50%;
+    float: left;
+}
+.cousreproperty{
+    float: left;
+    height: 100px;
+    width: 400px;
+    margin-left: 20px;
+    padding: 3px 0;
+}
+.courseinfolist{
+    padding: 4px 0;
+}
+.coursename{
+    font-size: 20px;
+    font-family: "宋体";
+}
+.coursetips{
+    padding-right: 16px;
+}
+.coursegrade{
+    color: #7b24ea;
+    padding-right: 4px;
+}
+.learnnum, .alway{
+    font-size: 12px;
+}
+.learnnum{
+    margin-right: 4px;
+}
+.coursedetail{
+    padding: 0 45px;
+    margin: 15px 0;
+}
+.detailhead{
+    padding: 10px 15px;
+    background: #f9f8f8;
+    border: 1px solid #e2caca;
+    border-radius: 10px 10px 0 0;
+}
+.sectionname{
+    float: left;
+}
+.addsection{
+    float: right;
+}
+.addsection:hover{
+    cursor: pointer;
+}
+.sectnum{
+    margin-right: 6px;
+}
+.detailcont{
+    padding: 15px;
+    border: 1px solid #e2caca;
+    border-top: transparent;
+}
+.sectcontrol{
+    padding: 10px 0;
+    border-bottom: 1px solid #e2caca;
+}
+.sectcontrol:hover{
+    cursor: pointer;
+}
+.sectiondel, .sectionedit, .sectadd{
+    float: right;
+}
+.sectionedit, .sectadd{
+    padding-right: 14px;
+}
+.sectioncont li{
+    clear: both;
+}
+.nodenum{
+    padding-right: 8px;
+}
+.node{
+    width: 100%;
+    margin: 2px 0;
+    padding: 5px;
+}
+.nodedel, .nodeedit, .nodeadd{
+    float: right;
+    padding: 0 5px;
+}
+.node:hover{
+    background: #f9f8f8;
+    cursor: pointer;
+}
+.addsectionpop{
+    display: none;
+    z-index: 999;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 500px;
+    height: 220px;
+    border-radius: 10px;
+    border: 1px solid #e2caca;
+    box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
+}
+.popboxhead{
+    padding: 10px 20px;
+    border-bottom: 1px solid #e2caca;
+    margin-bottom: 15px;
+    background: #f9f8f8;
+    border-radius: 10px 10px 0 0;
+}
+.addsectionpopform{
+    padding: 0 40px;
+}
+.addsectionpop button, .addnodepop button{
+    margin: 0 20px;
+}
+.addnodepop{
+    display: none;
+    z-index: 999;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 500px;
+    height: 180px;
+    border-radius: 10px;
+    border: 1px solid #e2caca;
+    box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
+}
+.bodybg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.38);
+    top: 0;
+    z-index: 1;
+    display: none;
+}
+.addnodedetailpop{
+    display: none;
+    z-index: 999;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    background: #fff;
+    top: 0;
+    width: 500px;
+    height: 220px;
+    border-radius: 10px;
+    border: 1px solid #e2caca;
+    box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
+}
