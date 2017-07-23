@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.course.dao.QuesAnsMapper" >
+  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.QuesAns" >
+    <id column="ques_ans_id" property="quesAnsId" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="section_id" property="sectionId" jdbcType="INTEGER" />
+    <result column="reviewer_id" property="reviewerId" jdbcType="INTEGER" />
+    <result column="zan" property="zan" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ques_ans_id, pid, section_id, reviewer_id, zan, create_time, content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_quesans
+    where ques_ans_id = #{quesAnsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_quesans
+    where ques_ans_id = #{quesAnsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.QuesAns" >
+    insert into tb_quesans (ques_ans_id, pid, section_id, 
+      reviewer_id, zan, create_time, 
+      content)
+    values (#{quesAnsId,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{sectionId,jdbcType=INTEGER}, 
+      #{reviewerId,jdbcType=INTEGER}, #{zan,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.QuesAns" >
+    insert into tb_quesans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="quesAnsId != null" >
+        ques_ans_id,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+      <if test="sectionId != null" >
+        section_id,
+      </if>
+      <if test="reviewerId != null" >
+        reviewer_id,
+      </if>
+      <if test="zan != null" >
+        zan,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="quesAnsId != null" >
+        #{quesAnsId,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null" >
+        #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="reviewerId != null" >
+        #{reviewerId,jdbcType=INTEGER},
+      </if>
+      <if test="zan != null" >
+        #{zan,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.QuesAns" >
+    update tb_quesans
+    <set >
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="sectionId != null" >
+        section_id = #{sectionId,jdbcType=INTEGER},
+      </if>
+      <if test="reviewerId != null" >
+        reviewer_id = #{reviewerId,jdbcType=INTEGER},
+      </if>
+      <if test="zan != null" >
+        zan = #{zan,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ques_ans_id = #{quesAnsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.QuesAns" >
+    update tb_quesans
+    set pid = #{pid,jdbcType=INTEGER},
+      section_id = #{sectionId,jdbcType=INTEGER},
+      reviewer_id = #{reviewerId,jdbcType=INTEGER},
+      zan = #{zan,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=VARCHAR}
+    where ques_ans_id = #{quesAnsId,jdbcType=INTEGER}
+  </update>
+
+  <select id="getAllquesBySectionId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT * FROM tb_quesans WHERE section_id = #{sectionId,jdbcType=INTEGER} AND pid = -1
+  </select>
+
+  <select id="getAnsByQuesNum" resultMap="BaseResultMap">
+    SELECT * FROM tb_quesans WHERE pid = #{1} AND section_id = #{0}
+  </select>
+</mapper>

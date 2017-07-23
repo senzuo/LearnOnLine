@@ -1,9 +1,9 @@
 package com.ajxlk.learnOnline.course.model;
 
 public class Video {
-    private Integer videoid;
+    private Integer videoId;
 
-    private Integer sectionid;
+    private Integer sectionId;
 
     private Integer index;
 
@@ -11,20 +11,20 @@ public class Video {
 
     private Integer durition;
 
-    public Integer getVideoid() {
-        return videoid;
+    public Integer getVideoId() {
+        return videoId;
     }
 
-    public void setVideoid(Integer videoid) {
-        this.videoid = videoid;
+    public void setVideoId(Integer videoId) {
+        this.videoId = videoId;
     }
 
-    public Integer getSectionid() {
-        return sectionid;
+    public Integer getSectionId() {
+        return sectionId;
     }
 
-    public void setSectionid(Integer sectionid) {
-        this.sectionid = sectionid;
+    public void setSectionId(Integer sectionId) {
+        this.sectionId = sectionId;
     }
 
     public Integer getIndex() {

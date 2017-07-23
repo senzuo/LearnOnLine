@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
@@ -44,25 +44,27 @@
         <div class="search  hidden-sm">
             <form class="navbar-form navbar-left" role="search" style="width: 100%;padding: 0;">
                 <div class="form-group searchbox">
-                    <input type="text" class="form-control" placeholder="Search" >
+                    <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default searchbtn"><span class="glyphicon glyphicon-search"></span></button>
+                <button type="submit" class="btn btn-default searchbtn"><span class="glyphicon glyphicon-search"></span>
+                </button>
             </form>
             <div class="clear"></div>
         </div>
         <div class="smsearch visible-sm">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  id="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown">
                         <span class="glyphicon glyphicon-search"></span>
                     </a>
                     <ul class="dropdown-menu" style="    width: 274px;">
                         <li>
                             <form class="navbar-form navbar-left" role="search">
                                 <div class="form-group searchbox">
-                                    <input type="text" class="form-control" placeholder="Search" >
+                                    <input type="text" class="form-control" placeholder="Search">
                                 </div>
-                                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span></button>
                             </form>
                         </li>
 
@@ -75,27 +77,8 @@
     </div>
 
     <div class="body">
-        <div class="leftcontrol">
-            <ul id="myTab" class="nav nav-tabs">
-                <li>
-                    <a href="../ManageHome.html">
-                        <span class="glyphicon glyphicon-book"></span>首页
-                    </a>
-                </li>
-                <li class="active">
-                    <a href="ManageHomeCourseCenter.html">
-                        <span class="glyphicon glyphicon-th"></span>课程中心
-                    </a>
-                </li>
-                <li><a href="ManageHomeUsers.html"><span class="glyphicon glyphicon-tasks"></span>学员管理</a></li>
-                <li><a href="ManageHomeChats.html"><span class="glyphicon glyphicon-calendar"></span>统计报表</a></li>
-                <li><a href="ManageHomeLimited.html"><span class="glyphicon glyphicon-cog"></span>权限管理</a></li>
-                <li><a href="ManageHomeSys.html"><span class="glyphicon glyphicon-wrench"></span>系统管理</a></li>
-                <li><a href="ManageHomeIdeal.html"><span class="glyphicon glyphicon-envelope"></span>意见中心</a></li>
-                <li><a href="#qiut"><span class="glyphicon glyphicon-off"></span>安全退出</a></li>
+        <div th:include="common/mainLeft :: left"/>
 
-            </ul>
-        </div>
         <div class="rightcontent">
             <ul class="tips">
                 <li class="tiplist act">课程信息</li>
@@ -158,20 +141,8 @@
                                 <th>操作</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td><input type="checkbox" value=""></td>
-                                <td>1</td>
-                                <td>java开发</td>
-                                <td>申卓</td>
-                                <td>后端开发</td>
-                                <td>初级</td>
+                            <tbody id="table_course">
 
-                                <td>
-                                    <span class="glyphicon glyphicon-remove" id="del"></span>
-                                    <a href="CourseCenterCourseDetails.html"><span class="glyphicon glyphicon-edit" id="edit"></span></a>
-                                </td>
-                            </tr>
 
                             </tbody>
 
@@ -197,24 +168,46 @@
         </div>
         <form class="form-horizontal" role="form">
             <div class="form-group">
-                <label for="firstname" class="col-sm-4 control-label">课程名称</label>
+                <label class="col-sm-4 control-label">课程名称</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="firstname"
-                           placeholder="请输入名字">
+                    <input type="text" class="form-control" id="course_name" placeholder="请输入名字">
                 </div>
             </div>
             <div class="form-group">
-                <label for="firstname" class="col-sm-4 control-label">讲师姓名</label>
+                <label class="col-sm-4 control-label">讲师姓名</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="firstname"
-                           placeholder="请输入名字">
+                    <select  class="form-control" id="teacherName">
+                        <div th:each="teacher : ${teachers}">
+                        <option th:text="${teacher.teachername}"></option>
+                        </div>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="firstname" class="col-sm-4 control-label">课程分类</label>
+                <label class="col-sm-4 control-label">课程分类</label>
                 <div class="col-sm-8">
-                    <select class="form-control">
-                        <option>1</option>
+                    <select class="form-control first" style="margin-bottom: 10px">
+                        <option>
+                            管理学院
+                        </option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <select class="form-control second" style="margin-bottom: 10px">
+                        <option>
+                            管理学院
+                        </option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <select class="form-control third" style="margin-bottom: 10px">
+                        <option>
+                            管理学院
+                        </option>
                         <option>2</option>
                         <option>3</option>
                         <option>4</option>
@@ -223,39 +216,37 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="lastname" class="col-sm-4 control-label">适用人群</label>
+                <label class="col-sm-4 control-label">课程难度</label>
                 <div class="col-sm-8">
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                    <select class="form-control" id="difficulty">
+                        <option>初级</option>
+                        <option>中级</option>
+                        <option>高级</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="lastname" class="col-sm-4 control-label">课程简介</label>
+                <label class="col-sm-4 control-label">课程简介</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" id="course_brief"></textarea>
                 </div>
             </div>
             <div class="form-group">
-                <label for="lastname" class="col-sm-4 control-label" style="padding-top: 3px;">上传封面</label>
-                <div class="col-sm-8">
-                    <input type="file" id="inputfile">
+                <label class="col-sm-4 control-label" style="padding-top: 3px;">上传封面</label>
+                <div class="col-sm-8" id="uploadDiv">
+                    <input type="file" id="file" />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
-                    <button type="submit" class="btn btn-default">添加</button>
+                    <button type="button" class="btn btn-default" onclick="addCourseCover()">添加</button>
                 </div>
             </div>
         </form>
     </div>
 
     <div class="warning">
-        <img src="../img/managehome/tanhao.png">
+        <img src="/img/common/tanhao.png">
         <div class="selectbox">
             <button type="button" class="btn btn-danger" id="delbtn">删除</button>
             <button type="button" class="btn btn-info" id="cancelbtn">取消</button>
@@ -265,7 +256,6 @@
         <img src="../img/managehome/suc.png">
     </div> -->
     <div id="popbg" class="bodybg"></div>
-
 
 
     <div class="foot">
@@ -310,7 +300,6 @@
             </ul>
         </div>
         <div class="copy">
-            <span style="margin-right: 6px;">西南交通大学</span>
             <span>傲娇小龙坎版权所有</span>
         </div>
     </div>
@@ -320,5 +309,108 @@
 <script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
 <script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
 <script src="/js/CourseCenter.js"></script>
+
+<script type="text/javascript">
+
+    var courseId;
+
+    function addCourseCover() {
+        var formData = new FormData();
+        formData.append('file', $('#file')[0].files[0]);
+        console.log("form data " + formData);
+        $.ajax({
+            url: "/course/addCourse/cover",
+            type: "post",
+            dataType:"text",
+            cache: false,
+            data: formData,
+            async : false,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                alert(data)
+                addCourse(data);
+                alert(data + "end");
+            },
+            error: function (err) {
+                alert(err);
+            }
+        });
+
+    }
+
+//    function addCourse() {
+    function addCourse(data) {
+        alert("addCourse");
+        $.ajax({
+            url:"/course/addCourse",
+            type:"post",
+            dataType:"text",
+//            async : false,
+            data : {
+                course_name: $('#course_name').val(),
+                teacher_name: $('#teacher_name').val(),
+                cata: $('#cata').val(),
+                difficulty: $('#difficulty').val(),
+                course_brief: $('#course_brief').val(),
+                courseCover:data
+            },
+//            processData: true,
+//            contentType: true,
+            success: function (data) {
+                alert(data);
+            },
+            error: function (err) {
+                alert(err);
+            }
+
+        });
+    }
+
+
+
+    function deleteCourse() {
+//        var father = $(this).parent().parent();
+//        var child = father.$("td");
+//        alert(child.length);
+////        courseId = child.innerHTML;
+//        alert(child.innerHTML);
+        $("#popbg").fadeToggle();
+        $(".warning").fadeToggle();
+        var father = this.parentNode.parentNode;
+        var child = father.getElementsByTagName("td");
+        alert(child.length);
+    }
+
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/course/getAllCourse",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                var tb_course = "";
+                for (var i = 0; i < data.length; i++) {
+                    tb_course += '<tr><td><input type="checkbox" value=""></td><td>' + data[i].courseId + '</td><td>' +
+                        data[i].courseName + '</td><td>' + data[i].teacherName +
+                        '</td><td>' + data[i].category_name + '</td><td>' + data[i].difficulty +
+                        '</td><td>' +
+                        '<span class="glyphicon glyphicon-remove" onclick="deleteCourse()"></span>' +
+                        '<a href="/course/editCourse/'+  data[i].courseId + '">' +
+                        '<span class="glyphicon glyphicon-edit" id="edit"></span>' +
+                        '</a>' +
+                        '</td></tr>';
+                }
+                $('#table_course').append(tb_course);
+            },
+            error: function () {
+            }
+
+        });
+    });
+
+
+</script>
+
 </body>
 </html>

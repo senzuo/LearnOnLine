@@ -31,7 +31,7 @@
     <![endif]-->
     <!-- bootstrap table -->
     <link href="/css/plugins/bootstrap-table.min.css" rel="stylesheet"/>
-    <link href="/css/plugins/toastr.css" rel="stylesheet"/>
+    <link href="/ajxlk/toastr/toastr.css" rel="stylesheet"/>
     <link href="/css/plugins/sweetalert.css" rel="stylesheet"/>
 
 </head>
@@ -76,7 +76,7 @@
                     <a href="/admin/view/index"><i class="fa fa-fw fa-dashboard"></i> 首页</a>
                 </li>
                 <li class="active">
-                    <a href="#"><i class="fa fa-fw fa-edit"></i> 用户管理</a>
+                    <a href="#"><i class="fa fa-fw fa-edit"></i> 课程管理</a>
                 </li>
                 <li>
                     <a href="/admin/view/houseManager"><i class="fa fa-fw fa-edit"></i> 房产管理</a>
@@ -99,21 +99,21 @@
 
     <div id="page-wrapper">
 
-        <!-- 用户信息内容 开始 -->
+        <!-- 课程信息内容 开始 -->
         <div class="container-fluid" id="page1">
 
             <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        用户管理
+                        课程管理
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <a href="/admin/view/adminManager"><i class="fa fa-fw fa-gear"></i> 设置</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-edit"></i> 用户管理
+                            <i class="fa fa-edit"></i> 课程管理
                         </li>
                     </ol>
                 </div>
@@ -153,7 +153,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> 用户数据列表</h3>
+                            <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> 课程数据列表</h3>
                         </div>
                         <div class="panel-body">
 
@@ -174,14 +174,14 @@
                 </div>
             </div>
             <!-- /.row -->
-            <!-- 新增用户表单 -->
+            <!-- 新增课程表单 -->
             <div class="modal fade" id="form_user_add" tabindex="-1" role="dialog" aria-labelledby="addUserLable">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span></button>
-                            <h4 class="modal-title" id="myModalLabel">新增用户</h4>
+                            <h4 class="modal-title" id="myModalLabel">新增课程</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
@@ -194,7 +194,21 @@
                                 <input type="text" name="txt_parentdepartment" class="form-control"
                                        id="txt_user_pwd_add" placeholder="密码" maxlength="18"/>
                             </div>
-                          
+                            <div class="form-group">
+                                <label for="txt_departmentname">test</label>
+                                <select class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputFile">File input</label>
+                                <input type="file" id="exampleInputFile">
+                                <p class="help-block">Example block-level help text here.</p>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><span
@@ -208,20 +222,20 @@
                 </div>
             </div>
 
-            <!-- 修改用户表单 -->
+            <!-- 修改课程表单 -->
             <div class="modal fade" id="form_user_update" tabindex="-1" role="dialog" aria-labelledby="updateUserLable">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span></button>
-                            <h4 class="modal-title" id="myModalLabel">修改用户信息</h4>
+                            <h4 class="modal-title" id="myModalLabel">修改课程信息</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="txt_departmentname">用户ID</label>
+                                <label for="txt_departmentname">课程ID</label>
                                 <input type="text" name="txt_departmentname" class="form-control"
-                                       id="txt_user_id_update" placeholder="用户ID" maxlength="10"/>
+                                       id="txt_user_id_update" placeholder="课程ID" maxlength="10"/>
                             </div>
                             <div class="form-group">
                                 <label for="txt_departmentname">姓名</label>
@@ -258,7 +272,7 @@
                 </div>
             </div>
         </div>
-        <!-- /.container-fluid 1  用户内容到此结束-->
+        <!-- /.container-fluid 1  课程内容到此结束-->
 
 
     </div>

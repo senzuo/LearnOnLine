@@ -20,5 +20,13 @@ public class ChapterService {
         return chapters;
     }
 
+    public void insertChapter2Course(Chapter chapter){
+        chapterMapper.insertSelective(chapter);
+    }
+
+    public void deleteChapter(int chapterId){
+        chapterMapper.deleteByPrimaryKey(chapterId);
+    }
+
 
 }

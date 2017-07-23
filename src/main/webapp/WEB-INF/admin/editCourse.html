@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/adminManage.css">
+    <link rel="stylesheet" type="text/css" href="/css/editCourse.css">
+    <link rel="stylesheet" type="text/css" href="/css/Foot.css">
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="content">
+    <div class="head">
+        <div class="leftlogo">
+            <a href=""><img src="../img/managehome/logo.png"></a>
+        </div>
+        <div class="rightlink">
+            <ul class="rightlinkbox">
+                <li class="headlink">
+                    <a href=""><span class="glyphicon glyphicon-list-alt"></span> 课程</a>
+                </li>
+                <li class="headlink">
+                    <a href=""><span class="glyphicon glyphicon-road"></span> 职业路径</a>
+                </li>
+                <li class="headlink">
+                    <a href=""><span class="glyphicon glyphicon-bell"></span> 论坛</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="rightadmin">
+            <a href=""><img src="../img/managehome/user.jpg">admin</a>
+        </div>
+        <div class="search  hidden-sm">
+            <form class="navbar-form navbar-left" role="search" style="width: 100%;padding: 0;">
+                <div class="form-group searchbox">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default searchbtn"><span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+            <div class="clear"></div>
+        </div>
+        <div class="smsearch visible-sm">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </a>
+                    <ul class="dropdown-menu" style="    width: 274px;">
+                        <li>
+                            <form class="navbar-form navbar-left" role="search">
+                                <div class="form-group searchbox">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-default"><span
+                                        class="glyphicon glyphicon-search"></span></button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+
+    <div class="body">
+        <div th:include="common/mainLeft :: left"/>
+
+        <div class="rightcontent">
+            <div class="courseinfo">
+                <img src="../img/courseCover/coursecover.png">
+                <div class="cousreproperty">
+                    <div class="courseinfolist">
+                        <span th:text="${course.courseName}" class="coursename"></span>
+                    </div>
+                    <div class="courseinfolist">
+                        <span th:text="${course.category_name}" class="coursetips"></span>
+                        <span class="glyphicon glyphicon-tint coursegrade"></span><span th:text="${course.difficulty}"
+                                                                                        class="coursegrade">初级</span>
+                    </div>
+                    <div class="courseinfolist">
+                        <span th:text="${course.courseId}" id="course_id"></span>
+                        <span class="learnnum">666</span><span class="alway">人已学</span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="coursedetail">
+                <div class="detailhead">
+                    <span class="nodename">章节列表</span>
+                    <span class="addsection"><span class="glyphicon glyphicon-plus"></span> 添加</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="detailcont">
+
+                    <div th:each="chapter : ${course.chapters}" class="sectionlist">
+                        <div class="sectcontrol">
+                            <span th:text="${chapter.chaptername}" class="sectnum"></span>
+                            <span th:text="${chapter.chapterid}" class="sectnum" id="chapter_id" style="display: none"></span>
+
+                            <span class="sectiondel"><span class="glyphicon glyphicon-trash" ></span> 删除</span>
+                            <span class="sectionedit"><span class="glyphicon glyphicon-pencil"></span> 编辑</span>
+                            <span class="sectadd"><span class="glyphicon glyphicon-plus"></span> 添加</span>
+
+                            <div class="clear"></div>
+                        </div>
+                        <div class="sectioncont">
+                            <ul th:each="section : ${chapter.sections}" style="padding: 0 30px;">
+                                <li class="node">
+                                    <span th:text="${section.sectionname}"></span>
+                                    <span th:text="${section.sectionid}" style="display: none"></span>
+                                    <span class="nodedel"><span class="glyphicon glyphicon-trash" onclick="deleteSection()"></span> 删除</span>
+                                    <span class="nodeedit"><span class="glyphicon glyphicon-pencil"></span> 编辑</span>
+                                    <span class="nodeadd"><span class="glyphicon glyphicon-plus"></span> 添加</span>
+                                    <div class="clear"></div>
+                                </li>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="addsectionpop">
+        <div class="popboxhead">
+            <div class="control-click">
+                <span style="float: left;">添加章节</span>
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form" style="padding: 0 40px;">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">章节次序</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chapter_index"
+                           placeholder="比如：第一章">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">章节名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="chapter_name"
+                           placeholder="请输入名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
+                    <button type="button" class="btn btn-default" id="add_chapter" onclick="addChapter()">添加</button>
+                    <button type="button" class="btn btn-default" id="cancel_add_chapter">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="addnodepop">
+        <div class="popboxhead">
+            <div class="control-click">
+                <span style="float: left;">添加小节</span>
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form" style="padding: 0 40px;">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">小节+名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sectionName"
+                           placeholder="请输入名称"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
+                    <button type="submit" class="btn btn-default" id="addSection" onclick="addSection2Chapter()">添加
+                    </button>
+                    <button type="submit" class="btn btn-default" id="cancelbtnpop">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="editnodepop">
+        <div class="popboxhead">
+            <div class="control-click">
+                <span style="float: left;">编辑小节</span>
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form" style="padding: 0 40px;">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">小节名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="editSectionName"
+                           placeholder="请输入名称">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
+                    <button type="submit" class="btn btn-default" onclick="addSection()">添加</button>
+                    <button type="submit" class="btn btn-default">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="addnodedetailpop">
+        <div class="popboxhead">
+            <div class="control-click">
+                <span style="float: left;">添加资源</span>
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <form class="form-horizontal" role="form" style="padding: 0 40px;">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">资源类型</label>
+                <div class="col-sm-9">
+                    <select class="form-control">
+                        <!-- <option>PPt</option> -->
+                        <option>文档</option>
+                        <option>视频</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="col-sm-3 control-label" style="padding-top: 3px;">上传资源</label>
+                <div class="col-sm-9">
+                    <input type="file" id="inputfile" />
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
+                    <button type="submit" class="btn btn-default" id="addbtnpop" onclick="addVideo()">添加</button>
+                    <button type="submit" class="btn btn-default" id="cancelbtnpop">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="editnodedetailpop">
+        <div class="popboxhead">
+            <div class="control-click">
+                <span style="float: left;">修改资源</span>
+                <span class="glyphicon glyphicon-remove-circle close"></span>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <!--<form class="form-horizontal" role="form" style="padding: 0 40px;">-->
+            <!--<div class="form-group">-->
+                <!--<label for="firstname" class="col-sm-3 control-label">资源类型</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<select class="form-control">-->
+                        <!--&lt;!&ndash; <option>PPt</option> &ndash;&gt;-->
+                        <!--<option>文档</option>-->
+                        <!--<option>视频</option>-->
+                    <!--</select>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label for="lastname" class="col-sm-3 control-label" style="padding-top: 3px;">上传资源</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="file" id="inputfile">-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="form-group">-->
+                <!--<div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">-->
+                    <!--<button type="submit" class="btn btn-default" id="addbtnpop">添加</button>-->
+                    <!--<button type="submit" class="btn btn-default" id="cancelbtnpop">取消</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+    </div>
+
+
+    <div class="sectionwarning">
+        <img src="/img/common/tanhao.png">
+        <div class="selectbox">
+            <button type="button" class="delbtn"  onclick="deleteChapter()">
+            删除
+            </button>
+            <button type="button" class="cancelbtn">取消</button>
+        </div>
+    </div>
+
+    <div class="nodewarning">
+        <img src="/img/common/tanhao.png">
+        <div class="selectbox">
+            <button type="button" class="delbtn" onclick="deleteSection()"> 删除</button>
+            <button type="button" class="cancelbtn">取消</button>
+        </div>
+    </div>
+
+    <div id="popbg" class="bodybg"></div>
+
+
+    <div class="foot">
+        <div class="ico">
+            <ul class="icobox">
+                <li class="icolist">
+                    <a href=""><img src="../img/foot/qq.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="../img/foot/wechat.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="../img/foot/weibo.png"></a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="quiklink">
+            <ul class="linkbox">
+                <li class="linklist">
+                    <a href="">首页</a>
+                </li>
+                <li class="linklist">
+                    <a href="">关于我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">联系我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">讲师招募</a>
+                </li>
+                <li class="linklist">
+                    <a href="">常见问题</a>
+                </li>
+                <li class="linklist">
+                    <a href="">意见反馈</a>
+                </li>
+                <li class="linklist">
+                    <a href="">友情链接</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="copy">
+            <span>傲娇小龙坎版权所有</span>
+        </div>
+    </div>
+</div>
+
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/CourseCenter.js"></script>
+<script src="/js/courseDetail.js"></script>
+
+
+<script type="text/javascript">
+    var chapterid;
+
+
+    $(".addsection").click(function () {
+        $(".addsectionpop").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+    $(".close").click(function () {
+        $(".addsectionpop").fadeOut("slow");
+        $(".addnodepop").fadeOut("slow");
+    });
+    $(".sectadd").click(function () {
+        var father = $(this).parent();
+        var child = father.children("span").get(1);
+        chapterid = child.innerHTML;
+        $(".addnodepop").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+    $(".nodeadd").click(function () {
+        var father = $(this).parent();
+        var child = father.children("span").get(1);
+        chapterid = child.innerHTML;
+        $(".addnodedetailpop").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+    $(".close").click(function () {
+        $("#popbg").fadeOut("slow");
+        $(".addnodedetailpop").fadeOut("slow");
+        $(".editnodedetailpop").fadeOut("slow");
+        $(".editnodepop").fadeOut("slow");
+    });
+
+
+    $(".sectionedit").click(function () {
+        $(".editnodepop").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+
+    $(".nodeedit").click(function () {
+        $(".editnodedetailpop").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+
+    $(".nodedel").click(function () {
+        var father = $(this).parent();
+        var child = father.children("span").get(1);
+        chapterid = child.innerHTML;
+        $(".nodewarning").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+
+    $(".sectiondel").click(function () {
+        var father = $(this).parent();
+        var child = father.children("span").get(1);
+        chapterid = child.innerHTML;
+        $(".sectionwarning").fadeToggle("slow");
+        $("#popbg").fadeToggle("slow");
+    });
+
+
+    $(".cancelbtn").click(function () {
+        $(".sectionwarning").fadeOut("slow");
+        $(".nodewarning").fadeOut("slow");
+        $("#popbg").fadeOut("slow");
+    });
+    $(".delbtn").click(function () {
+        $(".sectionwarning").fadeOut("slow");
+        $(".nodewarning").fadeOut("slow");
+        $("#popbg").fadeOut("slow");
+    });
+
+    function deleteChapter() {
+        $.ajax({
+            url : "/deleteChapter",
+            type : "post",
+            data : {
+                chapterId : chapterid
+            },
+            success: function () {
+                alert("删除成功");
+                window.location.reload();
+            },
+            error : function () {
+                alert("error");
+            }
+        });
+    }
+
+    function addSection2Chapter() {
+        alert(chapterid);
+        var sectionName = $("#sectionName").val();
+        $.ajax({
+            url : "/addSection2Chapter",
+            type : "post",
+            data : {
+                chapterId : chapterid,
+                sectionName : sectionName
+            },
+            success: function (data) {
+                alert("添加成功");
+                return true;
+//                window.location.reload();
+            }
+        });
+    }
+
+    function addChapter() {
+        var course_id = $('#course_id').text();
+        var chapter_index = $('#chapter_index').val();
+        var chapter_name = $('#chapter_name').val();
+        $.ajax({
+            url: "/course/addChapter/" + course_id,
+            type: "post",
+            data: {
+                chapter_index: chapter_index,
+                chapter_name: chapter_name
+            },
+            success: function () {
+                alert("添加成功");
+                window.location.reload();
+            }
+        });
+    }
+    
+    function deleteSection() {
+        alert(chapterid)
+        $.ajax({
+            url :"/deleteSection",
+            type : "post",
+            data : {
+                sectionId : chapterid
+            },
+            success: function (data) {
+                alert("删除成功");
+                window.location.reload();
+            },
+            error : function () {
+                alert("error");
+                return true;
+                window.location.reload();
+            }
+
+        });
+    }
+
+    function addVideo() {
+        alert(chapterid);
+        var formData = new FormData();
+        formData.append('file', $('#inputfile')[0].files[0]);
+        console.log("form data " + formData);
+        $.ajax({
+            url: "/course/addCourse/" + chapterid + "/video",
+            type: "post",
+            dataType:"json",
+            cache: false,
+            data: formData,
+            async : false,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,  // tell jQuery not to set contentType
+            success: function (data) {
+                alert(data);
+                alert("上传成功！");
+                alert(data + "end");
+                return true;
+            },
+            error: function (err) {
+                alert(err);
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

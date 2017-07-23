@@ -5,29 +5,28 @@
 }
 .pre{
 	width: 70px;
-    height: 60px;
-    /*display: inline-block;*/
-    /*line-height: 60px;*/
-    text-align: center;
-    color: #cab6b6;
-    font-size: 18px;
-    float: left;
-    	line-height: 60px;
+	height: 60px;
+	/*display: inline-block;*/
+	/*line-height: 60px;*/
+	text-align: center;
+	color: #cab6b6;
+	font-size: 18px;
+	float: left;
+	line-height: 60px;
 }
 .back{
-	width: 40px;
-	width: 40px;
+	width: 20px;
 }
 .pre:hover{
 	background: #524c4c;
 	cursor: pointer;
 }
 .coursename{
-    color: #cab6b6;
-    padding: 0 16px;
-    height: 60px;
-    float: left;
-    line-height: 60px;
+	color: #cab6b6;
+	padding: 0 16px;
+	height: 60px;
+	float: left;
+	line-height: 60px;
 }
 .name{
 	font-size: 16px;
@@ -39,8 +38,8 @@
 }
 .share{
 	height: 60px;
-    line-height: 60px;
-    float: left;
+	line-height: 60px;
+	float: left;
 }
 .share li{
 	list-style: none;
@@ -48,13 +47,13 @@
 }
 .logoarea{
 	float: right;
-    line-height: 60px;
-    padding: 0 40px;
+	line-height: 60px;
+	padding: 0 40px;
 }
 .logo{
 	border-radius: 50%;
-    width: 40px;
-    height: 40px;
+	width: 40px;
+	height: 40px;
 }
 .list0{
 	color: #cab6b6
@@ -65,10 +64,10 @@
 }
 .player{
 	width: 100%;
-    height: 640px;
-    background: #000;
-    text-align: center;
-        overflow: hidden;
+	height: 640px;
+	background: #000;
+	text-align: center;
+	overflow: hidden;
 }
 .vedio{
 	width: 100%;
@@ -81,23 +80,40 @@
 	height: 640px;
 	float: right;
 	background: #14191e;
-    border-top: 1px solid #403e3e;
-    overflow: scroll;
+	border-top: 1px solid #403e3e;
+	overflow: scroll;
 }
 .control::-webkit-scrollbar {/*滚动条整体样式*/
-    width: 5px;     /*高宽分别对应横竖滚动条的尺寸*/
-    height: 0px;
+	width: 0px;     /*高宽分别对应横竖滚动条的尺寸*/
+	height: 4px;
 }
 .control::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
-    border-radius: 5px;
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-    background:#000
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	background:#000
 }
 .control::-webkit-scrollbar-track {/*滚动条里面轨道*/
-    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
-    border-radius: 0;
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 0;
 	background:#403e3e
 }
+
+
+body::-webkit-scrollbar {/*滚动条整体样式*/
+	width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+	height: 2px;
+}
+body::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	background:#fff
+}
+body::-webkit-scrollbar-track {/*滚动条里面轨道*/
+	-webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+	border-radius: 0;
+	background:#333
+}
+
 
 
 
@@ -112,8 +128,8 @@ video{
 .tabs{
 	list-style: none;
 	position: relative;
-    float: right;
-    bottom: 370px;
+	float: right;
+	bottom: 370px;
 }
 .tabs li{
 	left: 0px;
@@ -131,19 +147,19 @@ video{
 }
 .sectionname{
 	text-align: left;
-    color: #cab6b6;
-    padding-left: 20px;
-    font-size: 16px;
+	color: #cab6b6;
+	padding-left: 20px;
+	font-size: 16px;
 }
 .classname{
-	    color: #cab6b6;
-    text-decoration: none;
-    text-align: left;
-    /* width: 100%; */
-    display: inline-block;
-    width: 100%;
-    padding: 3px 40px;
-    font-size: 12px;
+	color: #cab6b6;
+	text-decoration: none;
+	text-align: left;
+	/* width: 100%; */
+	display: inline-block;
+	width: 100%;
+	padding: 3px 40px;
+	font-size: 12px;
 }
 .classname:hover{
 	text-decoration: none;
@@ -151,7 +167,7 @@ video{
 }
 .ico1{
 	font-size: 1px;
-    padding-right: 5px;
+	padding-right: 5px;
 }
 .ico2{
 	font-size: 1px;
@@ -159,27 +175,27 @@ video{
 }
 .name-catalogue{
 	display: block;
-    text-align: left;
-    padding: 10px 20px;
-    border-bottom: 1px solid #403e3e;
+	text-align: left;
+	padding: 10px 20px;
+	border-bottom: 1px solid #403e3e;
 }
 .popbox{
 	position: fixed;
-    top: 40%;
-    left: 29%;
-    width: 600px;
-    border-radius: 8px;
-    background: #fff;
-    box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
-    display: none;
+	top: 40%;
+	left: 29%;
+	width: 600px;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 8px 0 16px 0 rgba(7,17,27,0.2);
+	display: none;
 }
 .popboxhead{
 	padding: 24px 32px 0;
 }
 .control-click{
 	font-size: 16px;
-    font-weight: bold;
-    color: #07111b;
+	font-weight: bold;
+	color: #07111b;
 }
 .text{
 	padding: 20px 0;
@@ -206,38 +222,44 @@ video{
 	margin-left: 60px;
 }
 .commentbox{
-	    padding: 0;
+	padding: 0;
 }
 .commentbox li{
 	padding: 20px 24px;
-    border-bottom: 1px solid #d9dde1;
+	border-bottom: 1px solid #d9dde1;
 }
 .comment .username{
 	margin-bottom: 6px;
 }
 .comment .username a{
 	font-size: 14px;
-    color: #736666;
-    font-weight: 700;
+	color: #736666;
+	font-weight: 700;
 }
 .comment .username a:hover{
 	text-decoration: none;
 }
 .publish-time{
 	font-size: 12px;
-    color: #93999f;
-    float: left;
+	color: #93999f;
+	float: left;
 }
 .time-good, .allreply{
-	    margin-top: 8px;
+	margin-top: 8px;
 }
 .same{
 	padding-left: 10px;
 }
-.click-good, .reply, .same{
+.click-good, .reply, .same, .collect{
 	float: right;
 	font-size: 12px;
-    color: #93999f;
+	color: #93999f;
+}
+.collect{
+	padding-right: 15px;
+}
+.collect:hover{
+	text-decoration: none;
 }
 .click-good:hover{
 	text-decoration: none;
@@ -249,8 +271,41 @@ video{
 	text-decoration: none;
 }
 .replybox{
-	    margin-top: 20px;
-	    margin-left: 60px;
-	    display: none;
-/*	    display: none;
-*/}
+	margin-top: 20px;
+	margin-left: 60px;
+	display: none;
+	/*	    display: none;
+    */}
+
+
+.useradmin{
+	display: inline-block;
+	float: left;
+}
+.commentinput{
+	margin-left: 80px;
+}
+.commentinput button{
+	float: right;
+}
+.commentpublicbox{
+	padding: 40px 20px 20px 24px;
+	border-bottom: 1px solid #d9dde1;
+}
+.useradmin img{
+	border-radius: 50%;
+}
+.click-good-on, .collect-on{
+	color: #ff0505;
+	font-weight: bold;
+}
+/*a:visited{
+	text-decoration: none;
+	color: #ff0505;
+}*/
+.click-good{
+	cursor: pointer;
+}
+.collect:hover{
+	cursor: pointer;
+}

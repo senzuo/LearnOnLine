@@ -19,5 +19,13 @@ public class SectionService {
         return sectionMapper.getSectionsByChapterId(id);
     }
 
+    public void addSection(Section section) {
+        sectionMapper.insertSelective(section);
+    }
+
+    public void DeleteSection(int sectionId) {
+        sectionMapper.deleteByPrimaryKey(sectionId);
+    }
+
 
 }

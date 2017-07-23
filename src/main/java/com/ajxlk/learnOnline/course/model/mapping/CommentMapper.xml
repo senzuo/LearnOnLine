@@ -4,14 +4,14 @@
   <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Comment" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="ReviewerId" property="reviewerid" jdbcType="INTEGER" />
-    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="reviewer_id" property="reviewerid" jdbcType="INTEGER" />
+    <result column="create_time" property="createtime" jdbcType="TIMESTAMP" />
     <result column="zan" property="zan" jdbcType="INTEGER" />
-    <result column="SectionId" property="sectionid" jdbcType="INTEGER" />
+    <result column="section_id" property="sectionid" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, pid, ReviewerId, createtime, zan, SectionId, content
+    id, pid, reviewer_id, create_time, zan, section_id, content
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,8 +24,8 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Comment" >
-    insert into tb_comment (id, pid, ReviewerId, 
-      createtime, zan, SectionId, 
+    insert into tb_comment (id, pid, reviewer_id,
+      create_time, zan, section_id,
       content)
     values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{reviewerid,jdbcType=INTEGER}, 
       #{createtime,jdbcType=TIMESTAMP}, #{zan,jdbcType=INTEGER}, #{sectionid,jdbcType=INTEGER}, 
@@ -41,16 +41,16 @@
         pid,
       </if>
       <if test="reviewerid != null" >
-        ReviewerId,
+        reviewer_id,
       </if>
       <if test="createtime != null" >
-        createtime,
+        create_time,
       </if>
       <if test="zan != null" >
         zan,
       </if>
       <if test="sectionid != null" >
-        SectionId,
+        section_id,
       </if>
       <if test="content != null" >
         content,
@@ -87,16 +87,16 @@
         pid = #{pid,jdbcType=INTEGER},
       </if>
       <if test="reviewerid != null" >
-        ReviewerId = #{reviewerid,jdbcType=INTEGER},
+        reviewer_id = #{reviewerid,jdbcType=INTEGER},
       </if>
       <if test="createtime != null" >
-        createtime = #{createtime,jdbcType=TIMESTAMP},
+        create_time = #{createtime,jdbcType=TIMESTAMP},
       </if>
       <if test="zan != null" >
         zan = #{zan,jdbcType=INTEGER},
       </if>
       <if test="sectionid != null" >
-        SectionId = #{sectionid,jdbcType=INTEGER},
+        section_id = #{sectionid,jdbcType=INTEGER},
       </if>
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
@@ -107,15 +107,15 @@
   <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Comment" >
     update tb_comment
     set pid = #{pid,jdbcType=INTEGER},
-      ReviewerId = #{reviewerid,jdbcType=INTEGER},
-      createtime = #{createtime,jdbcType=TIMESTAMP},
+      reviewer_id = #{reviewerid,jdbcType=INTEGER},
+      create_time = #{createtime,jdbcType=TIMESTAMP},
       zan = #{zan,jdbcType=INTEGER},
-      SectionId = #{sectionid,jdbcType=INTEGER},
+      section_id = #{sectionid,jdbcType=INTEGER},
       content = #{content,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
   <select id="getCommentBySectionId" resultMap="BaseResultMap" resultType="java.lang.Integer">
-    SELECT * FROM tb_comment WHERE SectionId = #{SectionId,jdbcType=INTEGER}
+    SELECT * FROM tb_comment WHERE section_id = #{SectionId,jdbcType=INTEGER}
   </select>
 </mapper>

@@ -10,12 +10,20 @@ $(".close").click(function(){
 $("#popbg").click(function(){
 	$("#popbg").fadeOut("slow");
 	$(".addcoursepop").fadeOut("slow");
-	$(".warning").fadeOut();
+	$(".sectionwarning").fadeOut("slow");
+    $(".nodewarning").fadeOut("slow");
 	$(".addsectionpop").fadeOut("slow");
 	$(".addnodepop").fadeOut("slow");
+    $(".editnodepop").fadeOut("slow");
 	$(".addnodedetailpop").fadeOut("slow");
+    $(".editnodedetailpop").fadeOut("slow");
+
+    $(".warning").fadeOut("slow");
 });
+
+
 $("#del").click(function(){
+	alert("fffff");
 	$("#popbg").fadeToggle();
 	$(".warning").fadeToggle();
 });

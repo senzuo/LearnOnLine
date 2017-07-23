@@ -4,52 +4,50 @@ import java.util.Date;
 import java.util.List;
 
 public class Course {
-    private Integer courseid;
+    private Integer courseId;
 
-    private String coursename;
+    private String courseName;
 
     private String description;
 
-    private Date createtime;
+    private Date createTime;
 
     private Integer duration;
 
     private String difficulty;
 
-    private String coursecoverurl;
+    private String courseCoverUrl;
 
-    private Integer teacherid;
+    private Integer teacherId;
 
     private Integer hits;
 
-    private Integer scorenumber;
+    private Integer scoreNumber;
 
-    private Integer totalscore;
+    private Integer totalScore;
 
     private List<Chapter> chapters;
 
-    public List<Chapter> getChapters() {
-        return chapters;
+    private String teacherName;
+
+    private int categoryId;
+
+    private String category_name;
+
+    public Integer getCourseId() {
+        return courseId;
     }
 
-    public void setChapters(List<Chapter> chapters) {
-        this.chapters = chapters;
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
     }
 
-    public Integer getCourseid() {
-        return courseid;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setCourseid(Integer courseid) {
-        this.courseid = courseid;
-    }
-
-    public String getCoursename() {
-        return coursename;
-    }
-
-    public void setCoursename(String coursename) {
-        this.coursename = coursename == null ? null : coursename.trim();
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getDescription() {
@@ -57,15 +55,15 @@ public class Course {
     }
 
     public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+        this.description = description;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public Date getCreateIime() {
+        return createTime;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setCreateIime(Date createIime) {
+        this.createTime = createIime;
     }
 
     public Integer getDuration() {
@@ -81,23 +79,23 @@ public class Course {
     }
 
     public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty == null ? null : difficulty.trim();
+        this.difficulty = difficulty;
     }
 
-    public String getCoursecoverurl() {
-        return coursecoverurl;
+    public String getCourseCoverUrl() {
+        return courseCoverUrl;
     }
 
-    public void setCoursecoverurl(String coursecoverurl) {
-        this.coursecoverurl = coursecoverurl == null ? null : coursecoverurl.trim();
+    public void setCourseCoverUrl(String courseCoverUrl) {
+        this.courseCoverUrl = courseCoverUrl;
     }
 
     public Integer getTeacherid() {
-        return teacherid;
+        return teacherId;
     }
 
     public void setTeacherid(Integer teacherid) {
-        this.teacherid = teacherid;
+        this.teacherId = teacherid;
     }
 
     public Integer getHits() {
@@ -108,19 +106,72 @@ public class Course {
         this.hits = hits;
     }
 
-    public Integer getScorenumber() {
-        return scorenumber;
+    public Integer getScoreNumber() {
+        return scoreNumber;
     }
 
-    public void setScorenumber(Integer scorenumber) {
-        this.scorenumber = scorenumber;
+    public void setScoreNumber(Integer scoreNumber) {
+        this.scoreNumber = scoreNumber;
     }
 
-    public Integer getTotalscore() {
-        return totalscore;
+    public Integer getTotalScore() {
+        return totalScore;
     }
 
-    public void setTotalscore(Integer totalscore) {
-        this.totalscore = totalscore;
+    public void setTotalScore(Integer totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public int getCategory_id() {
+        return categoryId;
+    }
+
+    public void setCategory_id(int category_id) {
+        this.categoryId = category_id;
+    }
+
+    public String getCategory_name() {
+        return category_name;
+    }
+
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", courseName='" + courseName + '\'' +
+                ", description='" + description + '\'' +
+                ", createTime=" + createTime +
+                ", duration=" + duration +
+                ", difficulty='" + difficulty + '\'' +
+                ", courseCoverUrl='" + courseCoverUrl + '\'' +
+                ", teacherId=" + teacherId +
+                ", hits=" + hits +
+                ", scoreNumber=" + scoreNumber +
+                ", totalScore=" + totalScore +
+                ", chapters=" + chapters +
+                ", teacherName='" + teacherName + '\'' +
+                ", categoryId=" + categoryId +
+                ", category_name='" + category_name + '\'' +
+                '}';
     }
 }

@@ -7,17 +7,17 @@ li{
 
 
 .foot{
-	    width: 100%;
-    height: 120px;
-     background: #2f2e2e;     
-     padding: 10px 20px;
+	width: 100%;
+	height: 120px;
+	background: #2f2e2e;
+	padding: 10px 20px;
 }
 .clear{
 	clear: both;
 }
 .icobox{
 	width: 240px;
-    margin: 0 auto;
+	margin: 0 auto;
 }
 .icolist{
 	margin-left: 16px;
@@ -30,25 +30,25 @@ li{
 	margin: 0 auto;
 }
 .linklist{
-	    padding: 10px;
+	padding: 10px;
 }
 .linklist a{
 	font-size: 14px;
-    color: #c3bfbf;
-    font-family: "宋体";
+	color: #c3bfbf;
+	font-family: "宋体";
 }
 .linklist a:hover{
 	text-decoration: none;
 }
 .copy{
 	text-align: center;
-	    border-top: 1px solid #fff;
-    padding: 5px;
-    /* width: 80%; */
-    margin: 0 auto;
+	border-top: 1px solid #fff;
+	padding: 5px;
+	/* width: 80%; */
+	margin: 0 auto;
 }
 .copy span{
 	font-size: 14px;
-    color: #c3bfbf;
-    font-family: "宋体";
+	color: #c3bfbf;
+	font-family: "宋体";
 }

@@ -6,6 +6,8 @@ import com.ajxlk.learnOnline.course.model.Section;
 import com.ajxlk.learnOnline.course.service.ChapterService;
 import com.ajxlk.learnOnline.course.service.CourseService;
 import com.ajxlk.learnOnline.course.service.SectionService;
+import com.ajxlk.learnOnline.user.model.Teacher;
+import com.ajxlk.learnOnline.user.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,9 @@ public class CourseController {
     @Autowired
     private SectionService sectionService;
 
+    @Autowired
+    private TeacherService teacherService;
+
     @RequestMapping("/{courseId}")
     public String test(@PathVariable(value = "courseId") int courseId, Model model) {
 
@@ -46,10 +51,20 @@ public class CourseController {
             List<Section> sections = sectionService.getSectionsByChapterId(index);
             chapter.setSections(sections);
         }
-        course.setChapters(chapters);
+        if (chapters != null) {
+            course.setChapters(chapters);
+        }
+
+
 
         model.addAttribute("course",course);
 
         return "course/courseDetail";
+    }
+
+    @RequestMapping("/getAllCourse")
+    @ResponseBody
+    public List<Course> getCourse() {
+         return courseService.getAllCourse();
     }
 }

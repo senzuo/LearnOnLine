@@ -85,7 +85,7 @@ function addUser() {
     $.post("/usertest",
         {
             name: $("#txt_user_name_add").val(),
-            pwd: $("#txt_user_pwd_add").val(),
+            pwd: $("#txt_user_pwd_add").val()
         },
         function (data, status) {
             if (status != "success") {

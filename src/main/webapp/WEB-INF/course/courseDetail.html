@@ -2,22 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${course.coursename}"></title>
+    <title th:text="${course.courseName}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--引入CSS-->
-    <link href="/ajxlk/toastr/toastr.css">
-    <link rel="stylesheet" type="text/css" href="/css/player.css">
-
 
     <!-- 引入 Bootstrap -->
     <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
     <script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="/js/player.js"></script>
-    <script src="/ajxlk/toastr/toastr.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="/css/player.css">
+    <script src="/js/player.js"></script>
 
     <!-- <script type="text/javascript" src="js/player.js"></script> -->
     <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
@@ -25,8 +20,6 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-
-
     <![endif]-->
 
 </head>
@@ -34,15 +27,12 @@
 <div class="cont">
     <!-- 头部导航 -->
     <div class="head">
-
         <div class="pre">
-            <img src="/img/Player/back.png" class="back">
+            <img src="../img/Player/back.png" class="back">
         </div>
 
         <div class="coursename">
-				<span class="name">
-                    <span th:text="${course.coursename}"></span>
-                    <span id = "courseid" th:text="${course.courseid}"></span>
+				<span th:text="${course.courseName}" class="name">
 				</span>
             <span class="section">
 					第X章-第X节
@@ -52,21 +42,20 @@
             <ul class="list">
                 <li class="list0">分享</li>
                 <li class="list1">
-                    <a href=""><img src="/img/Player/qq.png"></a>
+                    <a href=""><img src="../img/Player/QQ.png"></a>
                 </li>
                 <li class="list2">
-                    <a href=""><img src="/img/Player/wechat.png"></a>
+                    <a href=""><img src="../img/Player/wechat.png"></a>
                 </li>
                 <li class="list3">
-                    <a href=""><img src="/img/Player/weibo.png"></a>
+                    <a href=""><img src="../img/Player/weibo.png"></a>
                 </li>
                 <div style="clear: both;"></div>
             </ul>
         </div>
         <div class="logoarea">
             <a href="">
-                <span  id = "stuid">1</span>
-                <img src="/img/Player/user.jpg" class="logo">
+                <img src="../img/Player/user.jpg" class="logo">
             </a>
         </div>
         <div style="clear: both;"></div>
@@ -75,39 +64,42 @@
     <div class="player">
         <div class="vedio">
             <video width="320" height="240" controls="controls">
-                <source src="/movie/test.mp4" type="video/mp4">
+                <source src="../movie/test.ogg" type="video/ogg">
+                <source src="../movie/test.mp4" type="video/mp4">
             </video>
 
             <!-- 控制条 -->
             <ul class="tabs">
                 <li>
-                    <span href="" id="section"><img src="/img/Player/section.png"></span>
+                    <span href="" id="section"><img src="../img/Player/section.png"></span>
                 </li>
                 <li>
-                    <span href="" id="note"><img src="/img/Player/note.png" class="opennote"></span>
+                    <span href="" id="note"><img src="../img/Player/note.png" class="opennote"></span>
                 </li>
                 <li>
-                    <span href="" id="question"><img src="/img/Player/question.png" class="openquestion"></span>
+                    <span href="" id="question"><img src="../img/Player/question.png" class="openquestion"></span>
                 </li>
             </ul>
         </div>
         <div class="control">
             <!-- 目录 -->
             <div class="catalogue">
-                <span class="name name-catalogue" th:text="${course.coursename}"></span>
-                <div class="section1" th:each="chapter : ${course.chapters}">
-                    <h4 class="sectionname" th:text="${chapter.chaptername}">
+						<span th:text="${course.courseName}" class="name name-catalogue">
+						</span>
+                <div th:each="chapter : ${course.chapters}" class="section1">
+                    <h4 th:text="${chapter.chaptername}" class="sectionname">
                     </h4>
                     <div th:each="section : ${chapter.sections}">
-
                         <a href="" class="classname">
                             <span class="glyphicon glyphicon-play ico1"></span>
-                            <span th:text="${section.sectionname}"></span>
+                            <span th:text="${section.sectionname}"/>
                             <span class="glyphicon glyphicon-play-circle ico2"></span>
                         </a>
                     </div>
+
                 </div>
             </div>
+
         </div>
 
         <div class="popbox notebox">
@@ -156,13 +148,6 @@
         <div class="row">
             <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
                 <div class="col-md-8 col-sm-8">
-                    <div id="inputt" >
-                        <form >
-                            <input type="text" id = "addContent" value="提交"/>
-                            <button onclick="addFormInfo()">提交</button>
-                        </form>
-
-                    </div>
                     <div class="contain">
                         <ul id="myTab" class="nav nav-tabs">
                             <li class="active">
@@ -174,46 +159,171 @@
                             <li><a href="#notes" data-toggle="tab" class="tabstyle">笔记</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-
-                            <!--课程评论-->
                             <div class="tab-pane fade in active" id="comment">
+                                <div class="commentpublicbox">
+                                    <div class="useradmin">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <form role="form" class="commentinput">
+                                        <div class="form-group">
+                                            <textarea class="form-control" rows="3" placeholder="请输入评论···"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-default">发表评论</button>
+                                    </form>
+                                    <div class="clear"></div>
+                                </div>
+                                <ul class="commentbox">
+                                </ul>
                             </div>
 
                             <div class="tab-pane fade" id="quest-answ">
-                                <ul class="commentbox" id="commentnum">
+                                <!--<ul class="commentbox" id="commentnum">-->
+                                    <!--<li class="commentlist">-->
+                                        <!--<div class="userlist">-->
+                                            <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                        <!--</div>-->
+                                        <!--<div class="comment">-->
+                                            <!--<div class="username">-->
+                                                <!--<a href="#">用户4</a>-->
+                                            <!--</div>-->
+                                            <!--<div class="commentwords">-->
+                                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                            <!--</div>-->
+                                            <!--<div class="allreply">-->
+                                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                                <!--<a href="#" class="same">同问 5</a>-->
+                                                <!--<span href="#" class="reply">回复 30</span>-->
+                                                <!--<div style="clear: both;"></div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<ul>-->
+                                            <!--<li class="commentlist" style="padding: 20px 0;border-style: none;">-->
+                                                <!--<div class="userlist">-->
+                                                    <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                                <!--</div>-->
+                                                <!--<div class="comment">-->
+                                                    <!--<div class="username">-->
+                                                        <!--<a href="#">用户4</a>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="commentwords">-->
+                                                        <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                                    <!--</div>-->
+                                                    <!--<div class="allreply">-->
+                                                        <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                                        <!--<span href="#" class="reply">回复 30</span>-->
+                                                        <!--<div style="clear: both;"></div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="replybox">-->
+                                                    <!--<form role="form">-->
+                                                        <!--<div class="form-group">-->
+                                                            <!--<textarea class="form-control" rows="3"></textarea>-->
+                                                        <!--</div>-->
+                                                        <!--<button type="submit" class="btn btn-default"-->
+                                                                <!--style="float: right;">回复-->
+                                                        <!--</button>-->
+                                                    <!--</form>-->
+                                                <!--</div>-->
+                                                <!--<div style="clear: both;"></div>-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                        <!--<div class="replybox">-->
+                                            <!--<form role="form">-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<textarea class="form-control" rows="3"></textarea>-->
+                                                <!--</div>-->
+                                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
+                                                <!--</button>-->
+                                            <!--</form>-->
+                                        <!--</div>-->
+                                        <!--<div style="clear: both;"></div>-->
+                                    <!--</li>-->
+                                    <!--<li class="commentlist">-->
+                                        <!--<div class="userlist">-->
+                                            <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                        <!--</div>-->
+                                        <!--<div class="comment">-->
+                                            <!--<div class="username">-->
+                                                <!--<a href="#">用户1</a>-->
+                                            <!--</div>-->
+                                            <!--<div class="commentwords">-->
+                                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                            <!--</div>-->
+                                            <!--<div class="allreply">-->
+                                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                                <!--<a href="#" class="same">同问 5</a>-->
+                                                <!--<span href="#" class="reply">回复 3</span>-->
+                                                <!--<div style="clear: both;"></div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="replybox">-->
+                                            <!--<form role="form">-->
+                                                <!--<div class="form-group">-->
+                                                    <!--<textarea class="form-control" rows="3"></textarea>-->
+                                                <!--</div>-->
+                                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
+                                                <!--</button>-->
+                                            <!--</form>-->
+                                        <!--</div>-->
+                                        <!--<div style="clear: both;"></div>-->
+                                    <!--</li>-->
+
+                                <!--</ul>-->
+                            </div>
+
+                            <div class="tab-pane fade" id="notes">
+                                <ul class="commentbox">
                                     <li class="commentlist">
                                         <div class="userlist">
-                                            <a href=""><img src="/img/Player/user.jpg"></a>
+                                            <a href="#"><img src="../img/Player/user.jpg"></a>
                                         </div>
                                         <div class="comment">
                                             <div class="username">
-                                                <a href="">用户1</a>
+                                                <a href="#">用户1</a>
                                             </div>
                                             <div class="commentwords">
                                                 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
                                             </div>
-                                            <div class="allreply">
+                                            <div class="time-good">
                                                 <span class="publish-time">时间: 2016-03-12</span>
-                                                <a href="" class="same">同问 5</a>
-                                                <span href="" class="reply">回复 30</span>
+                                                <span href="#" class="click-good"><span
+                                                        class="glyphicon glyphicon-thumbs-up"></span><span
+                                                        class="goodnum">30</span></span>
+                                                <span href="#" class="collect">收藏 <span
+                                                        class="glyphicon glyphicon-heart-empty"></span></span>
+
                                                 <div style="clear: both;"></div>
                                             </div>
                                         </div>
-                                        <div class="replybox">
-                                            <form role="form">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" rows="3"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-default" style="float: right;">回复
-                                                </button>
-                                            </form>
+                                        <div style="clear: both;"></div>
+                                    </li>
+                                    <li class="commentlist">
+                                        <div class="userlist">
+                                            <a href="#"><img src="../img/Player/user.jpg"></a>
+                                        </div>
+                                        <div class="comment">
+                                            <div class="username">
+                                                <a href="#">用户2</a>
+                                            </div>
+                                            <div class="commentwords">
+                                                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                            </div>
+                                            <div class="time-good">
+                                                <span class="publish-time">时间: 2016-03-12</span>
+                                                <span href="#" class="click-good"><span
+                                                        class="glyphicon glyphicon-thumbs-up"></span><span
+                                                        class="goodnum">30</span></span>
+                                                <span href="#" class="collect">收藏 <span
+                                                        class="glyphicon glyphicon-heart-empty"></span></span>
+
+                                                <div style="clear: both;"></div>
+                                            </div>
                                         </div>
                                         <div style="clear: both;"></div>
                                     </li>
+
+
                                 </ul>
-                            </div>
-                            <div class="tab-pane fade" id="notes">
-                                <p>笔记</p>
                             </div>
                         </div>
                     </div>
@@ -226,7 +336,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
@@ -244,7 +353,7 @@
             url: "/course/" + courseid + "/form/add",
             type: "post",
             data: {
-                content:content,
+                content: content,
                 stuid: stuid
             },
             success: function (data, status) {
@@ -269,6 +378,93 @@
 
     }
 
+    /**
+     *  加载问答
+     */
+    $(function () {
+        var sectionId = 1;
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "/course/" + sectionId + "/quesAns",
+            success: function (data) {
+                var quanAns = '<ul class="commentbox" id="commentnum">';
+                for (var i = 0; i < data.length; i++) {
+
+                    quanAns +=
+                        '<li class="commentlist">' +
+                            '<div class="userlist">' +
+                                '<a href=""><img src="' + data[i].stu["stuiconurl"] + '"></a>' +
+                            '</div>' +
+                            '<div class="comment">' +
+                                '<div class="username">' +
+                                    '<a href="' + data[i].stu["stuname"] +'"></a>' +
+                                '</div>' +
+                            '<div class="commentwords">' + data[i]["content"] +'</div>' +
+
+                            '<div class="allreply">' +
+                                '<span class="publish-time">' + data[i]["createTime"] +'</span>' +
+                                '<a href="" class="same">同问' + data[i]["zan"] + '</a>' +
+                                '<span href="" class="reply">回复</span>'+
+                                '<div style="clear: both;"></div>'+
+                            '</div>' +
+                        '<ul>';
+                    for (var j = 0; j < data[i].subQuesAnss.length; j++){
+                        quanAns +=
+                            '<li class="commentlist" style="padding: 20px 0;border-style: none;">' +
+                                '<div class="userlist">' +
+                                    '<a href="#">' +
+                                        '<img src="' + data[i].subQuesAnss[j].stu["stuiconurl"] +'"/>' +
+                                    '</a>' +
+                                '</div>' +
+                            '<div class="comment">' +
+                                '<div class="username">' +
+                                    '<a href="#">' + data[i].subQuesAnss[j].stu["stuname"] + '</a>' +
+                                '</div>' +
+                            '<div class="commentwords">' +
+                                    data[i].subQuesAnss[j]["content"] +
+                            '</div>' +
+                            '<div class="allreply">' +
+                            '<span class="publish-time">时间:' + data[i].subQuesAnss[j]["createTime"] + '</span>' +
+                            '<span href="#" class="reply">回复 30</span>' +
+                            '<div style="clear: both;"></div>' +
+                            '</div>' +
+                            '</div>' + '<div class="replybox">'+
+                            '<form role="form">'+
+                            ' <div class="form-group">'+
+                            '<textarea class="form-control" rows="3"></textarea>'+
+                            '</div>'+
+                            '<button type="submit" class="btn btn-default" style="float: right;">回复</button>'+
+                            '</form>'+
+                            '</div>'+
+                            '<div style="clear: both;"></div>' +
+                            '</li>'
+                    }
+                    quanAns +=
+                        '</ul>' +
+                        '<div class="replybox">' +
+                            '<form role="form">' +
+                                '<div class="form-group">' +
+                                    '<textarea class="form-control" rows="3"></textarea>' +
+                                '</div>' +
+                                 ' <button type="submit" class="btn btn-default" style="float: right;">回复</button>' +
+                            '</form>' +
+                        '</div>' +
+                        '<div style="clear: both;"></div></li>';
+                }
+                quanAns += '</ul>'
+                $('#quest-answ').append(quanAns);
+            },
+            error: function (err) {
+                alert("通讯失败。");
+            }
+        });
+    });
+
+
+    /**
+     * 加载评论
+     */
     $(function () {
         $.ajax({
             type: "get",
@@ -279,23 +475,26 @@
                 var comment = ' <ul class="commentbox">';
                 for (var i = 0; i < data.length; i++) {
                     comment += "<li class='commentlist'>" +
-                            '<div class="userlist">' +
-                            '<a href=""><img src=' + data[i].stu["stuiconurl"] + '></a>' +
-                            ' </div>' +
-                            '<div class="comment">' +
-                            ' <div class="username">' +
-                            '<a href="">' + data[i].stu["stuname"] + '</a>' +
-                            '</div>' +
-                            '<div class="commentwords">' + data[i].comment["content"] +
-                            '</div>' +
-                            ' <div class="time-good">' +
-                            '<span class="publish-time">时间:'+ data[i].comment["createtime"] + '</span>' +
-                            '<a href="" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span>' + data[i].comment["zan"] + '</a>' +
-                            '<div style="clear: both;"></div>' +
-                            '</div></div><div style="clear: both;"></div></li>'
+                        '<div class="userlist">' +
+                        '<a href=""><img src=' + data[i].stu["stuiconurl"] + 'class="userhead"' + '></a>' +
+                        ' </div>' +
+                        '<div class="comment">' +
+                        ' <div class="username">' +
+                        '<a href="">' + data[i].stu["stuname"] + '</a>' +
+                        '</div>' +
+                        '<div class="commentwords">' + data[i].comment["content"] +
+                        '</div>' +
+                        ' <div class="time-good">' +
+                        '<span class="publish-time">时间:' + data[i].comment["createtime"] + '</span>' +
+                        '<a href="" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span>' + data[i].comment["zan"] + '</a>' +
+                        '<div style="clear: both;"></div>' +
+                        '</div></div><div style="clear: both;"></div></li>'
                 }
                 comment += '</ul>';
-               $('#comment').append(comment);
+                $('#comment').append(comment);
+//                window.location.reload();
+//                $("#comment").html();//要刷新的div
+                return true;
             },
             error: function (err) {
                 Y.alert("通讯失败。");
@@ -303,7 +502,6 @@
         });
 
     });
-
 
 
 </script>

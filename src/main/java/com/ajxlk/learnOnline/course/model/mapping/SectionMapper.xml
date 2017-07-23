@@ -2,27 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ajxlk.learnOnline.course.dao.SectionMapper" >
   <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Section" >
-    <id column="SectionId" property="sectionid" jdbcType="INTEGER" />
-    <result column="ChapterId" property="chapterid" jdbcType="INTEGER" />
-    <result column="SectionName" property="sectionname" jdbcType="VARCHAR" />
-    <result column="SectionDuration" property="sectionduration" jdbcType="INTEGER" />
+    <id column="section_id" property="sectionid" jdbcType="INTEGER" />
+    <result column="chapter_id" property="chapterid" jdbcType="INTEGER" />
+    <result column="section_name" property="sectionname" jdbcType="VARCHAR" />
+    <result column="section_duration" property="sectionduration" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    SectionId, ChapterId, SectionName, SectionDuration
+    section_id, chapter_id, section_name, section_duration
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from tb_section
-    where SectionId = #{sectionid,jdbcType=INTEGER}
+    where section_id = #{sectionid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_section
-    where SectionId = #{sectionid,jdbcType=INTEGER}
+    where section_id = #{sectionid,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Section" >
-    insert into tb_section (SectionId, ChapterId, SectionName, 
-      SectionDuration)
+    insert into tb_section (section_id, chapter_id, section_name,
+      section_duration)
     values (#{sectionid,jdbcType=INTEGER}, #{chapterid,jdbcType=INTEGER}, #{sectionname,jdbcType=VARCHAR}, 
       #{sectionduration,jdbcType=INTEGER})
   </insert>
@@ -30,16 +30,16 @@
     insert into tb_section
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="sectionid != null" >
-        SectionId,
+        section_id,
       </if>
       <if test="chapterid != null" >
-        ChapterId,
+        chapter_id,
       </if>
       <if test="sectionname != null" >
-        SectionName,
+        section_name,
       </if>
       <if test="sectionduration != null" >
-        SectionDuration,
+        section_duration,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -61,30 +61,30 @@
     update tb_section
     <set >
       <if test="chapterid != null" >
-        ChapterId = #{chapterid,jdbcType=INTEGER},
+        chapter_id = #{chapterid,jdbcType=INTEGER},
       </if>
       <if test="sectionname != null" >
-        SectionName = #{sectionname,jdbcType=VARCHAR},
+        section_name = #{sectionname,jdbcType=VARCHAR},
       </if>
       <if test="sectionduration != null" >
-        SectionDuration = #{sectionduration,jdbcType=INTEGER},
+        section_duration = #{sectionduration,jdbcType=INTEGER},
       </if>
     </set>
-    where SectionId = #{sectionid,jdbcType=INTEGER}
+    where section_id = #{sectionid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Section" >
     update tb_section
-    set ChapterId = #{chapterid,jdbcType=INTEGER},
-      SectionName = #{sectionname,jdbcType=VARCHAR},
-      SectionDuration = #{sectionduration,jdbcType=INTEGER}
-    where SectionId = #{sectionid,jdbcType=INTEGER}
+    set chapter_id = #{chapterid,jdbcType=INTEGER},
+      section_name = #{sectionname,jdbcType=VARCHAR},
+      section_duration = #{sectionduration,jdbcType=INTEGER}
+    where section_id = #{sectionid,jdbcType=INTEGER}
   </update>
 
   <select id="getSectionsByChapterId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
     select
     <include refid="Base_Column_List" />
     from tb_section
-    where ChapterId = #{chapterid,jdbcType=INTEGER}
+    where chapter_id = #{chapterid,jdbcType=INTEGER}
   </select>
 
 </mapper>

@@ -2,6 +2,8 @@ package com.ajxlk.learnOnline.user.dao;
 
 import com.ajxlk.learnOnline.user.model.Teacher;
 
+import java.util.List;
+
 public interface TeacherMapper {
     int deleteByPrimaryKey(Integer teacherid);
 
@@ -14,4 +16,6 @@ public interface TeacherMapper {
     int updateByPrimaryKeySelective(Teacher record);
 
     int updateByPrimaryKey(Teacher record);
+
+    List<Teacher> getAllTeacher();
 }
