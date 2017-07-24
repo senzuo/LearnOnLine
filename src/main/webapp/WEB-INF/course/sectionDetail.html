@@ -32,6 +32,8 @@
         </div>
 
         <div class="coursename">
+                <!--列出sectionId-->
+                <span th:text="${section.sectionid}" style="display: none" id="section_Id"></span>
 				<span th:text="${course.courseName}" class="name">
 				</span>
             <span class="section">
@@ -64,8 +66,11 @@
     <!-- 播放器 -->
     <div class="player">
         <div class="vedio">
+            <span th:text="${video.videoName}"></span>
+            <span th:text="${video.url}" id="video_url"></span>
+
             <video width="320" height="240" controls="controls">
-                <source src="../movie/test.mp4" type="video/mp4">
+                <source src="../movie/test.mp4"  type="video/mp4" id="video">
             </video>
 
             <!-- 控制条 -->
@@ -177,98 +182,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="quest-answ">
-                                <!--<ul class="commentbox" id="commentnum">-->
-                                <!--<li class="commentlist">-->
-                                <!--<div class="userlist">-->
-                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                <!--</div>-->
-                                <!--<div class="comment">-->
-                                <!--<div class="username">-->
-                                <!--<a href="#">用户4</a>-->
-                                <!--</div>-->
-                                <!--<div class="commentwords">-->
-                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                <!--</div>-->
-                                <!--<div class="allreply">-->
-                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                <!--<a href="#" class="same">同问 5</a>-->
-                                <!--<span href="#" class="reply">回复 30</span>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--<ul>-->
-                                <!--<li class="commentlist" style="padding: 20px 0;border-style: none;">-->
-                                <!--<div class="userlist">-->
-                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                <!--</div>-->
-                                <!--<div class="comment">-->
-                                <!--<div class="username">-->
-                                <!--<a href="#">用户4</a>-->
-                                <!--</div>-->
-                                <!--<div class="commentwords">-->
-                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                <!--</div>-->
-                                <!--<div class="allreply">-->
-                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                <!--<span href="#" class="reply">回复 30</span>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="replybox">-->
-                                <!--<form role="form">-->
-                                <!--<div class="form-group">-->
-                                <!--<textarea class="form-control" rows="3"></textarea>-->
-                                <!--</div>-->
-                                <!--<button type="submit" class="btn btn-default"-->
-                                <!--style="float: right;">回复-->
-                                <!--</button>-->
-                                <!--</form>-->
-                                <!--</div>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</li>-->
-                                <!--</ul>-->
-                                <!--<div class="replybox">-->
-                                <!--<form role="form">-->
-                                <!--<div class="form-group">-->
-                                <!--<textarea class="form-control" rows="3"></textarea>-->
-                                <!--</div>-->
-                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
-                                <!--</button>-->
-                                <!--</form>-->
-                                <!--</div>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</li>-->
-                                <!--<li class="commentlist">-->
-                                <!--<div class="userlist">-->
-                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                <!--</div>-->
-                                <!--<div class="comment">-->
-                                <!--<div class="username">-->
-                                <!--<a href="#">用户1</a>-->
-                                <!--</div>-->
-                                <!--<div class="commentwords">-->
-                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                <!--</div>-->
-                                <!--<div class="allreply">-->
-                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                <!--<a href="#" class="same">同问 5</a>-->
-                                <!--<span href="#" class="reply">回复 3</span>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="replybox">-->
-                                <!--<form role="form">-->
-                                <!--<div class="form-group">-->
-                                <!--<textarea class="form-control" rows="3"></textarea>-->
-                                <!--</div>-->
-                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
-                                <!--</button>-->
-                                <!--</form>-->
-                                <!--</div>-->
-                                <!--<div style="clear: both;"></div>-->
-                                <!--</li>-->
 
-                                <!--</ul>-->
                             </div>
 
                             <div class="tab-pane fade" id="notes">
@@ -342,15 +256,24 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function () {
+        var url = document.getElementById('video_url').innerHTML;
+        alert(url);
+        var el = document.getElementsById('video');
+        el.setAttribute('src',url)
+    });
+
+    var section_Id = $('#section_Id').text();
+
     /**
      * 添加评论
      */
     function addFormInfo() {
-        var courseid = document.getElementById("courseid").innerText;
+        alert(section_Id);
         var stuid = document.getElementById("stuid").innerText;
         var content = $("#addContent").val();
         $.ajax({
-            url: "/course/" + courseid + "/form/add",
+            url: "/course/" + section_Id + "/form/add",
             type: "post",
             data: {
                 content: content,
@@ -382,11 +305,10 @@
      *  加载问答
      */
     $(function () {
-        var sectionId = 1;
         $.ajax({
             type: "get",
             dataType: "json",
-            url: "/course/" + sectionId + "/quesAns",
+            url: "/course/" + section_Id + "/quesAns",
             success: function (data) {
                 var quanAns = '<ul class="commentbox" id="commentnum">';
                 for (var i = 0; i < data.length; i++) {
@@ -469,7 +391,7 @@
         $.ajax({
             type: "get",
             dataType: "json",
-            data: {CourseId: 1},
+            data: {sectionId: section_Id},
             url: "/course/form",
             success: function (data) {
                 var comment = ' <ul class="commentbox">';

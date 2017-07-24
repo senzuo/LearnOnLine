@@ -33,9 +33,9 @@ public class FormController {
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     @ResponseBody
-    public List<CommentDTO> form(@RequestParam int CourseId) {
+    public List<CommentDTO> form(@RequestParam int sectionId) {
 
-        List<Comment> comments = formService.getCommentByCourse(CourseId);
+        List<Comment> comments = formService.getCommentBySectionId(sectionId);
 
         List<CommentDTO> commentDTOs = new ArrayList<>(comments.size());
 

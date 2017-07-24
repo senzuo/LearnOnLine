@@ -5,7 +5,7 @@ public class Video {
 
     private Integer sectionId;
 
-    private Integer index;
+    private String videoName;
 
     private String url;
 
@@ -27,12 +27,12 @@ public class Video {
         this.sectionId = sectionId;
     }
 
-    public Integer getIndex() {
-        return index;
+    public String getVideoName() {
+        return videoName;
     }
 
-    public void setIndex(Integer index) {
-        this.index = index;
+    public void setVideoName(String videoName) {
+        this.videoName = videoName == null ? null : videoName.trim();
     }
 
     public String getUrl() {

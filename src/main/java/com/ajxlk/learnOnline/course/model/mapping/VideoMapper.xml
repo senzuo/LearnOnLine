@@ -4,15 +4,15 @@
   <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.Video" >
     <id column="video_id" property="videoId" jdbcType="INTEGER" />
     <result column="section_id" property="sectionId" jdbcType="INTEGER" />
-    <result column="index" property="index" jdbcType="INTEGER" />
+    <result column="video_name" property="videoName" jdbcType="VARCHAR" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="durition" property="durition" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    video_id, section_id, index, url, durition
+    video_id, section_id, video_name, url, durition
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select
+    select 
     <include refid="Base_Column_List" />
     from tb_video
     where video_id = #{videoId,jdbcType=INTEGER}
@@ -22,10 +22,10 @@
     where video_id = #{videoId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.Video" >
-    insert into tb_video (video_id, section_id, index,
-    url, durition)
-    values (#{videoId,jdbcType=INTEGER}, #{sectionId,jdbcType=INTEGER}, #{index,jdbcType=INTEGER},
-    #{url,jdbcType=VARCHAR}, #{durition,jdbcType=INTEGER})
+    insert into tb_video (video_id, section_id, video_name, 
+      url, durition)
+    values (#{videoId,jdbcType=INTEGER}, #{sectionId,jdbcType=INTEGER}, #{videoName,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{durition,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.Video" >
     insert into tb_video
@@ -36,8 +36,8 @@
       <if test="sectionId != null" >
         section_id,
       </if>
-      <if test="index != null" >
-        index,
+      <if test="videoName != null" >
+        video_name,
       </if>
       <if test="url != null" >
         url,
@@ -53,8 +53,8 @@
       <if test="sectionId != null" >
         #{sectionId,jdbcType=INTEGER},
       </if>
-      <if test="index != null" >
-        #{index,jdbcType=INTEGER},
+      <if test="videoName != null" >
+        #{videoName,jdbcType=VARCHAR},
       </if>
       <if test="url != null" >
         #{url,jdbcType=VARCHAR},
@@ -70,8 +70,8 @@
       <if test="sectionId != null" >
         section_id = #{sectionId,jdbcType=INTEGER},
       </if>
-      <if test="index != null" >
-        index = #{index,jdbcType=INTEGER},
+      <if test="videoName != null" >
+        video_name = #{videoName,jdbcType=VARCHAR},
       </if>
       <if test="url != null" >
         url = #{url,jdbcType=VARCHAR},
@@ -85,9 +85,13 @@
   <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.Video" >
     update tb_video
     set section_id = #{sectionId,jdbcType=INTEGER},
-      index = #{index,jdbcType=INTEGER},
+      video_name = #{videoName,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       durition = #{durition,jdbcType=INTEGER}
     where video_id = #{videoId,jdbcType=INTEGER}
   </update>
+
+  <select id="getVideoBySectionId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT * FROM tb_video WHERE section_id = #{sectionId,jdbcType=INTEGER}
+  </select>
 </mapper>

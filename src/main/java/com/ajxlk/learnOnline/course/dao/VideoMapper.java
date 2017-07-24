@@ -2,6 +2,8 @@ package com.ajxlk.learnOnline.course.dao;
 
 import com.ajxlk.learnOnline.course.model.Video;
 
+import java.util.List;
+
 public interface VideoMapper {
     int deleteByPrimaryKey(Integer videoId);
 
@@ -14,4 +16,6 @@ public interface VideoMapper {
     int updateByPrimaryKeySelective(Video record);
 
     int updateByPrimaryKey(Video record);
+
+    List<Video> getVideoBySectionId(Integer sectionId);
 }

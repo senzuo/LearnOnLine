@@ -12,6 +12,7 @@ import com.ajxlk.learnOnline.response.RestResponse;
 import com.ajxlk.learnOnline.response.RestUtil;
 import com.ajxlk.learnOnline.user.model.Teacher;
 import com.ajxlk.learnOnline.user.service.TeacherService;
+//import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -103,20 +104,26 @@ public class AdminCourseManage {
                             HttpServletRequest request) {
         if (!file.isEmpty())
         {
+            String path = request.getSession().getServletContext().getRealPath("/upload/");
+
             String type = file.getOriginalFilename().substring(
                     file.getOriginalFilename().indexOf("."));// 取文件格式后缀名
-            String filename = System.currentTimeMillis() + type;// 取当前时间戳作为文件名
-            String path = request.getSession().getServletContext()
-                    .getRealPath("/upload/" + filename);// 存放位置
-            File destFile = new File(path);
+//            String fileName = file.getOriginalFilename();
+            String fileName = System.currentTimeMillis() + type;// 取当前时间戳作为文件名
+//            String path = request.getSession().getServletContext()
+//                    .getRealPath("/upload/" + filename);// 存放位置
+            File targetFile = new File(path, fileName);
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+            }
+            //保存
             try {
-                // FileUtils.copyInputStreamToFile()这个方法里对IO进行了自动操作，不需要额外的再去关闭IO流
-                FileUtils
-                        .copyInputStreamToFile(file.getInputStream(), destFile);// 复制临时文件到指定目录下
-            } catch (IOException e) {
+                file.transferTo(targetFile);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            return "/upload/" + filename;
+
+            return "/upload/" + fileName;
         }
         return "error";
     }
@@ -214,30 +221,30 @@ public class AdminCourseManage {
         Video video = new Video();
         if (!file.isEmpty())
         {
-            String type = file.getOriginalFilename().substring(
-                    file.getOriginalFilename().indexOf("."));// 取文件格式后缀名
+            String path = request.getSession().getServletContext().getRealPath("/upload/section/" + SectionId + "/");
+            String originalFilename = file.getOriginalFilename();// 取文件名格式后缀名
+            String type = originalFilename.substring(file.getOriginalFilename().indexOf("."));//格式后缀名
             String filename = System.currentTimeMillis() + type;// 取当前时间戳作为文件名
-            String path = request.getSession().getServletContext()
-                    .getRealPath("/upload/course/" + SectionId + "//" + filename);// 存放位置
 
-            video.setUrl("/upload/course/" + SectionId + "/" + filename);
+            video.setUrl("/upload/section/" + SectionId + "/" + filename);
             video.setSectionId(SectionId);
+            video.setVideoName(originalFilename);
 
-            File destFile = new File(path);
+            File targetFile = new File(path, filename);
+            if(!targetFile.exists()){
+                targetFile.mkdirs();
+            }
+            //保存
             try {
-                // FileUtils.copyInputStreamToFile()这个方法里对IO进行了自动操作，不需要额外的再去关闭IO流
-                FileUtils.copyInputStreamToFile(file.getInputStream(), destFile);// 复制临时文件到指定目录下
-            } catch (IOException e) {
+                file.transferTo(targetFile);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            videoService.addVideo(video);
 
-//            return "/upload/course/" + filename;
+            videoService.addVideo(video);
         }
         RestResponse restResponse = RestUtil.getResponse();
         return restResponse;
-
-//        return "error";
     }
 
 
