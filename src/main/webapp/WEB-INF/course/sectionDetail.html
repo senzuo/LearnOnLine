@@ -35,7 +35,8 @@
 				<span th:text="${course.courseName}" class="name">
 				</span>
             <span class="section">
-					第X章-第X节
+                <span th:text="${chapter.chaptername}"</span>
+                <span th:text="${section.sectionname}"</span>
 				</span>
         </div>
         <div class="share">
@@ -64,7 +65,6 @@
     <div class="player">
         <div class="vedio">
             <video width="320" height="240" controls="controls">
-                <source src="../movie/test.ogg" type="video/ogg">
                 <source src="../movie/test.mp4" type="video/mp4">
             </video>
 

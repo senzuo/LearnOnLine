@@ -1,0 +1,68 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+a:hover{
+    text-decoration: none;
+}
+.clear{
+    clear: both;
+}
+ul{
+    list-style: none;
+}
+.leadlistbox{
+    margin: 0;
+    width: 450px;
+}
+.headlead{
+    width: 100%;
+    height: 70px;
+    padding: 10px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #f7dfdf;
+}
+.logobox, .headlist{
+    float: left;
+    height: 50px;
+}
+.adminbox, .searchbox{
+    float: right;
+    height: 50px;
+}
+.searchbox{
+    padding-right: 40px;
+}
+.logobox{
+    width: 140px;
+    line-height: 50px;
+    height: 50px;
+}
+.logobox img{
+    width: 100%;
+}
+.list{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+.list a{
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    line-height: 50px;
+    color: #000;
+}
+
+.adminbox{
+    width: 50px;
+}
+.adminbox .userlogo{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+.adminbox .userlogo img{
+    width: 100%;
+    border-radius: 50%;
+}

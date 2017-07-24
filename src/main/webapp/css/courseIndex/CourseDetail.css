@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clear{
+    clear: both;
+}
+.headlead{
+    background: #000;
+    overflow: hidden;
+    border-bottom: transparent;
+}
+.list a{
+    color: #fff;
+    height: 70px;
+    margin-top: -10px;
+    line-height: 70px;
+}
+.list a:link{
+    text-decoration: none;
+}
+.act{
+    background-color: rgba(77,85,93,.4);
+}
+.list a:hover{
+    background-color: rgba(77,85,93,.4);
+}
+
+.sortcontbox{
+    width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 20px;
+
+}
+.form-control{
+    border-style: none;
+    background-color: rgb(30, 34, 37);
+}
+.btn{
+    background-color: rgb(30, 34, 37);
+    color: #a29e9e;
+    border-style: none;
+}
+.btn:hover{
+    background-color: rgb(30, 34, 37);
+    color: #fff;
+}
+.btn:focus{
+    background-color: rgb(30, 34, 37);
+    color: #fff;
+}
+.course-infos{
+    margin: 0;
+    padding: 0;
+    background-color: #172a34;
+    position: relative;
+}
+.w{
+    height: 212px;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.path{
+    padding-top: 16px;
+    padding-bottom: 32px;
+    line-height: 12px;
+    font-size: 12px;
+    opacity: 1;
+}
+.breadcrumb li a{
+    color: rgba(255,255,255,.5);
+    font-size: 14px;
+}
+.breadcrumb li a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+.breadcrumb li a:link{
+    text-decoration: none;
+}
+.hd{
+    clear: both;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 32px;
+    line-height: 31px;
+    font-weight: 700;
+    font-size: 32px;
+    color: #fff;
+}
+h2.name{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    color: #fff;
+}
+.statics{
+    color: #fff;
+    font-size: 0;
+    white-space: nowrap;
+}
+.begain{
+    background-color: #f01414;
+    position: relative;
+    margin-right: 36px;
+    font-size: 16px;
+    line-height: 16px;
+    padding: 16px 20px;
+    font-weight: 700;
+    font-family: "微软雅黑";
+    color: #fff;
+    cursor: pointer;
+    width: 140px;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+}
+.begain a{
+    color: #efeaea;
+}
+.begain:hover{
+    background:  rgb(222, 79, 79);
+}
+.courseinfobox{
+    display: inline-block;
+    z-index: 2;
+}
+.usernum, .time, .class, .grade{
+    border-right: 1px solid #fff;
+    font-size: 12px;
+    line-height: 10px;
+    padding: 10px 20px;
+    font-family: "微软雅黑";
+    display: inline-block;
+}
+.usernum a, .time a, .class a, .grade a{
+    color: #272626;
+}
+.usernum a:hover, .time a:hover, .class a:hover, .grade a:hover{
+    color: #333;
+    text-decoration: none;
+}
+.tipbox{
+    display: inline-block;
+    padding: 9px;
+}
+.info-bg, .info-bg-color{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+.info-bg img{
+    width: 100%;
+    height: 100%;
+}
+.info-bg-color{
+    background: rgba(34, 34, 34, 0.3);
+}
+.form-control, .btn{
+    background: #fff;
+    border: 1px solid #ccc;
+}
+.btn:hover{
+    background: #fdfafa;
+    color: #333;
+}
+.chapter{
+    border-bottom: 1px solid #d9dde1;
+    padding: 0 24px 12px;
+}
+.chapterhead{
+    padding: 15px 0;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.chapterhead:hover{
+    cursor: pointer;
+}
+.chaptername{
+    padding-left: 10px;
+}
+.chapterhead>:first-child, .chapterhead>:last-child{
+    color: #afadad;
+}
+.video{
+    padding: 0px 0 3px 28px;
+    /*display: none;*/
+}
+.video a{
+
+
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #b5b9bc;
+    background-color: #f3f5f7;
+    padding-left: 13px;
+    /* font-size: 14px; */
+}
+.video li{
+    margin-bottom: 6px;
+}
+.nodename{
+    padding-left: 6px;
+}
+.video a:visted{
+    text-decoration: none;
+}
+.video a:hover{
+    color: #616161;
+    background-color: #ccc9c9;
+}
+
+.teacherintroduce{
+    margin-top: 30px;
+}
+.coursetitle, .teachertitle, .recommendtitle{
+    padding: 0 15px;
+    border-bottom: 1px solid #ead2d2;
+}
+.coursetitle h3, .teachertitle h3, .recommendtitle h3{
+    font-size: 18px;
+    margin-top: 15px;
+}
+.cousreintroducewords, .teacherintroducesords, .recommendtitlewords{
+    padding: 15px;
+    line-height: 30px;
+}
+.cousreintroducewords{
+    min-height: 200px;
+}
+.glyphicon-tags, .glyphicon-leaf, .glyphicon-align-left{
+    color: #da9595;
+    padding-right: 14px;
+}
+.teacherimgbox{
+    float: left;
+    width: 70px;
+    height: 70px;
+}
+.teacherimgbox img{
+    width: 100%;
+    border-radius: 50%;
+}
+.teacherimginfo{
+    padding-bottom: 6px;
+}
+.teacherinfo{
+    margin-left: 80px;
+    height: 70px;
+    padding: 6px 0;
+}
+.teachername{
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    font-weight: 700;
+}
+.glyphicon-fire{
+    color: #f74242;
+}
+.teacherinf{
+    min-height: 220px;
+    padding: 10px 0;
+}
+.recommendlist{
+    padding: 15px;
+}
+.recommendlistimg{
+    width: 110px;
+    height: 110px;
+    float: left;
+    overflow: hidden;
+}
+.recommendlistimg img{
+    width: 100%;
+}
+.recommendlistinfo{
+    margin-left: 120px;
+    min-height: 120px;
+    line-height: 23px;
+    font-weight: 600;
+}
+.recommendlist a{
+    text-decoration: none;
+    color: #423e3e;
+}
+.recommendlist a .bottominfo{
+    color: #afadad;
+    font-weight: 200;
+}

@@ -6,11 +6,11 @@ import com.ajxlk.learnOnline.course.model.Section;
 import com.ajxlk.learnOnline.course.service.ChapterService;
 import com.ajxlk.learnOnline.course.service.CourseService;
 import com.ajxlk.learnOnline.course.service.SectionService;
-import com.ajxlk.learnOnline.user.model.Teacher;
 import com.ajxlk.learnOnline.user.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +22,6 @@ import java.util.List;
  * Created by Administrator on 7/17/2017.
  */
 @Controller
-@RequestMapping("/course")
 public class CourseController {
 
     @Autowired
@@ -37,12 +36,20 @@ public class CourseController {
     @Autowired
     private TeacherService teacherService;
 
-    @RequestMapping("/{courseId}")
-    public String test(@PathVariable(value = "courseId") int courseId, Model model) {
 
-        Course course = courseService.getCourseById(courseId);
+    @RequestMapping("/section/{sectionId}")
+    public String test(@PathVariable(value = "sectionId") int sectionId, Model model) {
 
-        List<Chapter> chapters = chapterService.getChaptersByCourseId(courseId);
+        Section sec = sectionService.getSectionById(sectionId);
+
+        Chapter cha = chapterService.getChapterById(sec.getChapterid());
+
+        model.addAttribute("section",sec);
+        model.addAttribute("chapter",cha);
+
+        Course course = courseService.getCourseById(cha.getCourseid());
+
+        List<Chapter> chapters = chapterService.getChaptersByCourseId(sectionId);
 
         List<List<Section>> sectionsss = new ArrayList<List<Section>>();
 
@@ -51,15 +58,36 @@ public class CourseController {
             List<Section> sections = sectionService.getSectionsByChapterId(index);
             chapter.setSections(sections);
         }
-        if (chapters != null) {
+        if (course!=null && chapters != null) {
             course.setChapters(chapters);
         }
-
-
-
         model.addAttribute("course",course);
 
-        return "course/courseDetail";
+
+
+        return "course/sectionDetail";
+    }
+
+
+    @RequestMapping("/courseIndex/{courseid}")
+    public String courseIndex(@PathVariable(value = "courseid") int courseid,Model model){
+        Course course = courseService.getCourseById(courseid);
+
+        List<Chapter> chapters = chapterService.getChaptersByCourseId(courseid);
+
+        List<List<Section>> sectionsss = new ArrayList<List<Section>>();
+
+        for (Chapter chapter : chapters){
+            int index = chapter.getChapterid();
+            List<Section> sections = sectionService.getSectionsByChapterId(index);
+            chapter.setSections(sections);
+        }
+        if (course!=null && chapters != null) {
+            course.setChapters(chapters);
+        }
+        model.addAttribute("course",course);
+
+        return "course/courseIndex";
     }
 
     @RequestMapping("/getAllCourse")

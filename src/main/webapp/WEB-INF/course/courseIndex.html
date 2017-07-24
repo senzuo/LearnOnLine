@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程详情</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/public/head.css">
+    <link rel="stylesheet" href="/css/public/Foot.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/courseIndex/CourseDetail.css">
+    <link rel="stylesheet" type="text/css" href="/css/courseIndex/player.css">
+    <script src="/js/courseIndex/courseDetail.js"></script>
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<div class="body">
+    <!-- 首页头部导航 -->
+    <div class="headlead">
+        <div class="logobox">
+            <img src="../img/Home/logo.png" alt="">
+        </div>
+        <div class="headlist hidden-sm">
+            <ul class="leadlistbox">
+                <li class="list"><a href="../index.html">首页</a></li>
+                <li class="list"><a href="#" class="act">课程中心</a></li>
+                <li class="list"><a href="#">职业路径</a></li>
+                <li class="list"><a href="#">考核测评</a></li>
+                <li class="list"><a href="#">互动社区</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+        <div class="adminbox">
+            <div class="userlogo">
+                <img src="../img/Home/user.png" alt="">
+            </div>
+        </div>
+        <div class="searchbox">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+        <div class="headlistsm">
+
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div class="course-infos">
+        <div class="w">
+            <div class="path">
+                <ol class="breadcrumb" style="margin: 0;">
+                    <li><a href="#">管理学院</a></li>
+                    <li><a href="#">人力资源</a></li>
+                    <li><a href="#">管理是一门艺术！</a></li>
+                </ol>
+            </div>
+            <div class="hd clearfix">
+                <h2 th:text="${course.courseName}" class="name" >管理是一门艺术，艺术！！！</h2>
+            </div>
+            <div class="statics clearfix" style="overflow: hidden;">
+                <div class="begain">
+                    <a href="">开始学习</a>
+                </div>
+                <div class="tipbox" style="background: url(/upload/1500876845364.jpg) repeat 0 0;">
+                    <div class="usernum">
+                        <a href="">学习人数：123</a>
+                    </div>
+                    <div class="time">
+                        <a href="">学习时长：3小时3分</a>
+                    </div>
+                    <div class="class">
+                        <a th:text="${course.difficulty}" href="">课程难度：初级</a>
+                    </div>
+                    <div class="grade" style="border-style: none;">
+                        <a href="">综合评分：7</a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="info-bg">
+            <img src="../img/CourseDetail/top.jpg">
+        </div>
+        <div class="info-bg-color">
+        </div>
+    </div>
+
+    <div class="row" style="min-height: 1000px;">
+        <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+            <div class="row" style="    padding: 25px 0;">
+                <div class="col-md-8 col-sm-8">
+                    <ul id="myTab" class="nav nav-tabs" style="    padding-bottom: 4px;">
+                        <li class="active">
+                            <a href="#section" data-toggle="tab" class="tabstyle">章节</a>
+                        </li>
+                        <li>
+                            <a href="#comment" data-toggle="tab" class="tabstyle">
+                                评论
+                            </a>
+                        </li>
+                        <li><a href="#quest-answ" data-toggle="tab" class="tabstyle">问答</a></li>
+                        <li><a href="#notes" data-toggle="tab" class="tabstyle">笔记</a></li>
+                    </ul>
+
+                    <div id="myTabContent" class="tab-content">
+                        <div th:each="chapter : ${course.chapters}" class="tab-pane fade in active" id="section">
+                            <div class="chapter">
+                                <div class="chapterhead">
+                                    <span class="glyphicon glyphicon-book"></span>
+                                    <span th:text="${chapter.chaptername}" class="chaptername">第一章：html基础教程</span>
+                                    <span class="glyphicon glyphicon-chevron-down" style="float: right;"></span>
+                                </div>
+
+                                <ul th:each="section : ${chapter.sections}" class="video">
+                                    <li class="videolist">
+                                        <a th:href="@{'/section/'+${section.sectionid}}" class="signOut">
+                                            <span class="glyphicon glyphicon-play-circle"></span>
+                                            <span th:text="${section.sectionname}" class="nodename">1.1 html语法规则</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="comment">
+                            <div class="commentpublicbox">
+                                <div class="useradmin">
+                                    <a href="#"><img src="../img/Player/user.jpg"></a>
+                                </div>
+                                <form role="form" class="commentinput">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3"  placeholder="请输入评论···"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-default">发表评论</button>
+                                </form>
+                                <div class="clear"></div>
+                            </div>
+                            <ul class="commentbox">
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户3</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="time-good">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <span href="#" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span><span class="goodnum">30</span></span>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户4</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="time-good">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <span href="#" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span><span class="goodnum">30</span></span>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="tab-pane fade" id="quest-answ">
+                            <ul class="commentbox" id="commentnum">
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户7</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="allreply">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <a href="#" class="same">同问 5</a>
+                                            <span href="#" class="reply">回复 30</span>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                        <ul>
+                                            <li class="commentlist" style="padding: 20px 0;border-style: none;">
+                                                <div class="userlist">
+                                                    <a href="#"><img src="../img/Player/user.jpg"></a>
+                                                </div>
+                                                <div class="comment">
+                                                    <div class="username">
+                                                        <a href="#">用户4</a>
+                                                    </div>
+                                                    <div class="commentwords">
+                                                        哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                                    </div>
+                                                    <div class="allreply">
+                                                        <span class="publish-time">时间: 2016-03-12</span>
+
+                                                        <div style="clear: both;"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div style="clear: both;"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="replybox">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-default" style="float: right;">回复</button>
+                                        </form>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户1</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="allreply">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <a href="#" class="same">同问 5</a>
+                                            <span href="#" class="reply">回复 3</span>
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="replybox">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-default" style="float: right;">回复</button>
+                                        </form>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="notes">
+                            <ul class="commentbox">
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户1</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="time-good">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <span href="#" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span><span class="goodnum">30</span></span>
+                                            <span href="#" class="collect">收藏 <span class="glyphicon glyphicon-heart-empty"></span></span>
+
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+                                <li class="commentlist">
+                                    <div class="userlist">
+                                        <a href="#"><img src="../img/Player/user.jpg"></a>
+                                    </div>
+                                    <div class="comment">
+                                        <div class="username">
+                                            <a href="#">用户2</a>
+                                        </div>
+                                        <div class="commentwords">
+                                            哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                                        </div>
+                                        <div class="time-good">
+                                            <span class="publish-time">时间: 2016-03-12</span>
+                                            <span href="#" class="click-good"><span class="glyphicon glyphicon-thumbs-up"></span><span class="goodnum">30</span></span>
+                                            <span href="#" class="collect">收藏 <span class="glyphicon glyphicon-heart-empty"></span></span>
+
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="rightbox">
+                        <!-- 课程简介 -->
+                        <div class="cousreintroduce">
+                            <div class="coursetitle">
+
+                                <h3 class="coursetitlewords"><span class="glyphicon glyphicon-tags"></span> 课程简介</h3>
+                            </div>
+                            <div class="cousreintroducewords">
+                                <p th:text="${course.description}">jQuery基础课程总共分为4个部分，分别是样式篇、事件篇、动画篇、DOM篇。此为最后一个部分—动画篇。通过本课程的学习，我们可以制作出以下效果：隐藏和显示、上卷下来、淡入淡出。我们也可以通过自定义动画去完成一些我们想要的效果。</p>
+                            </div>
+                        </div>
+                        <!-- 讲师信息 -->
+                        <div class="teacherintroduce">
+                            <div class="teachertitle">
+                                <h3 class="teachertitlewords">
+                                    <span class="glyphicon glyphicon-leaf"></span>
+                                    讲师信息
+                                </h3>
+                            </div>
+                            <div class="teacherintroducesords">
+                                <div class="teacherimginfo">
+                                    <div class="teacherimgbox">
+                                        <img src="../img/CourseDetail/user.jpg" alt="" class="teacherimg">
+                                    </div>
+                                    <div class="teacherinfo">
+											<span th:text="${course.teacherName}" class="teachername">
+												讲师姓名
+											</span>
+                                        <span class="teachersort">
+												讲师头衔（Web前段开发）
+											</span>
+                                        <span class="glyphicon glyphicon-fire"></span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="teacherinf">
+                                    <p>本训练营主要使用 GO 语言的 Beego 框架和前端 React 框架打造一个在线商城。主要将实现用户的登录认证、购物车、商品秒杀、信息推送、评论与点赞等功能模块。课程从搭建一个简单可用的例子开始，逐步实现各个功能模块，让你体会到一个在线商城的完整开发过程。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 相关推荐 -->
+                        <div class="recommend">
+                            <div class="recommendtitle">
+                                <h3 class="recommendtitlewords" style="padding: 0">
+                                    <span class="glyphicon glyphicon-align-left"></span>相关推荐</h3>
+                            </div>
+                            <div class="recommendlist">
+                                <a href="">
+                                    <div class="recommendlistimg">
+                                        <img src="../img/CourseDetail/course.png" alt="">
+                                    </div>
+                                    <div class="recommendlistinfo">
+                                        <p class="recommendname">隐藏和显示、上卷下来、淡入淡出。我们也可以通过自定义动画去完成一些我们想要的效果。</p>
+                                        <div class="bottominfo">
+                                            中级<span>·</span>2363人在学
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </a>
+
+                            </div>
+                            <div class="recommendlist">
+                                <a href="">
+                                    <div class="recommendlistimg">
+                                        <img src="../img/CourseDetail/course.png" alt="">
+                                    </div>
+                                    <div class="recommendlistinfo">
+                                        <p class="recommendname">隐藏和显示、上卷下来、淡入淡出。我们也可以通过自定义动画去完成一些我们想要的效果。</p>
+                                        <div class="bottominfo">
+                                            中级<span>·</span>2363人在学
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </a>
+
+                            </div>
+                            <div class="recommendlist">
+                                <a href="">
+                                    <div class="recommendlistimg">
+                                        <img src="../img/CourseDetail/course.png" alt="">
+                                    </div>
+                                    <div class="recommendlistinfo">
+                                        <p class="recommendname">隐藏和显示、上卷下来、淡入淡出。我们也可以通过自定义动画去完成一些我们想要的效果。</p>
+                                        <div class="bottominfo">
+                                            中级<span>·</span>2363人在学
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="ico">
+            <ul class="icobox">
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/qq.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/wechat.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/weibo.png"></a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="quiklink">
+            <ul class="linkbox">
+                <li class="linklist">
+                    <a href="#">首页</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">关于我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">联系我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">讲师招募</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">常见问题</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">意见反馈</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">友情链接</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="copy">
+            <span>傲娇小龙坎版权所有</span>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="../js/coursecent.js"></script> -->
+
+</body>
+</html>

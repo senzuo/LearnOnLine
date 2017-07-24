@@ -27,5 +27,9 @@ public class SectionService {
         sectionMapper.deleteByPrimaryKey(sectionId);
     }
 
+    public Section getSectionById(int sectionId) {
+        return sectionMapper.selectByPrimaryKey(sectionId);
+    }
+
 
 }

@@ -28,5 +28,9 @@ public class ChapterService {
         chapterMapper.deleteByPrimaryKey(chapterId);
     }
 
+    public Chapter getChapterById(int chapterId) {
+        return chapterMapper.selectByPrimaryKey(chapterId);
+    }
+
 
 }
