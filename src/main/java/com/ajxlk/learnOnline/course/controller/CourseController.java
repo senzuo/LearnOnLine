@@ -49,9 +49,8 @@ public class CourseController {
 
         Course course = courseService.getCourseById(cha.getCourseid());
 
-        List<Chapter> chapters = chapterService.getChaptersByCourseId(sectionId);
+        List<Chapter> chapters = chapterService.getChaptersByCourseId(course.getCourseId());
 
-        List<List<Section>> sectionsss = new ArrayList<List<Section>>();
 
         for (Chapter chapter : chapters){
             int index = chapter.getChapterid();
@@ -91,8 +90,10 @@ public class CourseController {
     }
 
     @RequestMapping("/getAllCourse")
-    @ResponseBody
-    public List<Course> getCourse() {
-         return courseService.getAllCourse();
+    public String getCourse(Model model) {
+        // 标签
+        List<Course> courses = courseService.getAllCourse();
+        model.addAttribute("courses",courses);
+        return "course/center";
     }
 }

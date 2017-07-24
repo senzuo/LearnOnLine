@@ -1,0 +1,298 @@
+.clear{
+    clear: both;
+}
+.headlead{
+    background: #000;
+    overflow: hidden;
+}
+.list a{
+    color: #fff;
+    height: 70px;
+    margin-top: -10px;
+    line-height: 70px;
+}
+.list a:link{
+    text-decoration: none;
+}
+.act{
+    background-color: rgba(77,85,93,.4);
+}
+.list a:hover{
+    background-color: rgba(77,85,93,.4);
+}
+.modulebox, .directionbox, .classifybox, .timebox{
+    width: 50px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+}
+.sortcontbox{
+    width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    margin-bottom: 20px;
+
+}
+.form-control{
+    border-style: none;
+    background-color: rgb(30, 34, 37);
+}
+.btn{
+    background-color: rgb(30, 34, 37);
+    color: #a29e9e;
+    border-style: none;
+}
+.btn:hover{
+    background-color: rgb(30, 34, 37);
+    color: #fff;
+}
+.btn:focus{
+    background-color: rgb(30, 34, 37);
+    color: #fff;
+}
+.modulelist, .directionlist, .classifylist, .timelist{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+.title{
+    /*display: inline-block;*/
+    float: left;
+    margin: 0;
+}
+.modulebox, .directionbox, .classifybox, .timebox{
+    float: left;
+    font-weight: 700;
+    font-size: 14px;
+    color: #07111b;
+    text-align: left;
+}
+.modulelist a.on, .directionlist a.on, .classifylist a.on, .timelist a.on{
+    background: #2b333b;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.modulelist a, .directionlist a, .classifylist a, .timelist a{
+    display: block;
+    line-height: 30px;
+    padding: 0 9px;
+    font-size: 14px;
+    height: 30px;
+    color: #14191e;
+    margin: 0 12px;
+}
+.module, .direction, .classify, .time{
+    padding: 15px 0;
+    border-bottom: 1px solid #edf1f2;
+}
+.courseshowbox{
+    width: 1200px;
+    margin: 0 auto;
+
+}
+.headtip{
+    padding-top: 30px;
+    padding-bottom: 32px;
+    overflow: hidden;
+    height: 14px!important;
+    margin-top: -1px;
+    padding-right: 15px;
+    font-size: 12px;
+}
+.sort-item{
+    margin: 0 12px;
+    line-height: 14px;
+    font-size: 14px;
+    color: #787d82;
+}
+.sort-item:hover{
+    color: #f01414;
+    text-decoration: none;
+}
+.bg{
+    background: #f3f5f7;
+}
+.active{
+    color: #f01414;
+}
+.active:visited {color:#f01414;}
+.active:link {color:#f01414;text-decoration: none;}
+.coursercontbox{
+    padding: 10px 0 20px;
+    margin: 0px;
+}
+.courselist{
+    margin: 0 -20px 0 0;
+    font-family: "PingFang SC",Helvetica,"Helvetica Neue","微软雅黑",Tahoma,Arial,sans-serif;
+    padding:0;
+}
+.clearfix{
+    margin: 0;
+    padding: 0;
+}
+.coursecard{
+    display: block;
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.courslistbox{
+    width: 224px;
+    height: 228px;
+    background-color: #fff;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(7,17,27,.1);
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    transition: .3s all linear;
+    border-radius: 4px;
+}
+.course-card-top{
+    height: 48px;
+    padding: 0 20px;
+    overflow: hidden;
+}
+.cart-color.purple{
+    background: linear-gradient(270deg,rgba(210,115,230,.7),#d273e6);
+}
+.course-card-content{
+    margin: 0;
+    height: 180px;
+    background-color: #fff;
+    padding: 16px 24px;
+    box-sizing: border-box;
+}
+.course-card-top span{
+    float: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 48px;
+    margin-right: 10px;
+}
+.course-card-name{
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    color: #07111b;
+    line-height: 24px;
+    max-height: 48px;
+    word-break: break-all;
+    letter-spacing: -.1px;
+    word-wrap: break-word;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.course-card-content p{
+    font-size: 12px;
+    color: #93999f;
+    line-height: 24px;
+    margin: 8px 0;
+    height: 48px;
+    word-break: normal;
+    word-wrap: break-word;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.course-card-bottom{
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    left: 24px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    text-align: right;
+}
+.course-card-info{
+    float: left;
+    margin: 0;
+    font-size: 12px;
+    color: #93999f;
+    line-height: 24px;
+    margin: 8px 0;
+}
+.course-card-bk{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 224px;
+    height: 228px;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.orange{
+    background: linear-gradient(270deg,rgba(255,150,0,.7),#ff9600);
+}
+.green{
+    background: linear-gradient(270deg,rgba(0,185,90,.7),#00b95a);
+}
+.purple{
+    background: linear-gradient(270deg,rgba(210,115,230,.7),#d273e6);
+}
+.red{
+    background: linear-gradient(270deg,rgba(255,115,155,.7),#ff739b);
+}
+.blue{
+    background: linear-gradient(270deg,rgba(75,150,220,.7),#4b96dc);
+}
+.cyan{
+    background: linear-gradient(270deg,rgba(0,200,200,.7),#00c8c8);
+}
+.courslistbox:hover{
+    box-shadow: 0 11px 9px 0 rgba(7,17,27,.1);
+}
+.page{
+    margin: 25px 0 auto;
+    overflow: hidden;
+    clear: both;
+    text-align: center;
+}
+.page span, .page-disabled{
+    height: 32px;
+    color: #c8cdd2;
+}
+.page a, .page span, .page-disabled{
+    padding: 0 4px;
+    min-width: 24px;
+    line-height: 32px;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+}
+.page a{
+
+    margin: 0 8px;
+    color: #4d555d;
+    border-radius: 16px;
+    -webkit-transition: border-color .2s;
+    -moz-transition: border-color .2s;
+    transition: border-color .2s;
+
+}
+.page a.text-page-tag.active{
+    background: #4d555d;
+    color: #fff;
+}
+.text-page-tag{
+    width: 32px;
+}
+.text-page-tag:hover{
+    background: #d9dde1
+}
+

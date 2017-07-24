@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>课程分类</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/public/head.css">
+    <link rel="stylesheet" href="/css/public/Foot.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/coursecenter.css">
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+
+</head>
+<body>
+
+<div class="body">
+    <!-- 首页头部导航 -->
+    <div class="headlead">
+        <div class="logobox">
+            <img src="../img/Home/logo.png" alt="">
+        </div>
+        <div class="headlist hidden-sm">
+            <ul class="leadlistbox">
+                <li class="list"><a href="../index.html">首页</a></li>
+                <li class="list"><a href="#" class="act">课程中心</a></li>
+                <li class="list"><a href="#">职业路径</a></li>
+                <li class="list"><a href="#">考核测评</a></li>
+                <li class="list"><a href="#">互动社区</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+        <div class="adminbox">
+            <div class="userlogo">
+                <img src="../img/Home/user.png" alt="">
+            </div>
+        </div>
+        <div class="searchbox">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+        <div class="headlistsm">
+
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!-- 课程分类 -->
+    <div class="sortcontbox">
+        <div class="sortlistcont">
+            <div class="module">
+                <span class="modulebox">模块：</span>
+                <ul class="title">
+                    <li class="modulelist"><a href="#" class="on">全部</a></li>
+                    <li class="modulelist"><a href="#">管理学院</a></li>
+                    <li class="modulelist"><a href="#">IT精英</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="direction">
+                <span class="directionbox">方向：</span>
+                <ul class="title">
+                    <li class="directionlist"><a href="#" class="on">全部</a></li>
+                    <li class="directionlist"><a href="#">前端开发</a></li>
+                    <li class="directionlist"><a href="#">后端开发</a></li>
+                    <li class="directionlist"><a href="#">移动开发</a></li>
+                    <li class="directionlist"><a href="#">数据库</a></li>
+                    <li class="directionlist"><a href="#">云计算&大数据</a></li>
+                    <li class="directionlist"><a href="#">运维测试</a></li>
+                    <li class="directionlist"><a href="#">UI设计</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="classify">
+                <span class="classifybox">分类：</span>
+                <ul class="title">
+                    <li class="classifylist"><a href="#" class="on">全部</a></li>
+                    <li class="classifylist"><a href="#">MySql</a></li>
+                    <li class="classifylist"><a href="#">MongDB</a></li>
+                    <li class="classifylist"><a href="#">Oracle</a></li>
+                    <li class="classifylist"><a href="#">SqlServer</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="time">
+                <span class="timebox">时长：</span>
+                <ul class="title">
+                    <li class="timelist"><a href="#" class="on">全部</a></li>
+                    <li class="timelist"><a href="#">3分钟以内</a></li>
+                    <li class="timelist"><a href="#">3-5分钟</a></li>
+                    <li class="timelist"><a href="#">5-10分钟</a></li>
+                    <li class="timelist"><a href="#">10分钟-20分钟</a></li>
+                    <li class="timelist"><a href="#">20分钟以上</a></li>
+                    <div class="clear"></div>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 课程展示 -->
+    <div class="bg">
+        <div class="courseshowbox">
+            <div class="headtip">
+                <div class="headwords">
+                    <a href="#" class="sort-item active">最新</a>
+                    <a href="#" class="sort-item">最热</a>
+                </div>
+            </div>
+            <div class="coursercontbox">
+                <div class="courselist">
+                    <ul  class="clearfix">
+                        <div th:each="course : ${courses}" class="courslistbox">
+                            <a th:href="@{'/courseIndex/'+${course.courseId}}" class="coursecard">
+                                <div class="course-card-top cart-color orange">
+                                    <span>java</span>
+                                </div>
+                                <div class="course-card-content">
+                                    <h3 th:text="${course.courseName}" class="course-card-name">
+                                        课程名称
+                                    </h3>
+                                    <p th:text="${course.description}">这里是课程简介这里是课程简介这里是课程简介这里是课程简介</p>
+                                </div>
+                                <div class="clearfix course-card-bottom">
+                                    <div th:text="${course.difficulty}" class="course-card-info">初级<span>·</span>7161人在学</div>
+
+                                </div>
+                            </a>
+                            <div class="course-card-bk">
+                                <img src="../img/coursecenter/top1.jpg" alt="">
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+                <!--<div class="page">-->
+                    <!--<span class="disabled_page">首页</span>-->
+                    <!--<span class="disabled_page">上一页</span>-->
+                    <!--<a href="#" class="active text-page-tag">1</a>-->
+                    <!--<a class="text-page-tag" href="#">2</a>-->
+                    <!--<a class="text-page-tag" href="#">3</a>-->
+                    <!--<a class="text-page-tag" href="#">4</a>-->
+                    <!--<a class="text-page-tag" href="#">5</a>-->
+                    <!--<a class="text-page-tag" href="#">6</a>-->
+                    <!--<a class="text-page-tag" href="#">7</a>-->
+                    <!--<a href="#">下一页</a>-->
+                    <!--<a href="#">尾页</a>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="ico">
+            <ul class="icobox">
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/qq.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/wechat.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href="#"><img src="../img/foot/weibo.png"></a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="quiklink">
+            <ul class="linkbox">
+                <li class="linklist">
+                    <a href="#">首页</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">关于我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">联系我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">讲师招募</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">常见问题</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">意见反馈</a>
+                </li>
+                <li class="linklist">
+                    <a href="#">友情链接</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="copy">
+            <span>傲娇小龙坎版权所有</span>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/coursecent.js"></script>
+</body>
+</html>

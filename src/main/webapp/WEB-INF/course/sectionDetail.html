@@ -35,9 +35,9 @@
 				<span th:text="${course.courseName}" class="name">
 				</span>
             <span class="section">
-                <span th:text="${chapter.chaptername}"</span>
-                <span th:text="${section.sectionname}"</span>
-				</span>
+                <span th:text="${chapter.chaptername}"></span>
+                <span th:text="${section.sectionname}"></span>
+            </span>
         </div>
         <div class="share">
             <ul class="list">
@@ -92,7 +92,7 @@
                     <div th:each="section : ${chapter.sections}">
                         <a href="" class="classname">
                             <span class="glyphicon glyphicon-play ico1"></span>
-                            <span th:text="${section.sectionname}"/>
+                            <span th:text="${section.sectionname} "></span>
                             <span class="glyphicon glyphicon-play-circle ico2"></span>
                         </a>
                     </div>
@@ -178,95 +178,95 @@
 
                             <div class="tab-pane fade" id="quest-answ">
                                 <!--<ul class="commentbox" id="commentnum">-->
-                                    <!--<li class="commentlist">-->
-                                        <!--<div class="userlist">-->
-                                            <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                        <!--</div>-->
-                                        <!--<div class="comment">-->
-                                            <!--<div class="username">-->
-                                                <!--<a href="#">用户4</a>-->
-                                            <!--</div>-->
-                                            <!--<div class="commentwords">-->
-                                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                            <!--</div>-->
-                                            <!--<div class="allreply">-->
-                                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                                <!--<a href="#" class="same">同问 5</a>-->
-                                                <!--<span href="#" class="reply">回复 30</span>-->
-                                                <!--<div style="clear: both;"></div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<ul>-->
-                                            <!--<li class="commentlist" style="padding: 20px 0;border-style: none;">-->
-                                                <!--<div class="userlist">-->
-                                                    <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                                <!--</div>-->
-                                                <!--<div class="comment">-->
-                                                    <!--<div class="username">-->
-                                                        <!--<a href="#">用户4</a>-->
-                                                    <!--</div>-->
-                                                    <!--<div class="commentwords">-->
-                                                        <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                                    <!--</div>-->
-                                                    <!--<div class="allreply">-->
-                                                        <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                                        <!--<span href="#" class="reply">回复 30</span>-->
-                                                        <!--<div style="clear: both;"></div>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                                <!--<div class="replybox">-->
-                                                    <!--<form role="form">-->
-                                                        <!--<div class="form-group">-->
-                                                            <!--<textarea class="form-control" rows="3"></textarea>-->
-                                                        <!--</div>-->
-                                                        <!--<button type="submit" class="btn btn-default"-->
-                                                                <!--style="float: right;">回复-->
-                                                        <!--</button>-->
-                                                    <!--</form>-->
-                                                <!--</div>-->
-                                                <!--<div style="clear: both;"></div>-->
-                                            <!--</li>-->
-                                        <!--</ul>-->
-                                        <!--<div class="replybox">-->
-                                            <!--<form role="form">-->
-                                                <!--<div class="form-group">-->
-                                                    <!--<textarea class="form-control" rows="3"></textarea>-->
-                                                <!--</div>-->
-                                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
-                                                <!--</button>-->
-                                            <!--</form>-->
-                                        <!--</div>-->
-                                        <!--<div style="clear: both;"></div>-->
-                                    <!--</li>-->
-                                    <!--<li class="commentlist">-->
-                                        <!--<div class="userlist">-->
-                                            <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
-                                        <!--</div>-->
-                                        <!--<div class="comment">-->
-                                            <!--<div class="username">-->
-                                                <!--<a href="#">用户1</a>-->
-                                            <!--</div>-->
-                                            <!--<div class="commentwords">-->
-                                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
-                                            <!--</div>-->
-                                            <!--<div class="allreply">-->
-                                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
-                                                <!--<a href="#" class="same">同问 5</a>-->
-                                                <!--<span href="#" class="reply">回复 3</span>-->
-                                                <!--<div style="clear: both;"></div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                        <!--<div class="replybox">-->
-                                            <!--<form role="form">-->
-                                                <!--<div class="form-group">-->
-                                                    <!--<textarea class="form-control" rows="3"></textarea>-->
-                                                <!--</div>-->
-                                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
-                                                <!--</button>-->
-                                            <!--</form>-->
-                                        <!--</div>-->
-                                        <!--<div style="clear: both;"></div>-->
-                                    <!--</li>-->
+                                <!--<li class="commentlist">-->
+                                <!--<div class="userlist">-->
+                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                <!--</div>-->
+                                <!--<div class="comment">-->
+                                <!--<div class="username">-->
+                                <!--<a href="#">用户4</a>-->
+                                <!--</div>-->
+                                <!--<div class="commentwords">-->
+                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                <!--</div>-->
+                                <!--<div class="allreply">-->
+                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                <!--<a href="#" class="same">同问 5</a>-->
+                                <!--<span href="#" class="reply">回复 30</span>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<ul>-->
+                                <!--<li class="commentlist" style="padding: 20px 0;border-style: none;">-->
+                                <!--<div class="userlist">-->
+                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                <!--</div>-->
+                                <!--<div class="comment">-->
+                                <!--<div class="username">-->
+                                <!--<a href="#">用户4</a>-->
+                                <!--</div>-->
+                                <!--<div class="commentwords">-->
+                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                <!--</div>-->
+                                <!--<div class="allreply">-->
+                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                <!--<span href="#" class="reply">回复 30</span>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="replybox">-->
+                                <!--<form role="form">-->
+                                <!--<div class="form-group">-->
+                                <!--<textarea class="form-control" rows="3"></textarea>-->
+                                <!--</div>-->
+                                <!--<button type="submit" class="btn btn-default"-->
+                                <!--style="float: right;">回复-->
+                                <!--</button>-->
+                                <!--</form>-->
+                                <!--</div>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</li>-->
+                                <!--</ul>-->
+                                <!--<div class="replybox">-->
+                                <!--<form role="form">-->
+                                <!--<div class="form-group">-->
+                                <!--<textarea class="form-control" rows="3"></textarea>-->
+                                <!--</div>-->
+                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
+                                <!--</button>-->
+                                <!--</form>-->
+                                <!--</div>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</li>-->
+                                <!--<li class="commentlist">-->
+                                <!--<div class="userlist">-->
+                                <!--<a href="#"><img src="../img/Player/user.jpg"></a>-->
+                                <!--</div>-->
+                                <!--<div class="comment">-->
+                                <!--<div class="username">-->
+                                <!--<a href="#">用户1</a>-->
+                                <!--</div>-->
+                                <!--<div class="commentwords">-->
+                                <!--哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈-->
+                                <!--</div>-->
+                                <!--<div class="allreply">-->
+                                <!--<span class="publish-time">时间: 2016-03-12</span>-->
+                                <!--<a href="#" class="same">同问 5</a>-->
+                                <!--<span href="#" class="reply">回复 3</span>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="replybox">-->
+                                <!--<form role="form">-->
+                                <!--<div class="form-group">-->
+                                <!--<textarea class="form-control" rows="3"></textarea>-->
+                                <!--</div>-->
+                                <!--<button type="submit" class="btn btn-default" style="float: right;">回复-->
+                                <!--</button>-->
+                                <!--</form>-->
+                                <!--</div>-->
+                                <!--<div style="clear: both;"></div>-->
+                                <!--</li>-->
 
                                 <!--</ul>-->
                             </div>
@@ -393,62 +393,62 @@
 
                     quanAns +=
                         '<li class="commentlist">' +
-                            '<div class="userlist">' +
-                                '<a href=""><img src="' + data[i].stu["stuiconurl"] + '"></a>' +
-                            '</div>' +
-                            '<div class="comment">' +
-                                '<div class="username">' +
-                                    '<a href="' + data[i].stu["stuname"] +'"></a>' +
-                                '</div>' +
-                            '<div class="commentwords">' + data[i]["content"] +'</div>' +
+                        '<div class="userlist">' +
+                        '<a href=""><img src="' + data[i].stu["stuiconurl"] + '"></a>' +
+                        '</div>' +
+                        '<div class="comment">' +
+                        '<div class="username">' +
+                        '<a href="' + data[i].stu["stuname"] + '"></a>' +
+                        '</div>' +
+                        '<div class="commentwords">' + data[i]["content"] + '</div>' +
 
-                            '<div class="allreply">' +
-                                '<span class="publish-time">' + data[i]["createTime"] +'</span>' +
-                                '<a href="" class="same">同问' + data[i]["zan"] + '</a>' +
-                                '<span href="" class="reply">回复</span>'+
-                                '<div style="clear: both;"></div>'+
-                            '</div>' +
+                        '<div class="allreply">' +
+                        '<span class="publish-time">' + data[i]["createTime"] + '</span>' +
+                        '<a href="" class="same">同问' + data[i]["zan"] + '</a>' +
+                        '<span href="" class="reply">回复</span>' +
+                        '<div style="clear: both;"></div>' +
+                        '</div>' +
                         '<ul>';
-                    for (var j = 0; j < data[i].subQuesAnss.length; j++){
+                    for (var j = 0; j < data[i].subQuesAnss.length; j++) {
                         quanAns +=
                             '<li class="commentlist" style="padding: 20px 0;border-style: none;">' +
-                                '<div class="userlist">' +
-                                    '<a href="#">' +
-                                        '<img src="' + data[i].subQuesAnss[j].stu["stuiconurl"] +'"/>' +
-                                    '</a>' +
-                                '</div>' +
+                            '<div class="userlist">' +
+                            '<a href="#">' +
+                            '<img src="' + data[i].subQuesAnss[j].stu["stuiconurl"] + '"/>' +
+                            '</a>' +
+                            '</div>' +
                             '<div class="comment">' +
-                                '<div class="username">' +
-                                    '<a href="#">' + data[i].subQuesAnss[j].stu["stuname"] + '</a>' +
-                                '</div>' +
+                            '<div class="username">' +
+                            '<a href="#">' + data[i].subQuesAnss[j].stu["stuname"] + '</a>' +
+                            '</div>' +
                             '<div class="commentwords">' +
-                                    data[i].subQuesAnss[j]["content"] +
+                            data[i].subQuesAnss[j]["content"] +
                             '</div>' +
                             '<div class="allreply">' +
                             '<span class="publish-time">时间:' + data[i].subQuesAnss[j]["createTime"] + '</span>' +
                             '<span href="#" class="reply">回复 30</span>' +
                             '<div style="clear: both;"></div>' +
                             '</div>' +
-                            '</div>' + '<div class="replybox">'+
-                            '<form role="form">'+
-                            ' <div class="form-group">'+
-                            '<textarea class="form-control" rows="3"></textarea>'+
-                            '</div>'+
-                            '<button type="submit" class="btn btn-default" style="float: right;">回复</button>'+
-                            '</form>'+
-                            '</div>'+
+                            '</div>' + '<div class="replybox">' +
+                            '<form role="form">' +
+                            ' <div class="form-group">' +
+                            '<textarea class="form-control" rows="3"></textarea>' +
+                            '</div>' +
+                            '<button type="submit" class="btn btn-default" style="float: right;">回复</button>' +
+                            '</form>' +
+                            '</div>' +
                             '<div style="clear: both;"></div>' +
                             '</li>'
                     }
                     quanAns +=
                         '</ul>' +
                         '<div class="replybox">' +
-                            '<form role="form">' +
-                                '<div class="form-group">' +
-                                    '<textarea class="form-control" rows="3"></textarea>' +
-                                '</div>' +
-                                 ' <button type="submit" class="btn btn-default" style="float: right;">回复</button>' +
-                            '</form>' +
+                        '<form role="form">' +
+                        '<div class="form-group">' +
+                        '<textarea class="form-control" rows="3"></textarea>' +
+                        '</div>' +
+                        ' <button type="submit" class="btn btn-default" style="float: right;">回复</button>' +
+                        '</form>' +
                         '</div>' +
                         '<div style="clear: both;"></div></li>';
                 }
