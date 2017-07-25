@@ -27,7 +27,7 @@
     <!-- 首页头部导航 -->
     <div class="headlead">
         <div class="logobox">
-            <img src="../img/Home/logo.png" alt="">
+            <img th:attr="src=${course.courseCoverUrl}, alt=${course.courseName}" />
         </div>
         <div class="headlist hidden-sm">
             <ul class="leadlistbox">
@@ -76,7 +76,7 @@
                 <div class="begain">
                     <a href="">开始学习</a>
                 </div>
-                <div class="tipbox" style="background: url(/upload/1500876845364.jpg) repeat 0 0;">
+                <div class="tipbox"  th:attr=" style='background: url(' + ${course.courseCoverUrl} +') repeat 0 0;'">
                     <div class="usernum">
                         <a href="">学习人数：123</a>
                     </div>

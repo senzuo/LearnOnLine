@@ -45,8 +45,9 @@ public class CourseController {
     public String test(@PathVariable(value = "sectionId") Integer sectionId, Model model) {
 
         List<Video> videos = videoService.getVideoBySectionId(sectionId);
-
-        model.addAttribute("video",videos.get(0));
+        if (videos.size()>0){
+            model.addAttribute("video",videos.get(0));
+        }
 
         Section sec = sectionService.getSectionById(sectionId);
 

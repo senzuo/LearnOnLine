@@ -85,6 +85,13 @@ public class AdminCourseManage {
         course.setCategory_id(1);
         course.setDifficulty(difficulty);
         course.setCourseCoverUrl(courseCover);
+        course.setDifficulty(course_brief);
+        System.out.println(course);
+        System.out.println(course);
+        System.out.println(course);
+        System.out.println(course);
+        System.out.println(course);
+        System.out.println(course);
         System.out.println(course);
 
         courseService.addCourse(course);
@@ -104,7 +111,7 @@ public class AdminCourseManage {
                             HttpServletRequest request) {
         if (!file.isEmpty())
         {
-            String path = request.getSession().getServletContext().getRealPath("/upload/");
+            String path = request.getSession().getServletContext().getRealPath("/upload/cover");
 
             String type = file.getOriginalFilename().substring(
                     file.getOriginalFilename().indexOf("."));// 取文件格式后缀名
@@ -123,7 +130,7 @@ public class AdminCourseManage {
                 e.printStackTrace();
             }
 
-            return "/upload/" + fileName;
+            return "/upload/cover/" + fileName;
         }
         return "error";
     }

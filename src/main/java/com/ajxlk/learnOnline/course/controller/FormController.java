@@ -8,10 +8,7 @@ import com.ajxlk.learnOnline.user.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,14 +54,15 @@ public class FormController {
      * @param stuid
      * @return
      */
-    @RequestMapping("/{courseId}/form/add")
+    @RequestMapping("/{sectionId}/form/add")
     @ResponseBody
-    public void addComment(@RequestParam String content, @RequestParam int stuid) {
+    public void addComment(@PathVariable(value = "sectionId") int sectionId, @RequestParam String content, @RequestParam int stuid) {
         Comment comment = new Comment();
+        comment.setSectionid(sectionId);
         comment.setReviewerid(stuid);
         comment.setContent(content);
         comment.setCreatetime(new Date());
-        comment.setSectionid(1);
+        comment.setSectionid(sectionId);
         comment.setPid(-1);
 
         System.out.println(comment);

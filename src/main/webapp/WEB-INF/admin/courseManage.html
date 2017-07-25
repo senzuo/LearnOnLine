@@ -194,13 +194,13 @@
             <div class="form-group">
                 <label for="firstname" class="col-sm-3 control-label">课程名称</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="firstname" placeholder="请输入课程名称">
+                    <input type="text" class="form-control" id="course_name" placeholder="请输入课程名称">
                 </div>
             </div>
             <div class="form-group">
                 <label for="firstname" class="col-sm-3 control-label">讲师姓名</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" id="firstname"
+                    <input type="text" class="form-control" id="teacher_name"
                            placeholder="请输入讲师姓名">
                 </div>
             </div>
@@ -243,7 +243,7 @@
             <div class="form-group">
                 <label for="lastname" class="col-sm-3 control-label">课程难度</label>
                 <div class="col-sm-9">
-                    <select class="form-control">
+                    <select class="form-control" id="difficulty">
                         <option>初级</option>
                         <option>中级</option>
                         <option>高级</option>
@@ -253,7 +253,7 @@
             <div class="form-group">
                 <label for="lastname" class="col-sm-3 control-label">课程简介</label>
                 <div class="col-sm-9">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" id="course_brief"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -264,7 +264,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6" style="text-align: center; margin-top: 10px;">
-                    <button type="submit" class="btn btn-default addcoursebtn">添加</button>
+                    <button type="submit" class="btn btn-default addcoursebtn" onclick="addCourseCover()">添加</button>
                 </div>
             </div>
         </form>
@@ -337,11 +337,10 @@
 
 <script type="text/javascript">
 
-    var courseId;
 
     function addCourseCover() {
         var formData = new FormData();
-        formData.append('file', $('#file')[0].files[0]);
+        formData.append('file', $('#inputfile')[0].files[0]);
         console.log("form data " + formData);
         $.ajax({
             url: "/course/addCourse/cover",
@@ -375,7 +374,7 @@
             data : {
                 course_name: $('#course_name').val(),
                 teacher_name: $('#teacher_name').val(),
-                cata: $('#cata').val(),
+                cata: 1,
                 difficulty: $('#difficulty').val(),
                 course_brief: $('#course_brief').val(),
                 courseCover:data

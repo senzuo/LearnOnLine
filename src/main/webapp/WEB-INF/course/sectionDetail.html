@@ -32,9 +32,9 @@
         </div>
 
         <div class="coursename">
-                <!--列出sectionId-->
-                <span th:text="${section.sectionid}" style="display: none" id="section_Id"></span>
-				<span th:text="${course.courseName}" class="name">
+            <!--列出sectionId-->
+            <span th:text="${section.sectionid}" style="display: none" id="section_Id"></span>
+            <span th:text="${course.courseName}" class="name">
 				</span>
             <span class="section">
                 <span th:text="${chapter.chaptername}"></span>
@@ -57,6 +57,7 @@
             </ul>
         </div>
         <div class="logoarea">
+            <span id="stuid" style="display: none">1</span>
             <a href="">
                 <img src="../img/Player/user.jpg" class="logo">
             </a>
@@ -70,7 +71,8 @@
             <span th:text="${video.url}" id="video_url"></span>
 
             <video width="320" height="240" controls="controls">
-                <source src="../movie/test.mp4"  type="video/mp4" id="video">
+
+                <source th:attr="src=${video.url}" type="video/mp4" id="video">
             </video>
 
             <!-- 控制条 -->
@@ -120,7 +122,7 @@
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-default" style="    float: right;">提交</button>
+                        <button type="button" class="btn btn-default" style="float: right;" >提交</button>
                         <div style="clear: both;"></div>
                     </form>
                 </div>
@@ -171,9 +173,9 @@
                                     </div>
                                     <form role="form" class="commentinput">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="请输入评论···"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="请输入评论···" id="addContent"></textarea>
                                         </div>
-                                        <button type="submit" class="btn btn-default">发表评论</button>
+                                        <button type="button" class="btn btn-default" onclick="addFormInfo()">发表评论</button>
                                     </form>
                                     <div class="clear"></div>
                                 </div>
@@ -256,22 +258,24 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
-        var url = document.getElementById('video_url').innerHTML;
-        alert(url);
-        var el = document.getElementsById('video');
-        el.setAttribute('src',url)
+    var section_Id = $('#section_Id').text();
+    alert("section_id is " + section_Id);
+
+    $(document).ready(function(){
+        loadComment();
+        loadQuesAns();
     });
 
-    var section_Id = $('#section_Id').text();
 
     /**
      * 添加评论
      */
     function addFormInfo() {
         alert(section_Id);
-        var stuid = document.getElementById("stuid").innerText;
+        var stuid = document.getElementById("stuid").innerHTML;
         var content = $("#addContent").val();
+        alert(stuid);
+        alert(content);
         $.ajax({
             url: "/course/" + section_Id + "/form/add",
             type: "post",
@@ -280,22 +284,10 @@
                 stuid: stuid
             },
             success: function (data, status) {
-                if (status != "success") {
-                    toastr.error("删除失败，请检查网络和服务器运行情况！");
-                    return;
-                }
-                if (data.code != 200) {
-                    toastr.error(data.msg);
-                    return;
-                }
-                toastr.success(data.msg);
-                $("#tableUser").bootstrapTable('remove', {
-                    field: 'id',
-                    values: !isNaN(userId) ? [userId] : userId
-                });
+                loadComment();
             },
             error: function (data, status) {
-                toastr.error("删除失败，请检查网络和服务器运行情况！");
+                alert("网络异常!");
             }
         })
 
@@ -304,7 +296,7 @@
     /**
      *  加载问答
      */
-    $(function () {
+    function loadQuesAns() {
         $.ajax({
             type: "get",
             dataType: "json",
@@ -381,13 +373,13 @@
                 alert("通讯失败。");
             }
         });
-    });
+    }
 
 
     /**
      * 加载评论
      */
-    $(function () {
+    function loadComment() {
         $.ajax({
             type: "get",
             dataType: "json",
@@ -398,7 +390,7 @@
                 for (var i = 0; i < data.length; i++) {
                     comment += "<li class='commentlist'>" +
                         '<div class="userlist">' +
-                        '<a href=""><img src=' + data[i].stu["stuiconurl"] + 'class="userhead"' + '></a>' +
+                        '<a href=""><img src=' + data[i].stu["stuiconurl"] + '  class="userhead"' + '></a>' +
                         ' </div>' +
                         '<div class="comment">' +
                         ' <div class="username">' +
@@ -423,7 +415,7 @@
             }
         });
 
-    });
+    }
 
 
 </script>
