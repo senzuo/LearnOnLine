@@ -18,4 +18,12 @@ public class TeacherService {
     public List<Teacher> getAllTeacher(){
         return teacherMapper.getAllTeacher();
     }
+
+    public Teacher getTeacherByName(String name){
+        return teacherMapper.selectByName(name);
+    }
+
+    public void insert(Teacher teacher){
+        teacherMapper.insert(teacher);
+    }
 }

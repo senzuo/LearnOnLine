@@ -32,5 +32,9 @@ public class ChapterService {
         return chapterMapper.selectByPrimaryKey(chapterId);
     }
 
+    public int getCourseIdByChapterId(int chapterId) {
+        return chapterMapper.getCourseIdByChapterId(chapterId);
+    }
+
 
 }

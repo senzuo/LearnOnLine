@@ -87,4 +87,8 @@
     where chapter_id = #{chapterid,jdbcType=INTEGER}
   </select>
 
+  <select id="getChapterBySectionId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    SELECT chapter_id FROM tb_section WHERE section_id = #{sectionid,jdbcType=INTEGER}
+  </select>
+
 </mapper>

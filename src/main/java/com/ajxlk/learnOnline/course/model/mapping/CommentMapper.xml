@@ -116,6 +116,6 @@
   </update>
 
   <select id="getCommentBySectionId" resultMap="BaseResultMap" resultType="java.lang.Integer">
-    SELECT * FROM tb_comment WHERE section_id = #{SectionId,jdbcType=INTEGER}
+    SELECT * FROM tb_comment WHERE section_id = #{SectionId,jdbcType=INTEGER} ORDER BY create_time DESC
   </select>
 </mapper>

@@ -80,12 +80,22 @@ public class AdminCourseManage {
             @RequestParam("courseCover") String courseCover
     ) {
         Course course = new Course();
+
+        Teacher teacher = teacherService.getTeacherByName(teacherName);
+        if (teacher == null){
+            teacher = new Teacher();
+            teacher.setTeachername(teacherName);
+            teacherService.insert(teacher);
+        }
+        teacher = teacherService.getTeacherByName(teacherName);
+
         course.setCourseName(courseName);
         course.setTeacherName(teacherName);
+        course.setTeacherid(teacher.getTeacherid());
         course.setCategory_id(1);
         course.setDifficulty(difficulty);
         course.setCourseCoverUrl(courseCover);
-        course.setDifficulty(course_brief);
+        course.setDescription(course_brief);
         System.out.println(course);
         System.out.println(course);
         System.out.println(course);

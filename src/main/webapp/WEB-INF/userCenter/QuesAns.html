@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/public/head.css">
+    <link rel="stylesheet" href="/css/public/Foot.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/usercenter.css">
+    <link rel="stylesheet" type="text/css" href="/css/myquestion.css">
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+
+</head>
+<body>
+
+<div class="body">
+    <!-- 首页头部导航 -->
+    <div class="headlead">
+        <div class="logobox">
+            <img src="../../img/Home/logo.png" alt="">
+        </div>
+        <div class="headlist hidden-sm">
+            <ul class="leadlistbox">
+                <li class="list"><a href="../index.html">首页</a></li>
+                <li class="list"><a href="coursecenter.html">课程中心</a></li>
+                <li class="list"><a href="#">职业路径</a></li>
+                <li class="list"><a href="#">考核测评</a></li>
+                <li class="list"><a href="#">互动社区</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+        <div class="adminbox">
+            <div class="userlogo">
+                <a href="usercenter.html"><img src="../../img/Home/user.png" alt=""></a>
+            </div>
+        </div>
+        <div class="searchbox">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+        <div class="headlistsm">
+
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!-- 顶部个人信息条 -->
+    <div class="bg-other user-head-info">
+        <div class="user-info">
+            <h3 class="user-name clearfix">
+                <span>用户名</span>
+            </h3>
+            <p class="about-info">
+                <span class="glyphicon glyphicon-time"></span>
+                <span class="u-info-learn">
+                        学习时长 <em> 1小时15分</em>
+                    </span>
+            </p>
+            <p class="user-desc">
+                这里是用户签名！！
+            </p>
+            <div class="userimg">
+                <a href="usercenter.html"><img src="../../img/CourseDetail/user.jpg" alt=""></a>
+            </div>
+            <div class="click-good">
+                <div class="goodimg">
+                    <img src="../../img/usercenter/clickAmount.png">
+                </div>
+                <span class="goodnum">
+						24
+					</span>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 个人信息详情 -->
+    <div class="wrap">
+        <div class="slider">
+            <ul>
+                <li><a href="../usercenter.html"><i class="glyphicon glyphicon-home "></i>我的课程<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="mytask.html"><i class="glyphicon glyphicon-list-alt"></i>培训任务<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="myplan.html"><i class="glyphicon glyphicon-calendar"></i>我的计划<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="myquestion.html" class="active"><i class="glyphicon glyphicon-comment"></i>我的问答<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="mynodes.html"><i class="glyphicon glyphicon-list-alt"></i>我的笔记<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="myexam.html"><i class="glyphicon glyphicon-edit"></i>我的试题<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="mysuccess.html"><i class="glyphicon glyphicon-star"></i>我的成就<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="mychats.html"><i class="glyphicon glyphicon-stats"></i>统计分析<img src="../../img/usercenter/right.png"></a></li>
+            </ul>
+        </div>
+        <div class="user-cont">
+            <ul id="myTab" class="nav nav-tabs" style="padding-bottom: 4px;height: 44px;">
+                <li class="active">
+                    <a href="#question" data-toggle="tab" class="tabstyle">我的提问</a>
+                </li>
+                <li>
+                    <a href="#answ" data-toggle="tab" class="tabstyle">
+                        我的回答
+                    </a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="question">
+                    <div class="questionbox">
+                        <ul>
+                            <li class="questionlist">
+                                <a href="">
+                                    <div class="answnum">
+                                        <span>0</span>
+                                        <h4>回答数</h4>
+                                    </div>
+                                    <div class="questioninfo">
+                                        <h3>我的提问问题</h3>
+                                        <div class="questioninfodetail">
+                                            <span class="detail-left">课程：子K歌考试</span>
+                                            <span class="detail-mid">章节：第一章</span>
+                                            <span class="detail-tright">发表时间:2017-10-2</span>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                            <li class="questionlist">
+                                <a href="">
+                                    <div class="answnum">
+                                        <span>5</span>
+                                        <h4>回答数</h4>
+                                    </div>
+                                    <div class="questioninfo">
+                                        <h3>我的提问问题</h3>
+                                        <div class="questioninfodetail">
+                                            <span class="detail-left">课程：子K歌考试</span>
+                                            <span class="detail-mid">章节：第一章</span>
+                                            <span class="detail-tright">发表时间:2017-10-2</span>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                            <li class="questionlist">
+                                <a href="">
+                                    <div class="answnum">
+                                        <span>6</span>
+                                        <h4>回答数</h4>
+                                    </div>
+                                    <div class="questioninfo">
+                                        <h3>我的提问问题</h3>
+                                        <div class="questioninfodetail">
+                                            <span class="detail-left">课程：子K歌考试</span>
+                                            <span class="detail-mid">章节：第一章</span>
+                                            <span class="detail-tright">发表时间:2017-10-2</span>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                            <li class="questionlist">
+                                <a href="">
+                                    <div class="answnum">
+                                        <span>0</span>
+                                        <h4>回答数</h4>
+                                    </div>
+                                    <div class="questioninfo">
+                                        <h3>我的提问问题</h3>
+                                        <div class="questioninfodetail">
+                                            <span class="detail-left">课程：子K歌考试</span>
+                                            <span class="detail-mid">章节：第一章</span>
+                                            <span class="detail-tright">发表时间:2017-10-2</span>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                            <li class="questionlist">
+                                <a href="">
+                                    <div class="answnum">
+                                        <span>2</span>
+                                        <h4>回答数</h4>
+                                    </div>
+                                    <div class="questioninfo">
+                                        <h3>我的提问问题</h3>
+                                        <div class="questioninfodetail">
+                                            <span class="detail-left">课程：子K歌考试</span>
+                                            <span class="detail-mid">章节：第一章</span>
+                                            <span class="detail-tright">发表时间:2017-10-2</span>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="answ">
+                    <div class="answ-question-box">
+                        <ul>
+                            <li class="answ-question-box-list">
+                                <a href="">
+                                    <div class="user-img-box">
+                                        <img src="../../img/usercenter/head.png" alt="头像">
+                                    </div>
+                                    <div class="question-des">
+                                        <p class="question-des-detail">
+                                            这里是问题描述信息
+                                        </p>
+                                        <div class="question-des-tip">
+                                            <span class="detail-left">课程：会计学</span>
+                                            <span class="detail-mid">章节：第一站第一节</span>
+                                            <span class="detail-tright">发表时间：2020-1-1</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="downico">
+                                    <img src="../../img/usercenter/icodown.png">
+                                </div>
+                                <div class="answ-box">
+                                    <div class="adminimg">
+                                        <img src="../../img/usercenter/head.png">
+                                    </div>
+                                    <div class="answ-box-info">
+                                        <span class="adminname"><span class="adminname"><a href="">用户名1</a></span></span>
+                                        <p class="answ-words">
+                                            这里是回答的具体内容，这里是回答的具体内容，这里是回答的具体内容，
+                                        </p>
+                                        <span class="answ-time">回答时间：2018-1-1</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="answ-question-box-list">
+                                <a href="">
+                                    <div class="user-img-box">
+                                        <img src="../../img/usercenter/head.png" alt="头像">
+                                    </div>
+                                    <div class="question-des">
+                                        <p class="question-des-detail">
+                                            这里是问题描述信息
+                                        </p>
+                                        <div class="question-des-tip">
+                                            <span class="detail-left">课程：会计学</span>
+                                            <span class="detail-mid">章节：第一站第一节</span>
+                                            <span class="detail-tright">发表时间：2020-1-1</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="downico">
+                                    <img src="../../img/usercenter/icodown.png">
+                                </div>
+                                <div class="answ-box">
+                                    <div class="adminimg">
+                                        <img src="../../img/usercenter/head.png">
+                                    </div>
+                                    <div class="answ-box-info">
+                                        <span class="adminname"><a href="">用户名2</a></span>
+                                        <p class="answ-words">
+                                            这里是回答的具体内容，这里是回答的具体内容，这里是回答的具体内容，
+                                        </p>
+                                        <span class="answ-time">回答时间：2018-1-1</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<!-- 底部版权信息 -->
+<div class="foot">
+    <div class="ico">
+        <ul class="icobox">
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/qq.png"></a>
+            </li>
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/wechat.png"></a>
+            </li>
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/weibo.png"></a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="quiklink">
+        <ul class="linkbox">
+            <li class="linklist">
+                <a href="#">首页</a>
+            </li>
+            <li class="linklist">
+                <a href="#">关于我们</a>
+            </li>
+            <li class="linklist">
+                <a href="#">联系我们</a>
+            </li>
+            <li class="linklist">
+                <a href="#">讲师招募</a>
+            </li>
+            <li class="linklist">
+                <a href="#">常见问题</a>
+            </li>
+            <li class="linklist">
+                <a href="#">意见反馈</a>
+            </li>
+            <li class="linklist">
+                <a href="#">友情链接</a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="copy">
+        <span>傲娇小龙坎版权所有</span>
+    </div>
+</div>
+</div>
+
+
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/myquestion.js"></script>
+</body>
+</html>

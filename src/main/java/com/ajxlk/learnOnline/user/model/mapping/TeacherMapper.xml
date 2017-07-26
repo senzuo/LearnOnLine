@@ -9,6 +9,11 @@
   <sql id="Base_Column_List" >
     teacher_id, teacher_name, teacher_brief
   </sql>
+
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from tb_teacher WHERE teacher_name = #{name,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -72,4 +77,6 @@
   <select id="getAllTeacher" resultMap="BaseResultMap">
     SELECT * FROM tb_teacher
   </select>
+
+
 </mapper>

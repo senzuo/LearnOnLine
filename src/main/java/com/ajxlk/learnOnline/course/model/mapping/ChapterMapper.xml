@@ -86,4 +86,8 @@
     from tb_chapter
     where course_id = #{courseid,jdbcType=INTEGER}
   </select>
+
+  <select id="getCourseIdByChapterId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    SELECT course_id FROM tb_chapter WHERE chapter_id = #{chapterid,jdbcType=INTEGER}
+  </select>
 </mapper>

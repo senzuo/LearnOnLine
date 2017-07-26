@@ -23,7 +23,7 @@
     <![endif]-->
 
 </head>
-<body>
+<body onload=" record()">
 <div class="cont">
     <!-- 头部导航 -->
     <div class="head">
@@ -67,11 +67,10 @@
     <!-- 播放器 -->
     <div class="player">
         <div class="vedio">
-            <span th:text="${video.videoName}"></span>
-            <span th:text="${video.url}" id="video_url"></span>
+            <!--<span th:text="${video.videoName}"></span>-->
+            <!--<span th:text="${video.url}" id="video_url"></span>-->
 
-            <video width="320" height="240" controls="controls">
-
+            <video width="320" height="240" controls="controls" autoplay="autoplay" id="video_tag"  onplaying="init()">
                 <source th:attr="src=${video.url}" type="video/mp4" id="video">
             </video>
 
@@ -257,21 +256,125 @@
 </html>
 
 <script type="text/javascript">
+    function sleep(delay)
+    {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+    }
+    // 对Date的扩展，将 Date 转化为指定格式的String
+    // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+    // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+    // 例子：
+    // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+    // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+    Date.prototype.Format = function(fmt)
+    { //author: meizz
+        var o = {
+            "M+" : this.getMonth()+1,                 //月份
+            "d+" : this.getDate(),                    //日
+            "h+" : this.getHours(),                   //小时
+            "m+" : this.getMinutes(),                 //分
+            "s+" : this.getSeconds(),                 //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S"  : this.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt))
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        for(var k in o)
+            if(new RegExp("("+ k +")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        return fmt;
+    }
+
+    var video = document.getElementById("video_tag");;
+    var duration;
+
+    function init() {
+        loadComment();
+        loadQuesAns();
+        sleep(300);
+        duration = video.duration;
+
+        alert(duration);
+    }
+
+//    $(document).ready(function(){
+//
+//    });
+
+    var lastTime = new Date();    //记录上一个发送请求的时间
+    var current_play_time;           //当前视频播放的时间
+    var currentTime;                      // 记录视频播放位置
+
+
+    /*产生随机数*/
+    function GetRandomNum(Min,Max)
+    {
+        var Range = Max - Min;
+        var Rand = Math.random();
+        return(Min + Math.round(Rand * Range));
+    }
+
+    var random;
+    function record() {
+//        if (video.paused){
+//            sleep(300);
+//            record();
+//        }
+        random = GetRandomNum(60000,180000);
+        alert(random);
+        video.pause();//暂停视频
+        // 弹出验证码 验证
+//        if(!video.paused){ //如果通过
+            current_play_time = new Date();
+            currentTime = video.currentTime;
+            sendRequest();
+            lastTime = current_play_time;
+//        }else {
+//
+//        }
+        setTimeout("record()",random);
+    }
+
+
+
+    function sendRequest() {
+        $.ajax({
+            url : "/stuRecord",
+            type: "post",
+            data: {
+                stuId : document.getElementById("stuid").innerHTML,
+                sectionId : section_Id,
+                startTime : lastTime,//.Format("yyyy-MM-dd hh:mm:ss"),
+                endTime : current_play_time,//.Format("yyyy-MM-dd hh:mm:ss"),
+                currentTime : Math.round(currentTime),
+                learnTimeLength : Math.round(random/1000),
+                duration : Math.round(duration)
+            },
+            success: function (data, status) {
+                alert("success!");
+            },
+            error: function (data, status) {
+                alert("网络异常!");
+            }
+
+
+        });
+
+    }
+
+
 
     var section_Id = $('#section_Id').text();
     alert("section_id is " + section_Id);
 
-    $(document).ready(function(){
-        loadComment();
-        loadQuesAns();
-    });
 
 
     /**
      * 添加评论
      */
     function addFormInfo() {
-        alert(section_Id);
+//        alert(section_Id);
         var stuid = document.getElementById("stuid").innerHTML;
         var content = $("#addContent").val();
         alert(stuid);
@@ -284,6 +387,7 @@
                 stuid: stuid
             },
             success: function (data, status) {
+                $("#addContent").val("");
                 loadComment();
             },
             error: function (data, status) {
@@ -405,9 +509,12 @@
                         '</div></div><div style="clear: both;"></div></li>'
                 }
                 comment += '</ul>';
+                var divAA = document.getElementById("comment").getElementsByTagName("ul");//清除table  下的东西
+                var varAALength = divAA.length;
+                for (var i = 0; i < varAALength; i++)
+                    divAA[0].remove();
+
                 $('#comment').append(comment);
-//                window.location.reload();
-//                $("#comment").html();//要刷新的div
                 return true;
             },
             error: function (err) {

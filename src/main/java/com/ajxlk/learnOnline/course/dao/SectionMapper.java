@@ -18,4 +18,7 @@ public interface SectionMapper {
     int updateByPrimaryKey(Section record);
 
     List<Section> getSectionsByChapterId(int id);
+
+    int getChapterBySectionId(int sectionid);
+
 }

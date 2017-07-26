@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.record.dao.StuFaverCourseMapper" >
+  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.record.model.StuFaverCourseKey" >
+    <id column="stu_id" property="stuId" jdbcType="INTEGER" />
+    <id column="course_id" property="courseId" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.ajxlk.learnOnline.record.model.StuFaverCourseKey" >
+    delete from tb_stu_faver_course
+    where stu_id = #{stuId,jdbcType=INTEGER}
+      and course_id = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ajxlk.learnOnline.record.model.StuFaverCourseKey" >
+    insert into tb_stu_faver_course (stu_id, course_id)
+    values (#{stuId,jdbcType=INTEGER}, #{courseId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.record.model.StuFaverCourseKey" >
+    insert into tb_stu_faver_course
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stuId != null" >
+        stu_id,
+      </if>
+      <if test="courseId != null" >
+        course_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stuId != null" >
+        #{stuId,jdbcType=INTEGER},
+      </if>
+      <if test="courseId != null" >
+        #{courseId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getAllStuFavByStuId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT * FROM tb_stu_faver_course WHERE stu_id = #{stuId,jdbcType=INTEGER}
+  </select>
+</mapper>

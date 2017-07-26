@@ -18,10 +18,11 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/usertest")
-public class StuController {
+public class StuRestController {
 
     @Autowired
     private StuService stuService;
+
 
 
     @RequestMapping(value = "", method = RequestMethod.GET)

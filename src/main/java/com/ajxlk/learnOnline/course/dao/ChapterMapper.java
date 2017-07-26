@@ -18,4 +18,6 @@ public interface ChapterMapper {
     int updateByPrimaryKey(Chapter record);
 
     List<Chapter> getChaptersByCourseId(int CourseId);
+
+    int getCourseIdByChapterId(int chapterid);
 }

@@ -1,6 +1,7 @@
 package com.ajxlk.learnOnline.course.service;
 
 import com.ajxlk.learnOnline.course.dao.SectionMapper;
+import com.ajxlk.learnOnline.course.model.Chapter;
 import com.ajxlk.learnOnline.course.model.Section;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,10 @@ public class SectionService {
 
     public Section getSectionById(int sectionId) {
         return sectionMapper.selectByPrimaryKey(sectionId);
+    }
+
+    public int getChapterBySectionId(int sectionId) {
+        return sectionMapper.getChapterBySectionId(sectionId);
     }
 
 

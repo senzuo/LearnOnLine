@@ -18,4 +18,6 @@ public interface TeacherMapper {
     int updateByPrimaryKey(Teacher record);
 
     List<Teacher> getAllTeacher();
+
+    Teacher selectByName(String name);
 }

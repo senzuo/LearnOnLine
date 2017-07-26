@@ -1,0 +1,128 @@
+.answnum{
+	width: 60px;
+    height: 60px;
+    padding: 10px;
+    float: left;
+    border: 1px solid #ccc;
+    background: rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 20px;
+    color: #9a9a9a;
+}
+.questionbox li{
+	    height: 80px;
+	        border-bottom: 1px solid #e2dcdc;
+}
+.answnum h4{
+	font-size: 12px;
+	margin-top: 0px;
+}
+.questioninfo{
+	    margin-left: 100px;
+    height: 70px;
+}
+.questioninfo h3, .question-des-detail{
+	font-size: 16px;
+    color: #000;
+    font-weight: 600;
+    /* padding-bottom: 10px; */
+    height: 30px;
+    line-height: 30px;
+}
+.questioninfodetail span, .question-des-tip span{
+	color: #787d82;
+}
+.questioninfodetail span:hover, .question-des-tip span:hover{
+	color: #000;
+}
+.detail-mid{
+	padding: 0 120px;
+}
+.not-zero{
+	background: rgba(191, 13, 13, 0.85);
+	    color: #f1f1f1;
+}
+.user-img-box{
+	width: 60px;
+    height: 60px;
+    overflow: hidden;
+    float: left;
+    margin-top: 10px;
+}
+.user-img-box img{
+	width: 100%;
+	height: 100%;
+
+}
+.question-des{
+	margin-left: 80px;
+}
+.answ-question-box ul{
+	padding: 16px 0px;
+}
+.answ-question-box li{
+	padding: 16px 0px;
+    border-bottom: 1px solid #e4e4e4;
+    position: relative;
+}
+.downico{
+	position: absolute;
+    width: 30px;
+    top: 36px;
+    height: 30px;
+    right: 16px;
+}
+.downico img{
+	width: 100%;
+}
+.downico img:hover{
+	cursor: pointer;
+}
+.answ-question-box-list a .question-des p:hover, .questioninfo h3:hover{
+	color: #885858;
+}
+.answ-box{
+	display: none;
+    border: 1px solid #eaeaea;
+    margin-top: 20px;
+    margin-left: 80px;
+    min-height: 80px;
+    margin-right: 20px;
+    background: #f9f9f9;
+}
+.adminimg{
+	float: left;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin-top: 6px;
+    margin-left: 13px;
+    border-radius: 50%;
+}
+.adminimg img{
+	width: 100%;
+	height: 100%;
+}
+.answ-box-info{
+	    margin-left: 70px;
+    min-height: 80px;
+        padding: 10px
+}
+.adminname a{
+	font-weight: 600;
+    font-size: 14px;
+    color: #333;
+}
+.adminname a:hover{
+	color: #d04848;
+}
+.answ-words{
+	padding: 4px 0px;
+	margin-bottom: 3px;
+}
+.answ-time{
+	font-size: 12px;
+    color: #aba9a9;
+}
