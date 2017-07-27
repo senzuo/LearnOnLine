@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.course.dao.FirstCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.FirstCategory" >
+    <id column="category_first_id" property="categoryFirstId" jdbcType="INTEGER" />
+    <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    category_first_id, category_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_category_first
+    where category_first_id = #{categoryFirstId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_category_first
+    where category_first_id = #{categoryFirstId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.FirstCategory" >
+    insert into tb_category_first (category_first_id, category_name)
+    values (#{categoryFirstId,jdbcType=INTEGER}, #{categoryName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.FirstCategory" >
+    insert into tb_category_first
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="categoryFirstId != null" >
+        category_first_id,
+      </if>
+      <if test="categoryName != null" >
+        category_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="categoryFirstId != null" >
+        #{categoryFirstId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryName != null" >
+        #{categoryName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.FirstCategory" >
+    update tb_category_first
+    <set >
+      <if test="categoryName != null" >
+        category_name = #{categoryName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where category_first_id = #{categoryFirstId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.FirstCategory" >
+    update tb_category_first
+    set category_name = #{categoryName,jdbcType=VARCHAR}
+    where category_first_id = #{categoryFirstId,jdbcType=INTEGER}
+  </update>
+</mapper>

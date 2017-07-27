@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ajxlk.learnOnline.course.dao.ThirdCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.ajxlk.learnOnline.course.model.ThirdCategory" >
+    <id column="category_thrid_id" property="categoryThridId" jdbcType="INTEGER" />
+    <result column="category_third_pid" property="categoryThirdPid" jdbcType="INTEGER" />
+    <result column="category_third_name" property="categoryThirdName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    category_thrid_id, category_third_pid, category_third_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_category_third
+    where category_thrid_id = #{categoryThridId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_category_third
+    where category_thrid_id = #{categoryThridId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ajxlk.learnOnline.course.model.ThirdCategory" >
+    insert into tb_category_third (category_thrid_id, category_third_pid, 
+      category_third_name)
+    values (#{categoryThridId,jdbcType=INTEGER}, #{categoryThirdPid,jdbcType=INTEGER}, 
+      #{categoryThirdName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ajxlk.learnOnline.course.model.ThirdCategory" >
+    insert into tb_category_third
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="categoryThridId != null" >
+        category_thrid_id,
+      </if>
+      <if test="categoryThirdPid != null" >
+        category_third_pid,
+      </if>
+      <if test="categoryThirdName != null" >
+        category_third_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="categoryThridId != null" >
+        #{categoryThridId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryThirdPid != null" >
+        #{categoryThirdPid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryThirdName != null" >
+        #{categoryThirdName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ajxlk.learnOnline.course.model.ThirdCategory" >
+    update tb_category_third
+    <set >
+      <if test="categoryThirdPid != null" >
+        category_third_pid = #{categoryThirdPid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryThirdName != null" >
+        category_third_name = #{categoryThirdName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where category_thrid_id = #{categoryThridId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ajxlk.learnOnline.course.model.ThirdCategory" >
+    update tb_category_third
+    set category_third_pid = #{categoryThirdPid,jdbcType=INTEGER},
+      category_third_name = #{categoryThirdName,jdbcType=VARCHAR}
+    where category_thrid_id = #{categoryThridId,jdbcType=INTEGER}
+  </update>
+</mapper>
