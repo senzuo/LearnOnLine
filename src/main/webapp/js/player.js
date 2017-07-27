@@ -78,13 +78,8 @@ $(document).on('click','#section',function(){
         flag1 = 1;
     }
 });
-// $(document).on('click','.vedio',function(){
-// 	var myVideo = $(".vedio");
-// 	if (myVideo.paused)
-// 	  myVideo.play();
-// 	else
-// 	  myVideo.pause();
-// })
+
+
 $(document).on('click','.close',function(){
     $(".popbox").hide();
     $(".popbox").hide();

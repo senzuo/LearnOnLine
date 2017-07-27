@@ -108,7 +108,7 @@
 
         </div>
 
-        <div class="popbox notebox">
+        <div class="popboxnote notebox">
             <div class="popboxhead">
                 <div class="control-click">
                     <span style="float: left;">笔记</span>
@@ -121,12 +121,13 @@
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
 
-                        <button type="button" class="btn btn-default" style="float: right;" >提交</button>
+                        <button type="button" class="btn btn-default" style="float: right;" >提+交</button>
                         <div style="clear: both;"></div>
                     </form>
                 </div>
             </div>
         </div>
+
         <div class="popbox notebox">
             <div class="popboxhead">
                 <div class="control-click">
@@ -294,13 +295,9 @@
         loadQuesAns();
         sleep(300);
         duration = video.duration;
-
-        alert(duration);
     }
 
-//    $(document).ready(function(){
-//
-//    });
+
 
     var lastTime = new Date();    //记录上一个发送请求的时间
     var current_play_time;           //当前视频播放的时间
@@ -322,7 +319,6 @@
 //            record();
 //        }
         random = GetRandomNum(60000,180000);
-        alert(random);
         video.pause();//暂停视频
         // 弹出验证码 验证
 //        if(!video.paused){ //如果通过
@@ -366,7 +362,6 @@
 
 
     var section_Id = $('#section_Id').text();
-    alert("section_id is " + section_Id);
 
 
 
@@ -374,11 +369,8 @@
      * 添加评论
      */
     function addFormInfo() {
-//        alert(section_Id);
         var stuid = document.getElementById("stuid").innerHTML;
         var content = $("#addContent").val();
-        alert(stuid);
-        alert(content);
         $.ajax({
             url: "/course/" + section_Id + "/form/add",
             type: "post",

@@ -1,0 +1,241 @@
+li{
+	list-style: none;
+}
+.user-cont{	    
+	min-height: 800px;
+}
+.trainbox li{
+	 margin-top: 20px;
+
+}
+.title {
+	position: relative;
+	background: #f7f7f7;
+}
+.title h2{
+	text-align: left;
+    /*background: #f5f5f5;*/
+    padding: 14px;
+    font-size: 18px;
+    /* line-height: 14px; */
+    border: 1px solid #dcd9d9;
+    color: #e43838;
+    /* font-size: 700px; */
+    font-weight: 700;
+    margin: 0;
+}
+.traindetailico{
+	position: absolute;
+    top: 18px;
+    right: 35px;
+}
+.traindetailico:hover{
+	cursor: pointer;
+}
+.traindetailico img{
+	width: 20px;
+}
+.progressbar{
+	width: 200px;
+    height: 200px;
+    float: left;
+        padding: 20px;
+}
+.controlbox{
+	    padding-top: 20px;
+		width: 200px;
+    height: 200px;
+    float: right;
+}
+
+.controlbox i{
+	margin-right: 6px;
+}
+.traintime{
+	float: left;
+	height: 200px;
+	    padding-top: 30px;
+    overflow: hidden;
+}
+.traintime img{
+	width: 26px;
+	margin-right: 10px;
+}
+.traininfo{
+	position: relative;
+	height: 200px;
+    border: 1px solid #dcd9d9;
+    border-top: transparent;
+}
+.traintime div{
+	    padding: 10px 60px;
+}
+.controlbox div{
+	    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #e43838;
+    color: #fff;
+    margin: 10px;
+    border-radius: 20px;
+}
+.traindetailbox{
+	    border-left: 1px solid #dcd9d9;
+    border-right: 1px solid #dcd9d9;
+    border-bottom: 1px solid #dcd9d9;
+}
+.traindetailbox #myTab{
+	background: #fff;
+	padding-bottom: 4px;
+	height: 45px;
+	margin-bottom: 12px;
+	margin-left: 12px;
+	margin-right: 12px;
+}
+.traindetailbox #myTab li{
+		margin-top: 0;
+}
+.panel-default>.panel-heading{
+	background: #fff;
+	border-bottom: 1px solid #dadada;
+}
+.panel-group .panel{
+	border-radius: 0;
+}
+.panel{
+	border-radius: 0;
+	border-style: none;
+}
+.panel-heading h4 a{
+	    display: block;
+	    font-size: 14px;
+}
+.panel-heading h4 a i{
+	margin-right: 4px;
+}
+.panel-heading h4 a:link{
+	text-decoration: none;
+}
+.imgbox{
+	    width: 200px;
+    height: 110px;
+    	float: left
+}
+.imgbox img{
+	width: 100%;
+	height: 100%;
+;
+}
+.eaxmdetailbox{
+	margin-left: 220px;
+    height: 110px;
+    position: relative;
+}
+.progress{
+	height: 10px;
+	width: 360px;
+	border-radius: 10px;
+	    margin-top: 24px;
+	    display: inline-block;
+}
+.eaxmdetailbox h3{
+	font-size: 20px;
+}
+.eaxmdetailbox span{
+	margin-top: 20px;
+    display: block;
+}
+.progress-bar{
+	background: #e43838;
+}
+.baifenbi{
+	    position: absolute;
+    /* float: right; */
+    top: 61px;
+    right: 243px;
+    color: #e43838;
+}
+.exambox{
+	position: relative;
+	    padding-bottom: 16px;
+    border-bottom: 1px solid #dedede;
+}
+.learningagain a{
+	width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #fff;
+    color: #e61717;
+    margin: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 21px;
+    right: 2px;
+    border: 1px solid #e43838;
+    display: block;
+}
+.learningagain a:hover, .testcont a:hover{
+	background: #e61717;
+	color: #fff;
+}
+.testbox li, .questionpaper li{
+	margin: 0;
+	padding: 0;
+}
+.testname, .questionpapername{
+	    min-width: 300px;
+    display: inline-block;
+    font-size: 16px;
+}
+.testtime{
+	display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+.testgrade{
+	display: inline-block;
+    width: 100px;
+    text-align: center;
+    color: #e61717;
+}
+.testcont a, .questionpapercont a, .sourcecont a{
+	display: inline-block;
+    width: 100px;
+    padding: 6px 10px;
+    border: 1px solid #e43838;
+    text-align: center;
+    color: #e43838;
+    float: right;
+}
+.sourcecont{
+	height: 35px;
+    padding: 0px 26px;
+    /*border-bottom: 1px solid #e4e4e4;*/
+}
+#trainsourse li{
+	    border-bottom: 1px solid #ececec;
+	        padding-bottom: 8px;
+}
+.sourcename{
+	margin-top: 4px;
+	display: inline-block;
+}
+.trainintroducebox{
+	    padding: 10px 20px;
+    margin: 0;
+}
+#myTab li a{
+	font-size: 16px;
+}
+.traindetailbox{
+	display: none;
+}
+.panel-default{
+	padding: 0 14px;
+	box-shadow: none;
+}
+#finish{
+	margin-top: 20px;
+}

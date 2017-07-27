@@ -20,7 +20,6 @@
     <![endif]-->
 
 
-
 </head>
 <body>
 
@@ -28,12 +27,12 @@
     <!-- 首页头部导航 -->
     <div class="headlead">
         <div class="logobox">
-            <img src="../../img/Home/logo.png" alt="">
+            <img src="/img/Home/logo.png" alt="">
         </div>
         <div class="headlist hidden-sm">
             <ul class="leadlistbox">
-                <li class="list"><a href="../index.html">首页</a></li>
-                <li class="list"><a href="coursecenter.html">课程中心</a></li>
+                <li class="list"><a href="#">首页</a></li>
+                <li class="list"><a href="/getAllCourse">课程中心</a></li>
                 <li class="list"><a href="#">职业路径</a></li>
                 <li class="list"><a href="#">考核测评</a></li>
                 <li class="list"><a href="#">互动社区</a></li>
@@ -43,7 +42,7 @@
 
         <div class="adminbox">
             <div class="userlogo">
-                <a href="usercenter.html"><img src="../../img/Home/user.png" alt=""></a>
+                <a href="usercenter.html"><img src="/img/Home/user.png" alt=""></a>
             </div>
         </div>
         <div class="searchbox">
@@ -76,15 +75,21 @@
                 这里是用户签名！！
             </p>
             <div class="userimg">
-                <a href="usercenter.html"><img src="../../img/CourseDetail/user.jpg" alt=""></a>
+                <a href="usercenter.html"><img src="/img/CourseDetail/user.jpg" alt=""></a>
             </div>
-            <div class="click-good">
-                <div class="goodimg">
-                    <img src="../../img/usercenter/clickAmount.png">
+            <div class="right-ico">
+                <div class="guanzhu">
+                    <span>12</span>
+                    <img src="/img/usercenter/guanzhu.png">
                 </div>
-                <span class="goodnum">
-						24
-					</span>
+                <div class="chengjiu">
+                    <span>3</span>
+                    <img src="/img/usercenter/chengjiu.png">
+                </div>
+                <div class="jifen">
+                    <span>4</span>
+                    <img src="/img/usercenter/jifen.png" alt="">
+                </div>
                 <div class="clear"></div>
             </div>
         </div>
@@ -94,14 +99,22 @@
     <div class="wrap">
         <div class="slider">
             <ul>
-                <li><a href="../usercenter.html"><i class="glyphicon glyphicon-home "></i>我的课程<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="mytask.html"><i class="glyphicon glyphicon-list-alt"></i>培训任务<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="myplan.html"><i class="glyphicon glyphicon-calendar"></i>我的计划<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="myquestion.html" class="active"><i class="glyphicon glyphicon-comment"></i>我的问答<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="mynodes.html"><i class="glyphicon glyphicon-list-alt"></i>我的笔记<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="myexam.html"><i class="glyphicon glyphicon-edit"></i>我的试题<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="mysuccess.html"><i class="glyphicon glyphicon-star"></i>我的成就<img src="../../img/usercenter/right.png"></a></li>
-                <li><a href="mychats.html"><i class="glyphicon glyphicon-stats"></i>统计分析<img src="../../img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/1"><i class="glyphicon glyphicon-home "></i>我的课程<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/train"><i class="glyphicon glyphicon-list-alt"></i>培训任务<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/plan" class="active"><i class="glyphicon glyphicon-calendar"></i>我的计划<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/1/QuesAns"><i class="glyphicon glyphicon-comment"></i>我的问答<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/note"><i class="glyphicon glyphicon-list-alt"></i>我的笔记<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="myexam.html"><i class="glyphicon glyphicon-edit"></i>我的试题<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/success"><i class="glyphicon glyphicon-star"></i>我的成就<img
+                        src="/img/usercenter/right.png"></a></li>
+                <li><a href="mychats.html"><i class="glyphicon glyphicon-stats"></i>统计分析<img
+                        src="/img/usercenter/right.png"></a></li>
             </ul>
         </div>
         <div class="user-cont">
@@ -214,7 +227,7 @@
                             <li class="answ-question-box-list">
                                 <a href="">
                                     <div class="user-img-box">
-                                        <img src="../../img/usercenter/head.png" alt="头像">
+                                        <img src="/img/usercenter/head.png" alt="头像">
                                     </div>
                                     <div class="question-des">
                                         <p class="question-des-detail">
@@ -228,14 +241,15 @@
                                     </div>
                                 </a>
                                 <div class="downico">
-                                    <img src="../../img/usercenter/icodown.png">
+                                    <img src="/img/usercenter/icodown.png">
                                 </div>
                                 <div class="answ-box">
                                     <div class="adminimg">
-                                        <img src="../../img/usercenter/head.png">
+                                        <img src="/img/usercenter/head.png">
                                     </div>
                                     <div class="answ-box-info">
-                                        <span class="adminname"><span class="adminname"><a href="">用户名1</a></span></span>
+                                        <span class="adminname"><span class="adminname"><a
+                                                href="">用户名1</a></span></span>
                                         <p class="answ-words">
                                             这里是回答的具体内容，这里是回答的具体内容，这里是回答的具体内容，
                                         </p>
@@ -246,7 +260,7 @@
                             <li class="answ-question-box-list">
                                 <a href="">
                                     <div class="user-img-box">
-                                        <img src="../../img/usercenter/head.png" alt="头像">
+                                        <img src="/img/usercenter/head.png" alt="头像">
                                     </div>
                                     <div class="question-des">
                                         <p class="question-des-detail">
@@ -260,11 +274,11 @@
                                     </div>
                                 </a>
                                 <div class="downico">
-                                    <img src="../../img/usercenter/icodown.png">
+                                    <img src="/img/usercenter/icodown.png">
                                 </div>
                                 <div class="answ-box">
                                     <div class="adminimg">
-                                        <img src="../../img/usercenter/head.png">
+                                        <img src="/img/usercenter/head.png">
                                     </div>
                                     <div class="answ-box-info">
                                         <span class="adminname"><a href="">用户名2</a></span>
@@ -289,13 +303,13 @@
     <div class="ico">
         <ul class="icobox">
             <li class="icolist">
-                <a href="#"><img src="../../img/foot/qq.png"></a>
+                <a href="#"><img src="/img/foot/qq.png"></a>
             </li>
             <li class="icolist">
-                <a href="#"><img src="../../img/foot/wechat.png"></a>
+                <a href="#"><img src="/img/foot/wechat.png"></a>
             </li>
             <li class="icolist">
-                <a href="#"><img src="../../img/foot/weibo.png"></a>
+                <a href="#"><img src="/img/foot/weibo.png"></a>
             </li>
             <div class="clear"></div>
         </ul>
@@ -333,9 +347,9 @@
 </div>
 
 
-
 <script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
 <script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
 <script src="/js/myquestion.js"></script>
+<script src="/js/public/guanzhu.js"></script>
 </body>
 </html>

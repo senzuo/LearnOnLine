@@ -1,0 +1,69 @@
+.nodetopinf p{
+	    padding: 10px;
+    border-bottom: 1px solid #dadada;
+    font-size: 16px;
+}
+.nodetopinf p span{
+	padding: 0 5px;
+	    color: #F01400;
+}
+.notedate{
+	text-align: center;
+	display: inline-block;
+    width: 90px;
+    height: 50px;
+    float: left;
+}
+.year{
+	    display: block;
+    width: 100%;
+    line-height: 30px;
+    font-size: 20px;
+}
+.notelistinfo{
+	margin-left: 110px;
+}
+.notelist{
+	position: relative;
+}
+.point{
+    width: 8px;
+    height: 8px;
+    background: #bdbdbd;
+    border-radius: 50%;
+    position: absolute;
+    top: 21px;
+    left: 107px;
+}
+.notelistinfo{
+	    border-left: 2px solid #c7c7c7;
+    padding-left: 20px;
+}
+.notelistinfo p{
+
+    padding-top: 14px;
+}
+.notecourse, .notesection{
+	    width: 200px;
+    display: inline-block;
+    color: #9a9a9a;
+    font-size: 12px;
+}
+.notecourse:hover, .notesection:hover{
+	color: #000;
+}
+.notelistinfo p{
+	    font-size: 15px;
+}
+.notedetail{
+	    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+.nodecont > ul{
+	padding: 20px 0;
+}
+.notepublictime{
+	float: right;
+	color: #9a9a9a;
+	font-size: 13px;
+}

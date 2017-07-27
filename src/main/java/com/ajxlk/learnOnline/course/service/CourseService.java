@@ -37,10 +37,6 @@ public class CourseService {
             int teacherid = e.getTeacherid();
             Teacher teacher = teacherMapper.selectByPrimaryKey(teacherid);
             e.setTeacherName(teacher.getTeachername());
-
-            int categoryId = e.getCategory_id();
-            Category category = categoryMapper.selectByPrimaryKey(categoryId);
-            e.setCategory_name(category.getCategoryName());
         }
         return courses;
     }

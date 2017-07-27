@@ -48,4 +48,24 @@ public class StuCenterController {
         return "userCenter/QuesAns";
     }
 
+    @RequestMapping(value = "/usercenter/note")
+    public String userCenterNote(){
+        return "userCenter/Note";
+    }
+
+    @RequestMapping(value = "/usercenter/train")
+    public String train(){
+        return "userCenter/train";
+    }
+
+    @RequestMapping(value = "/usercenter/plan")
+    public String plan(){
+        return "userCenter/plan";
+    }
+
+    @RequestMapping(value = "/usercenter/success")
+    public String success(){
+        return "userCenter/success";
+    }
+
 }

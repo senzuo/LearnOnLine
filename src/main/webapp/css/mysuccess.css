@@ -1,0 +1,12 @@
+#get li, #noget li, #all li{
+	float: left;
+    width: 100px;
+    height: 180px;
+    margin: 0 16px;
+}
+#get li img, #noget li img, #all li img{
+	width: 100%;
+}
+#get, #noget, #all{
+	    margin-top: 30px;
+}

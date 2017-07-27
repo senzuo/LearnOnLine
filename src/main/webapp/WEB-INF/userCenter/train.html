@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/public/head.css">
+    <link rel="stylesheet" href="/css/public/Foot.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/usercenter.css">
+    <link rel="stylesheet" type="text/css" href="/css/mytask.css">
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+
+</head>
+<body>
+
+<div class="body">
+    <!-- 首页头部导航 -->
+    <div class="headlead">
+        <div class="logobox">
+            <img src="../../img/Home/logo.png" alt="">
+        </div>
+        <div class="headlist hidden-sm">
+            <ul class="leadlistbox">
+                <li class="list"><a href="/getAllCourse">首页</a></li>
+                <li class="list"><a href="/getAllCourse">课程中心</a></li>
+                <li class="list"><a href="#">职业路径</a></li>
+                <li class="list"><a href="#">考核测评</a></li>
+                <li class="list"><a href="#">互动社区</a></li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+        <div class="adminbox">
+            <div class="userlogo">
+                <a href="usercenter.html"><img src="../../img/Home/user.png" alt=""></a>
+            </div>
+        </div>
+        <div class="searchbox">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+            </form>
+        </div>
+        <div class="headlistsm">
+
+        </div>
+
+        <div class="clear"></div>
+    </div>
+    <!-- 顶部个人信息条 -->
+    <div class="bg-other user-head-info">
+        <div class="user-info">
+            <h3 class="user-name clearfix">
+                <span>用户名</span>
+            </h3>
+            <p class="about-info">
+                <span class="glyphicon glyphicon-time"></span>
+                <span class="u-info-learn">
+                        学习时长 <em> 1小时15分</em>
+                    </span>
+            </p>
+            <p class="user-desc">
+                这里是用户签名！！
+            </p>
+            <div class="userimg">
+                <a href="usercenter.html"><img src="../../img/CourseDetail/user.jpg" alt=""></a>
+            </div>
+            <div class="right-ico">
+                <div class="guanzhu">
+                    <span>12</span>
+                    <img src="../../img/usercenter/guanzhu.png">
+                </div>
+                <div class="chengjiu">
+                    <span>3</span>
+                    <img src="../../img/usercenter/chengjiu.png">
+                </div>
+                <div class="jifen">
+                    <span>4</span>
+                    <img src="../../img/usercenter/jifen.png" alt="">
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 个人信息详情 -->
+    <div class="wrap">
+        <div class="slider">
+            <ul>
+                <li><a href="/usercenter/1"><i class="glyphicon glyphicon-home "></i>我的课程<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/train"><i class="glyphicon glyphicon-list-alt"></i>培训任务<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/plan" class="active"><i class="glyphicon glyphicon-calendar"></i>我的计划<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/1/QuesAns"><i class="glyphicon glyphicon-comment"></i>我的问答<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/note"><i class="glyphicon glyphicon-list-alt"></i>我的笔记<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="myexam.html"><i class="glyphicon glyphicon-edit"></i>我的试题<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="/usercenter/success"><i class="glyphicon glyphicon-star"></i>我的成就<img src="/img/usercenter/right.png"></a></li>
+                <li><a href="mychats.html"><i class="glyphicon glyphicon-stats"></i>统计分析<img src="/img/usercenter/right.png"></a></li>
+            </ul>
+        </div>
+        <div class="user-cont">
+            <ul id="myTab" class="nav nav-tabs" style="padding-bottom: 4px;height: 44px;">
+                <li class="active">
+                    <a href="#underway" data-toggle="tab" class="tabstyle">未结束</a>
+                </li>
+                <li>
+                    <a href="#finish" data-toggle="tab" class="tabstyle">
+                        已结束
+                    </a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="underway">
+                    <div class="trainbox">
+                        <ul>
+                            <li class="trainlist">
+                                <div class="title">
+                                    <h2>培训名称</h2>
+                                    <div class="traindetailico">
+                                        <span>查看详情</span>
+                                        <img src="../../img/usercenter/icodown2.png">
+
+                                    </div>
+                                </div>
+                                <div class="traininfo">
+                                    <div class="progressbar">
+                                        这里是进度条
+
+                                    </div>
+
+                                    <div class="traintime">
+                                        <div class="begaintime">
+                                            <img src="../../img/usercenter/time.png">
+                                            <span>开始时间：</span>
+                                            <span>2017-1-1 00:00</span>
+                                        </div>
+                                        <div class="endtime">
+                                            <img src="../../img/usercenter/time.png">
+                                            <span>结束时间：</span>
+                                            <span>2018-1-1 00:00</span>
+                                        </div>
+                                        <div class="people">
+                                            <img src="../../img/usercenter/people.png">
+                                            <span>完成人数：</span>
+                                            <span class="donepeople">1</span>
+                                            <span>/</span>
+                                            <span class="allpeople">9</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="controlbox">
+                                        <div class="traincourse">
+                                            <i class="glyphicon glyphicon-list"></i>
+                                            <span>培训课程</span>
+                                            <span class="donecourse">1</span>
+                                            <span>/</span>
+                                            <span class="allcourse">9</span>
+                                        </div>
+                                        <div class="traineaxm">
+                                            <i class="glyphicon glyphicon-list-alt"></i>
+                                            <span>培训考试</span>
+                                            <span class="doneexam">1</span>
+                                            <span>/</span>
+                                            <span class="allexam">9</span>
+                                        </div>
+                                        <div class="trainquestionnaire">
+                                            <i class="glyphicon glyphicon-file"></i>
+                                            <span>完成问卷</span>
+                                            <span class="donequestion">1</span>
+                                            <span>/</span>
+                                            <span class="allquestion">9</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+
+
+                                <div class="traindetailbox">
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#traintask" data-toggle="tab" class="tabstyle">培训任务</a>
+                                        </li>
+                                        <li>
+                                            <a href="#trainsourse" data-toggle="tab" class="tabstyle">
+                                                培训资料
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#trainintroduce" data-toggle="tab" class="ta bstyle">
+                                                培训简介
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div class="tab-pane fade in active" id="traintask">
+                                            <div class="panel-group" id="accordion">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                               href="#collapseOne">
+                                                                <i class="glyphicon glyphicon-list"></i> 课程
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                                        <div class="panel-body">
+                                                            <div class="exambox">
+                                                                <div class="imgbox">
+                                                                    <img src="../../img/usercenter/course1.png">
+                                                                </div>
+                                                                <div class="eaxmdetailbox">
+                                                                    <h3>课程名称</h3>
+                                                                    <span>2018-1-1 09:20</span>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                             aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="baifenbi">40% 完成</span>
+                                                                </div>
+                                                                <div class="learningagain">
+                                                                    <a href="">继续学习</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="exambox">
+                                                                <div class="imgbox">
+                                                                    <img src="../../img/usercenter/course1.png">
+                                                                </div>
+                                                                <div class="eaxmdetailbox">
+                                                                    <h3>课程名称</h3>
+                                                                    <span>2018-1-1 09:20</span>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                             aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="baifenbi">40% 完成</span>
+                                                                </div>
+                                                                <div class="learningagain">
+                                                                    <a href="">继续学习</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                               href="#collapseTwo">
+                                                                <i class="glyphicon glyphicon-list-alt"></i> 考试
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="testbox">
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="testcont">
+                                                                            <span class="testname">测试名称</span>
+                                                                            <span class="testtime">30分钟</span>
+                                                                            <span class="testgrade">20分</span>
+                                                                            <a href="">查看报告</a>
+                                                                            <div class="clear"></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                               href="#collapseThree">
+                                                                <i class="glyphicon glyphicon-file"></i> 问卷
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="questionpaper">
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="questionpapercont">
+                                                                            <span class="questionpapername">问卷名称</span>
+
+                                                                            <a href="">参与问卷</a>
+                                                                            <div class="clear"></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="trainsourse">
+                                            <ul>
+                                                <li>
+                                                    <div class="sourcecont">
+                                                        <span class="sourcename">资源名称</span>
+
+                                                        <a href="">下载资源</a>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="sourcecont">
+                                                        <span class="sourcename">资源名称</span>
+
+                                                        <a href="">下载资源</a>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="trainintroduce">
+                                            <p class="trainintroducebox">
+                                                这里是关于培训的简介信息
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li class="trainlist">
+                                <div class="title">
+                                    <h2>培训名称</h2>
+                                    <div class="traindetailico">
+                                        <span>查看详情</span>
+                                        <img src="../../img/usercenter/icodown2.png">
+
+                                    </div>
+                                </div>
+                                <div class="traininfo">
+                                    <div class="progressbar">
+                                        这里是进度条
+
+                                    </div>
+
+                                    <div class="traintime">
+                                        <div class="begaintime">
+                                            <img src="../../img/usercenter/time.png">
+                                            <span>开始时间：</span>
+                                            <span>2017-1-1 00:00</span>
+                                        </div>
+                                        <div class="endtime">
+                                            <img src="../../img/usercenter/time.png">
+                                            <span>结束时间：</span>
+                                            <span>2018-1-1 00:00</span>
+                                        </div>
+                                        <div class="people">
+                                            <img src="../../img/usercenter/people.png">
+                                            <span>完成人数：</span>
+                                            <span class="donepeople">1</span>
+                                            <span>/</span>
+                                            <span class="allpeople">9</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="controlbox">
+                                        <div class="traincourse">
+                                            <i class="glyphicon glyphicon-list"></i>
+                                            <span>培训课程</span>
+                                            <span class="donecourse">1</span>
+                                            <span>/</span>
+                                            <span class="allcourse">9</span>
+                                        </div>
+                                        <div class="traineaxm">
+                                            <i class="glyphicon glyphicon-list-alt"></i>
+                                            <span>培训考试</span>
+                                            <span class="doneexam">1</span>
+                                            <span>/</span>
+                                            <span class="allexam">9</span>
+                                        </div>
+                                        <div class="trainquestionnaire">
+                                            <i class="glyphicon glyphicon-file"></i>
+                                            <span>完成问卷</span>
+                                            <span class="donequestion">1</span>
+                                            <span>/</span>
+                                            <span class="allquestion">9</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="traindetailbox">
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#traintask2" data-toggle="tab" class="tabstyle">培训任务</a>
+                                        </li>
+                                        <li>
+                                            <a href="#trainsourse2" data-toggle="tab" class="tabstyle">
+                                                培训资料
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#trainintroduce2" data-toggle="tab" class="ta bstyle">
+                                                培训简介
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div class="tab-pane fade in active" id="traintask2">
+                                            <div class="panel-group" id="accordion">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                               href="#collapseOne">
+                                                                <i class="glyphicon glyphicon-list"></i> 课程
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                                        <div class="panel-body">
+                                                            <div class="exambox">
+                                                                <div class="imgbox">
+                                                                    <img src="../../img/usercenter/course1.png">
+                                                                </div>
+                                                                <div class="eaxmdetailbox">
+                                                                    <h3>课程名称</h3>
+                                                                    <span>2018-1-1 09:20</span>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                            aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="baifenbi">40% 完成</span>
+                                                                </div>
+                                                                <div class="learningagain">
+                                                                    <a href="">继续学习</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="exambox">
+                                                                <div class="imgbox">
+                                                                    <img src="../../img/usercenter/course1.png">
+                                                                </div>
+                                                                <div class="eaxmdetailbox">
+                                                                    <h3>课程名称</h3>
+                                                                    <span>2018-1-1 09:20</span>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                            aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                        </div>
+                                                                    </div>
+                                                                    <span class="baifenbi">40% 完成</span>
+                                                                </div>
+                                                                <div class="learningagain">
+                                                                    <a href="">继续学习</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h4 class="panel-title">
+                                                            <a data-toggle="collapse" data-parent="#accordion"
+                                                               href="#collapseTwo">
+                                                                <i class="glyphicon glyphicon-list-alt"></i> 考试
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="testbox">
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="testcont">
+                                                                            <span class="testname">测试名称</span>
+                                                                            <span class="testtime">30分钟</span>
+                                                                            <span class="testgrade">20分</span>
+                                                                            <a href="">查看报告</a>
+                                                                            <div class="clear"></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                           href="#collapseThree">
+                                                            <i class="glyphicon glyphicon-file"></i> 问卷
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <div class="questionpaper">
+                                                            <ul>
+                                                                    <li>
+                                                                        <div class="questionpapercont">
+                                                                            <span class="questionpapername">问卷名称</span>
+
+                                                                            <a href="">参与问卷</a>
+                                                                            <div class="clear"></div>
+                                                                        </div>
+                                                                    </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane fade" id="trainsourse2">
+                                            <ul>
+                                                <li>
+                                                    <div class="sourcecont">
+                                                        <span class="sourcename">资源名称</span>
+
+                                                        <a href="">下载资源</a>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="sourcecont">
+                                                        <span class="sourcename">资源名称</span>
+
+                                                        <a href="">下载资源</a>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="trainintroduce2">
+                                            <p class="trainintroducebox">
+                                                这里是关于培训的简介信息
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="finish">
+                    <li class="trainlist">
+                        <div class="title">
+                            <h2>培训名称</h2>
+                            <div class="traindetailico">
+                                <span>查看详情</span>
+                                <img src="../../img/usercenter/icodown2.png">
+
+                            </div>
+                        </div>
+                        <div class="traininfo">
+                            <div class="progressbar">
+                                这里是进度条
+
+                            </div>
+
+                            <div class="traintime">
+                                <div class="begaintime">
+                                    <img src="../../img/usercenter/time.png">
+                                    <span>开始时间：</span>
+                                    <span>2017-1-1 00:00</span>
+                                </div>
+                                <div class="endtime">
+                                    <img src="../../img/usercenter/time.png">
+                                    <span>结束时间：</span>
+                                    <span>2018-1-1 00:00</span>
+                                </div>
+                                <div class="people">
+                                    <img src="../../img/usercenter/people.png">
+                                    <span>完成人数：</span>
+                                    <span class="donepeople">1</span>
+                                    <span>/</span>
+                                    <span class="allpeople">9</span>
+                                </div>
+
+                            </div>
+                            <div class="controlbox">
+                                <div class="traincourse">
+                                    <i class="glyphicon glyphicon-list"></i>
+                                    <span>培训课程</span>
+                                    <span class="donecourse">1</span>
+                                    <span>/</span>
+                                    <span class="allcourse">9</span>
+                                </div>
+                                <div class="traineaxm">
+                                    <i class="glyphicon glyphicon-list-alt"></i>
+                                    <span>培训考试</span>
+                                    <span class="doneexam">1</span>
+                                    <span>/</span>
+                                    <span class="allexam">9</span>
+                                </div>
+                                <div class="trainquestionnaire">
+                                    <i class="glyphicon glyphicon-file"></i>
+                                    <span>完成问卷</span>
+                                    <span class="donequestion">1</span>
+                                    <span>/</span>
+                                    <span class="allquestion">9</span>
+                                </div>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+
+                        <div class="traindetailbox">
+                            <ul id="myTab" class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#finishtraintask" data-toggle="tab" class="tabstyle">培训任务</a>
+                                </li>
+                                <li>
+                                    <a href="#finishtrainsourse" data-toggle="tab" class="tabstyle">
+                                        培训资料
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#finishtrainintroduce" data-toggle="tab" class="ta bstyle">
+                                        培训简介
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div class="tab-pane fade in active" id="finishtraintask">
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion"
+                                                       href="#collapseOne">
+                                                        <i class="glyphicon glyphicon-list"></i> 课程
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <div class="exambox">
+                                                        <div class="imgbox">
+                                                            <img src="../../img/usercenter/course1.png">
+                                                        </div>
+                                                        <div class="eaxmdetailbox">
+                                                            <h3>课程名称</h3>
+                                                            <span>2018-1-1 09:20</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                     aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                </div>
+                                                            </div>
+                                                            <span class="baifenbi">40% 完成</span>
+                                                        </div>
+                                                        <div class="learningagain">
+                                                            <a href="">继续学习</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="exambox">
+                                                        <div class="imgbox">
+                                                            <img src="../../img/usercenter/course1.png">
+                                                        </div>
+                                                        <div class="eaxmdetailbox">
+                                                            <h3>课程名称</h3>
+                                                            <span>2018-1-1 09:20</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                                                                     aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                                                </div>
+                                                            </div>
+                                                            <span class="baifenbi">40% 完成</span>
+                                                        </div>
+                                                        <div class="learningagain">
+                                                            <a href="">继续学习</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion"
+                                                       href="#collapseTwo">
+                                                        <i class="glyphicon glyphicon-list-alt"></i> 考试
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseTwo" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="testbox">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="testcont">
+                                                                    <span class="testname">测试名称</span>
+                                                                    <span class="testtime">30分钟</span>
+                                                                    <span class="testgrade">20分</span>
+                                                                    <a href="">查看报告</a>
+                                                                    <div class="clear"></div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion"
+                                                       href="#collapseThree">
+                                                        <i class="glyphicon glyphicon-file"></i> 问卷
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseThree" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <div class="questionpaper">
+                                                        <ul>
+                                                            <li>
+                                                                <div class="questionpapercont">
+                                                                    <span class="questionpapername">问卷名称</span>
+
+                                                                    <a href="">参与问卷</a>
+                                                                    <div class="clear"></div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="finishtrainsourse">
+                                    <ul>
+                                        <li>
+                                            <div class="sourcecont">
+                                                <span class="sourcename">资源名称</span>
+
+                                                <a href="">下载资源</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="sourcecont">
+                                                <span class="sourcename">资源名称</span>
+
+                                                <a href="">下载资源</a>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="finishtrainintroduce">
+                                    <p class="trainintroducebox">
+                                        这里是关于培训的简介信息
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<!-- 底部版权信息 -->
+<div class="foot">
+    <div class="ico">
+        <ul class="icobox">
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/qq.png"></a>
+            </li>
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/wechat.png"></a>
+            </li>
+            <li class="icolist">
+                <a href="#"><img src="../../img/foot/weibo.png"></a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="quiklink">
+        <ul class="linkbox">
+            <li class="linklist">
+                <a href="#">首页</a>
+            </li>
+            <li class="linklist">
+                <a href="#">关于我们</a>
+            </li>
+            <li class="linklist">
+                <a href="#">联系我们</a>
+            </li>
+            <li class="linklist">
+                <a href="#">讲师招募</a>
+            </li>
+            <li class="linklist">
+                <a href="#">常见问题</a>
+            </li>
+            <li class="linklist">
+                <a href="#">意见反馈</a>
+            </li>
+            <li class="linklist">
+                <a href="#">友情链接</a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="copy">
+        <span>傲娇小龙坎版权所有</span>
+    </div>
+</div>
+</div>
+
+
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/public/guanzhu.js"></script>
+<script type="text/javascript" src="/js/mytask.js"></script>
+</body>
+</html>

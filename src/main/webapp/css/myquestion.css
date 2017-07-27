@@ -34,7 +34,7 @@
 .questioninfodetail span, .question-des-tip span{
 	color: #787d82;
 }
-.questioninfodetail span:hover, .question-des-tip span:hover{
+.questioninfodetail span:hover, , .question-des-tip span:hover{
 	color: #000;
 }
 .detail-mid{
