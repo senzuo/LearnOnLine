@@ -22,6 +22,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 <body onload=" record()">
 <div class="cont">
@@ -70,7 +71,7 @@
             <!--<span th:text="${video.videoName}"></span>-->
             <!--<span th:text="${video.url}" id="video_url"></span>-->
 
-            <video width="320" height="240" controls="controls" autoplay="autoplay" id="video_tag"  onplaying="init()">
+            <video width="320" height="240" controls="controls" autoplay="autoplay" id="video_tag" onplaying="init()">
                 <source th:attr="src=${video.url}" type="video/mp4" id="video">
             </video>
 
@@ -121,7 +122,7 @@
                             <textarea class="form-control" rows="3"></textarea>
                         </div>
 
-                        <button type="button" class="btn btn-default" style="float: right;" >提+交</button>
+                        <button type="button" class="btn btn-default" style="float: right;">提+交</button>
                         <div style="clear: both;"></div>
                     </form>
                 </div>
@@ -173,9 +174,11 @@
                                     </div>
                                     <form role="form" class="commentinput">
                                         <div class="form-group">
-                                            <textarea class="form-control" rows="3" placeholder="请输入评论···" id="addContent"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="请输入评论···"
+                                                      id="addContent"></textarea>
                                         </div>
-                                        <button type="button" class="btn btn-default" onclick="addFormInfo()">发表评论</button>
+                                        <button type="button" class="btn btn-default" onclick="addFormInfo()">发表评论
+                                        </button>
                                     </form>
                                     <div class="clear"></div>
                                 </div>
@@ -244,8 +247,85 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-4">
+                <!-- 新增用户表单 -->
+                <div class="modal fade" id="form_user_add" tabindex="-1" role="dialog" aria-labelledby="addroleLable">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="myModalLabel">测试一下</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!--<li class="second" id="">-->
+                                    <!--<span class="item-name">产品经理的基本素养是？</span>-->
+                                    <!--<ul>-->
+                                        <!--<li>A. 选项1</li>-->
+                                        <!--<li>B. 选项2</li>-->
+                                        <!--<li>C. 选项3</li>-->
+                                        <!--<li>D. 选项4</li>-->
+                                    <!--</ul>-->
+                                    <!--<form action="" method="get">-->
+                                        <!--<ul class="dowebok">-->
+                                            <!--<li>-->
+                                                <!--<input type="radio" name="radio" data-labelauty="A">-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<input type="radio" name="radio" data-labelauty="B">-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<input type="radio" name="radio" data-labelauty="C">-->
+                                            <!--</li>-->
+                                            <!--<li>-->
+                                                <!--<input type="radio" name="radio" data-labelauty="D">-->
+                                            <!--</li>-->
+                                        <!--</ul>-->
+                                    <!--</form>-->
+                                <!--</li>-->
 
+
+                                <div class="form-group" style="margin: 40px;">
+                                    <label for="txt_parentdepartment">产品经理的基本素养是？</label>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 3
+                                        </label>
+                                    </div> <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 4
+                                    </label>
+                                </div>
+
+                                    <!--<label for="txt_parentdepartment">产品经理的基本素养是？</label>-->
+                                    <!--<select class="form-control" id="txt_user_gender_add">-->
+                                        <!--<option>A. 选项1</option>-->
+                                        <!--<option>B. 选项2</option>-->
+                                        <!--<option>C. 选项3</option>-->
+                                        <!--<option>D. 选项4</option>-->
+                                    <!--</select>-->
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal"><span-->
+                                        <!--class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭-->
+                                <!--</button>-->
+                                <button type="button" onclick="" id="btn_user_save" class="btn btn-primary"><span
+                                        class="glyphicon glyphicon-floppy-disk"></span>确定
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -257,8 +337,7 @@
 </html>
 
 <script type="text/javascript">
-    function sleep(delay)
-    {
+    function sleep(delay) {
         var start = new Date().getTime();
         while (new Date().getTime() < start + delay);
     }
@@ -268,26 +347,26 @@
     // 例子：
     // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
     // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
-    Date.prototype.Format = function(fmt)
-    { //author: meizz
+    Date.prototype.Format = function (fmt) { //author: meizz
         var o = {
-            "M+" : this.getMonth()+1,                 //月份
-            "d+" : this.getDate(),                    //日
-            "h+" : this.getHours(),                   //小时
-            "m+" : this.getMinutes(),                 //分
-            "s+" : this.getSeconds(),                 //秒
-            "q+" : Math.floor((this.getMonth()+3)/3), //季度
-            "S"  : this.getMilliseconds()             //毫秒
+            "M+": this.getMonth() + 1,                 //月份
+            "d+": this.getDate(),                    //日
+            "h+": this.getHours(),                   //小时
+            "m+": this.getMinutes(),                 //分
+            "s+": this.getSeconds(),                 //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+            "S": this.getMilliseconds()             //毫秒
         };
-        if(/(y+)/.test(fmt))
-            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
-        for(var k in o)
-            if(new RegExp("("+ k +")").test(fmt))
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
         return fmt;
     }
 
-    var video = document.getElementById("video_tag");;
+    var video = document.getElementById("video_tag");
+    ;
     var duration;
 
     function init() {
@@ -298,18 +377,16 @@
     }
 
 
-
     var lastTime = new Date();    //记录上一个发送请求的时间
     var current_play_time;           //当前视频播放的时间
     var currentTime;                      // 记录视频播放位置
 
 
     /*产生随机数*/
-    function GetRandomNum(Min,Max)
-    {
+    function GetRandomNum(Min, Max) {
         var Range = Max - Min;
         var Rand = Math.random();
-        return(Min + Math.round(Rand * Range));
+        return (Min + Math.round(Rand * Range));
     }
 
     var random;
@@ -318,40 +395,49 @@
 //            sleep(300);
 //            record();
 //        }
-        random = GetRandomNum(60000,180000);
+        random = GetRandomNum(6000, 18000);
         video.pause();//暂停视频
+        showAddUserForm();
         // 弹出验证码 验证
 //        if(!video.paused){ //如果通过
-            current_play_time = new Date();
-            currentTime = video.currentTime;
-            sendRequest();
-            lastTime = current_play_time;
+        current_play_time = new Date();
+        currentTime = video.currentTime;
+        sendRequest();
+        lastTime = current_play_time;
 //        }else {
 //
 //        }
-        setTimeout("record()",random);
+        setTimeout("record()", random);
     }
 
+    // 新增user
+    function showAddUserForm() {
+        $('#form_user_add').modal().css({
+            "margin-top": function () {
+                return ($(this).height() /10);
+            }
+        });
+    }
 
 
     function sendRequest() {
         $.ajax({
-            url : "/stuRecord",
+            url: "/stuRecord",
             type: "post",
             data: {
-                stuId : document.getElementById("stuid").innerHTML,
-                sectionId : section_Id,
-                startTime : lastTime,//.Format("yyyy-MM-dd hh:mm:ss"),
-                endTime : current_play_time,//.Format("yyyy-MM-dd hh:mm:ss"),
-                currentTime : Math.round(currentTime),
-                learnTimeLength : Math.round(random/1000),
-                duration : Math.round(duration)
+                stuId: document.getElementById("stuid").innerHTML,
+                sectionId: section_Id,
+                startTime: lastTime,//.Format("yyyy-MM-dd hh:mm:ss"),
+                endTime: current_play_time,//.Format("yyyy-MM-dd hh:mm:ss"),
+                currentTime: Math.round(currentTime),
+                learnTimeLength: Math.round(random / 1000),
+                duration: Math.round(duration)
             },
             success: function (data, status) {
-                alert("success!");
+//                alert("success!");
             },
             error: function (data, status) {
-                alert("网络异常!");
+//                alert("网络异常!");
             }
 
 
@@ -360,9 +446,7 @@
     }
 
 
-
     var section_Id = $('#section_Id').text();
-
 
 
     /**

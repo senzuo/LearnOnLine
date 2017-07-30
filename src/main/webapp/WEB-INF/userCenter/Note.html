@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
@@ -119,96 +119,98 @@
             </div>
             <div class="nodecont">
                 <ul>
-                    <li class="notelist">
+                    <li th:each="note : ${notes}" class="notelist">
                         <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
+                            <span th:text="${note.creatTime.year}" class="year">2017</span>
+                            <span th:text="${note.creatTime.month}" class="month-day">7月26日</span>月
+                            <span th:text="${note.creatTime.day}" class="month-day">7月26日</span>日
                         </div>
                         <div class="notelistinfo" >
-                            <p style="    padding-top: 0;">这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
+                            <p th:text="${note.content}" style="    padding-top: 0;">这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
                             <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
+                                <a href="" th:text="${note.course.courseName}" class="notecourse">前端开发入门</a>
+                                <a href="" th:text="${note.chapter.chaptername}" class="notesection">第一章第一节</a>
+                                <span class="notepublictime">发表于：</span>
+                                <span th:text="${note.creatTime}" class="notepublictime">2017/10/10</span>
                             </div>
                         </div>
                         <div class="point"></div>
                     </li>
-                    <li class="notelist">
-                        <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
-                        </div>
-                        <div class="notelistinfo">
-                            <p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
-                            <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
-                            </div>
-                        </div>
-                        <div class="point"></div>
-                    </li>
-                    <li class="notelist">
-                        <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
-                        </div>
-                        <div class="notelistinfo">
-                            <p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
-                            <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
-                            </div>
-                        </div>
-                        <div class="point"></div>
-                    </li>
-                    <li class="notelist">
-                        <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
-                        </div>
-                        <div class="notelistinfo">
-                            <p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
-                            <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
-                            </div>
-                        </div>
-                        <div class="point"></div>
-                    </li>
-                    <li class="notelist">
-                        <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
-                        </div>
-                        <div class="notelistinfo">
-                            <p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
-                            <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
-                            </div>
-                        </div>
-                        <div class="point"></div>
-                    </li>
-                    <li class="notelist">
-                        <div class="notedate">
-                            <span class="year">2017</span>
-                            <span class="month-day">7月26日</span>
-                        </div>
-                        <div class="notelistinfo">
-                            <p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>
-                            <div class="notedetail">
-                                <a href="" class="notecourse">前端开发入门</a>
-                                <a href="" class="notesection">第一章第一节</a>
-                                <span class="notepublictime">发表于：2017/10/10</span>
-                            </div>
-                        </div>
-                        <div class="point"></div>
-                    </li>
+                    <!--<li class="notelist">-->
+                        <!--<div class="notedate">-->
+                            <!--<span class="year">2017</span>-->
+                            <!--<span class="month-day">7月26日</span>-->
+                        <!--</div>-->
+                        <!--<div class="notelistinfo">-->
+                            <!--<p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>-->
+                            <!--<div class="notedetail">-->
+                                <!--<a href="" class="notecourse">前端开发入门</a>-->
+                                <!--<a href="" class="notesection">第一章第一节</a>-->
+                                <!--<span class="notepublictime">发表于：2017/10/10</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="point"></div>-->
+                    <!--</li>-->
+                    <!--<li class="notelist">-->
+                        <!--<div class="notedate">-->
+                            <!--<span class="year">2017</span>-->
+                            <!--<span class="month-day">7月26日</span>-->
+                        <!--</div>-->
+                        <!--<div class="notelistinfo">-->
+                            <!--<p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>-->
+                            <!--<div class="notedetail">-->
+                                <!--<a href="" class="notecourse">前端开发入门</a>-->
+                                <!--<a href="" class="notesection">第一章第一节</a>-->
+                                <!--<span class="notepublictime">发表于：2017/10/10</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="point"></div>-->
+                    <!--</li>-->
+                    <!--<li class="notelist">-->
+                        <!--<div class="notedate">-->
+                            <!--<span class="year">2017</span>-->
+                            <!--<span class="month-day">7月26日</span>-->
+                        <!--</div>-->
+                        <!--<div class="notelistinfo">-->
+                            <!--<p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>-->
+                            <!--<div class="notedetail">-->
+                                <!--<a href="" class="notecourse">前端开发入门</a>-->
+                                <!--<a href="" class="notesection">第一章第一节</a>-->
+                                <!--<span class="notepublictime">发表于：2017/10/10</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="point"></div>-->
+                    <!--</li>-->
+                    <!--<li class="notelist">-->
+                        <!--<div class="notedate">-->
+                            <!--<span class="year">2017</span>-->
+                            <!--<span class="month-day">7月26日</span>-->
+                        <!--</div>-->
+                        <!--<div class="notelistinfo">-->
+                            <!--<p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>-->
+                            <!--<div class="notedetail">-->
+                                <!--<a href="" class="notecourse">前端开发入门</a>-->
+                                <!--<a href="" class="notesection">第一章第一节</a>-->
+                                <!--<span class="notepublictime">发表于：2017/10/10</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="point"></div>-->
+                    <!--</li>-->
+                    <!--<li class="notelist">-->
+                        <!--<div class="notedate">-->
+                            <!--<span class="year">2017</span>-->
+                            <!--<span class="month-day">7月26日</span>-->
+                        <!--</div>-->
+                        <!--<div class="notelistinfo">-->
+                            <!--<p>这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容这里是笔记内容</p>-->
+                            <!--<div class="notedetail">-->
+                                <!--<a href="" class="notecourse">前端开发入门</a>-->
+                                <!--<a href="" class="notesection">第一章第一节</a>-->
+                                <!--<span class="notepublictime">发表于：2017/10/10</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="point"></div>-->
+                    <!--</li>-->
                 </ul>
             </div>
         </div>

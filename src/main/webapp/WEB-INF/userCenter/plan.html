@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
@@ -137,35 +137,33 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="presentplan">
                     <ul>
-                        <li>
+                        <li th:each="plan : ${plans}">
                             <div class="remainday">
                                 <span>剩余/天</span>
-                                <h3>8</h3>
+                                <h3 th:text="${plan.leftDay}"></h3>
                             </div>
                             <div class="planimg">
-                                <img src="/img/usercenter/plan.jpg" alt="">
+                                <img th:attr="src=${plan.course.courseCoverUrl}" alt="">
                             </div>
                             <div class="planinfo">
-                                <h3>计划学习课程的名称</h3>
-                                <span class="makeplantime">
+                                <h3 th:text="${plan.course.courseName}">计划学习课程的名称</h3>
+                                <span th:text="${plan.startTimeString}" class="makeplantime">
 										2017-1-1
 									</span>
                                 <div class="done">
                                     <div class="progress">
                                         <div class="progress-bar" role="progressbar" aria-valuenow="60"
                                              aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                                            <span class="sr-only">40% 完成</span>
+                                            <span class="sr-only"> <span th:text="${plan.percent}">40</span>% 完成</span>
                                         </div>
                                     </div>
                                     <div class="donepercent">
-                                        <span>完成 40%</span>
+                                        <span>完成 <span th:text="${plan.percent}">40</span>%</span>
                                     </div>
                                 </div>
                             </div>
 
                         </li>
-
-
                         <li>
                             <div class="remainday">
                                 <img src="/img/usercenter/nice.png">

@@ -1,0 +1,83 @@
+.chartscont {
+    margin: 10px 60px;
+    border: 1px solid #c7c7c7;
+    border-bottom: transparent;
+    padding-top: 10px;
+}
+
+.chartconthead {
+    margin: 0;
+    margin-top: -10px;
+    height: 40px;
+    border-bottom: 1px solid #c7c7c7;
+    line-height: 40px;
+    padding: 0 20px;
+    background: #f9f8f8;
+}
+
+.papername {
+    margin-left: 6px;
+        font-weight: 700;
+    font-size: 17px;
+}
+
+.knowlege,
+.branch,
+.paperitem,
+.jionpeople {
+    padding: 20px 50px;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+.knowlegepoint,
+.branchdis {
+    float: left;
+    padding: 10px;
+    width: 400px;
+    height: 350px;
+    border: 1px solid #c7c7c7;
+}
+
+.knowlegeaccuracy,
+.branchaccuracy {
+    float: right;
+    padding: 10px;
+    width: 500px;
+    height: 350px;
+    border: 1px solid #c7c7c7;
+}
+
+.paperitembox {
+    height: 350px;
+    padding: 16px;
+    border: 1px solid #c7c7c7;
+}
+
+.jionpeoplebox {
+    min-height: 350px;
+    padding: 16px;
+    border: 1px solid #c7c7c7;
+}
+
+.jionpeoplebox caption {
+    text-align: center;
+    font-size: 17px;
+    background: #ececec;
+    border: 1px solid #c7c7c7;
+    font-weight: bolder;
+    color: #333333;
+}
+
+td,
+th {
+    text-align: center;
+}
+
+.back {
+    float: right;
+    color: #000;
+}
+.back:hover{
+	color: #c23531;
+	cursor: pointer;
+}

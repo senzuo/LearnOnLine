@@ -47,6 +47,17 @@ public class AdminCourseManage {
     @Autowired
     private VideoService videoService;
 
+
+    @RequestMapping("/paperCharts")
+    public String paperCharts() {
+        return "admin/paperCharts";
+    }
+
+    @RequestMapping("/examPaper")
+    public String examPaper(){
+        return "admin/exampaper";
+    }
+
     /**
      * 获取所有老师信息 并跳转到对应页面
      * @param model

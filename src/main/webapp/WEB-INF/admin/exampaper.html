@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/ManageHomeChats.css">
+    <link rel="stylesheet" type="text/css" href="/css/exampaper.css">
+    <link rel="stylesheet" href="/css/manageHome.css">
+    <link rel="stylesheet" type="text/css" href="/css/Foot.css">
+    <link rel="stylesheet" type="text/css" href="/ajxlk/timer/jquery.datetimepicker.css"/>
+    <div th:include="main/commonStyle :: style"/>
+
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <div th:include="main/mainHeader :: header"/>
+    <div th:include="main/mainLeft :: left"/>
+
+    <div class="content-wrapper">
+
+        <div class="rightcontent">
+            <div class="toplead">
+                <ul>
+                    <li>
+                        <a href="">试题管理</a>
+                    </li>
+                    <li>
+                        <a href="" class="active">试卷管理</a>
+                    </li>
+                    <li>
+                        <a href="">试题分类</a>
+                    </li>
+                    <li>
+                        <a href="">考点管理</a>
+                    </li>
+                    <li>
+                        <a href="">成绩查询</a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="searchformbox">
+                <span class="styleboxhead">查找试卷</span>
+                <form role="form">
+                    <div class="form-group foBox">
+                        <label>试卷分类</label>
+                        <div id="sjld" style="width:520px;margin:0 auto;">
+                            <div class="m_zlxg" id="shenfen">
+                                <p title="">选择分类</p>
+                                <div class="m_zlxg2">
+                                    <ul>
+                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="m_zlxg" id="chengshi">
+                                <p title="">选择分类</p>
+                                <div class="m_zlxg2">
+                                    <ul>
+                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="m_zlxg" id="quyu">
+                                <p title="">选择分类</p>
+                                <div class="m_zlxg2">
+                                    <ul>
+                                        <div class="clear"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                            <input id="sfdq_num" type="hidden" value=""/>
+                            <input id="csdq_num" type="hidden" value=""/>
+                            <input id="sfdq_tj" type="hidden" value=""/>
+                            <input id="csdq_tj" type="hidden" value=""/>
+                            <input id="qydq_tj" type="hidden" value=""/>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="form-group foBox">
+                        <label for="name">试卷名称</label>
+                        <input type="text" class="form-control" placeholder="试题内容">
+                        <div class="clear"></div>
+                    </div>
+                    <div class="form-group foBox">
+                        <label for="name">试卷难度</label>
+                        <select class="form-control">
+                            <option>初级</option>
+                            <option>中级</option>
+                            <option>高级</option>
+                        </select>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="form-group foBox serachbtn">
+                        <button type="submit" class="btn btn-default" id="BTN">搜索</button>
+                    </div>
+                </form>
+            </div>
+            <div class="serachcont">
+                <div class="searchconthead">
+                    <span class="searchresultwords">查询结果</span>
+                    <span class="addexamitem"><span class="glyphicon glyphicon-plus"></span> 添加试卷</span>
+                </div>
+                <div class="searchresultcont">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>试卷名</th>
+                            <th>分类</th>
+                            <th>考试人数</th>
+                            <th>未通过人数</th>
+                            <th>及格率</th>
+                            <th>难度</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                            <th>统计分析</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="">
+                            </td>
+                            <td>test1</td>
+                            <td>前端</td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>10%</td>
+                            <td>初级</td>
+                            <td>2017-7-1</td>
+                            <td>
+                                <a href="" class="scan" data-toggle="tooltip" data-placement="top" title="查看试卷"><img
+                                        src="/img/managehome/scan.png"></a>
+                                <a class="amend" data-toggle="tooltip" data-placement="top" title="修改试卷"><img
+                                        src="/img/managehome/amend.png"></a>
+                                <a href="" class="del" data-toggle="tooltip" data-placement="top" title="删除试卷"><img
+                                        src="/img/managehome/del.png"></a>
+                            </td>
+                            <td><a href="/paperCharts" class="scanchats" data-toggle="tooltip" data-placement="top"
+                                   title="查看统计报表"><img src="/img/managehome/scanchats.png"></a></td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="">
+                            </td>
+                            <td>test1</td>
+                            <td>前端</td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>10%</td>
+                            <td>初级</td>
+                            <td>2017-7-1</td>
+                            <td>
+                                <a href="" class="scan" data-toggle="tooltip" data-placement="top" title="查看试卷"><img
+                                        src="/img/managehome/scan.png"></a>
+                                <a class="amend" data-toggle="tooltip" data-placement="top" title="修改试卷"><img
+                                        src="/img/managehome/amend.png"></a>
+                                <a href="" class="del" data-toggle="tooltip" data-placement="top" title="删除试卷"><img
+                                        src="/img/managehome/del.png"></a>
+                            </td>
+                            <td><a href="paperCharts" class="scanchats" data-toggle="tooltip" data-placement="top"
+                                   title="查看统计报表"><img src="/img/managehome/scanchats.png"></a></td>
+                        </tr>
+                        </tbody>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="">
+                            </td>
+                            <td>test1</td>
+                            <td>前端</td>
+                            <td>12</td>
+                            <td>2</td>
+                            <td>10%</td>
+                            <td>初级</td>
+                            <td>2017-7-1</td>
+                            <td>
+                                <a href="" class="scan" data-toggle="tooltip" data-placement="top" title="查看试卷"><img
+                                        src="/img/managehome/scan.png"></a>
+                                <a class="amend" data-toggle="tooltip" data-placement="top" title="修改试卷"><img
+                                        src="/img/managehome/amend.png"></a>
+                                <a href="" class="del" data-toggle="tooltip" data-placement="top" title="删除试卷"><img
+                                        src="/img/managehome/del.png"></a>
+                            </td>
+                            <td><a href="/paperCharts" class="scanchats" data-toggle="tooltip" data-placement="top"
+                                   title="查看统计报表"><img src="/img/managehome/scanchats.png"></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="addpaperpop">
+        <div class="popdead">
+            <span class="title">添加试卷</span>
+            <span class="closebtn"><img src="/img/managehome/close.png"></span>
+        </div>
+        <div class="popbody">
+            <div class="firstline">
+                <div class="left">
+                    <span class="papername">名称</span>
+                    <input type="text" name="">
+                </div>
+                <div class="right">
+                    <span class="difficulty">难度</span>
+                    <select>
+                        <option>初级</option>
+                        <option>中级</option>
+                        <option>高级</option>
+                    </select>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="thirdline">
+                <div class="left">
+                    <span class="pass">及格</span>
+                    <input type="text" name="">
+                </div>
+                <div class="right">
+                    <span class="timelimited">限时</span>
+                    <input type="text" name="" placeholder="单位为分钟">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="fourthline">
+                <div class="left">
+                    <span class="begain">开始</span>
+                    <input type="text" name="" id="datetimepicker">
+                </div>
+                <div class="right">
+                    <span class="begain">结束</span>
+                    <input type="text" name="" id="datetimepicker2">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="secondline">
+                <span class="fenlei">分类</span>
+                <div id="sjld_2" style="width:520px;margin:0 auto;position:relative;">
+                    <div class="m_zlxg" id="shenfen2" style="margin-left: 4px;">
+                        <p title="">选择分类</p>
+                        <div class="m_zlxg2">
+                            <ul>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m_zlxg" id="chengshi2">
+                        <p title="">选择分类</p>
+                        <div class="m_zlxg2">
+                            <ul>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m_zlxg" id="quyu2">
+                        <p title="">选择分类</p>
+                        <div class="m_zlxg2">
+                            <ul>
+                                <div class="clear"></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <input id="sfdq_num" type="hidden" value=""/>
+                    <input id="csdq_num" type="hidden" value=""/>
+                    <input id="sfdq_tj" type="hidden" value=""/>
+                    <input id="csdq_tj" type="hidden" value=""/>
+                    <input id="qydq_tj" type="hidden" value=""/>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="sixth">
+                <span class="describe">描述</span>
+                <textarea rows="3"></textarea>
+            </div>
+            <div class="submit">
+                <button type="button">确认添加</button>
+            </div>
+        </div>
+    </div>
+    <div class="bg"></div>
+    <div class="foot">
+        <div class="ico">
+            <ul class="icobox">
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/qq.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/wechat.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/weibo.png"></a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="quiklink">
+            <ul class="linkbox">
+                <li class="linklist">
+                    <a href="">首页</a>
+                </li>
+                <li class="linklist">
+                    <a href="">关于我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">联系我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">讲师招募</a>
+                </li>
+                <li class="linklist">
+                    <a href="">常见问题</a>
+                </li>
+                <li class="linklist">
+                    <a href="">意见反馈</a>
+                </li>
+                <li class="linklist">
+                    <a href="">友情链接</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="copy">
+            <span>傲娇小龙坎版权所有</span>
+        </div>
+    </div>
+</div>
+
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/task.js"></script>
+<script type="text/javascript" src="/js/address.js"></script>
+<script src="/ajxlk/timer/build/jquery.datetimepicker.full.js"></script>
+<script src="/js/exampaper.js"></script>
+<div th:include="main/commonJs" ::commonJs/>
+<script type="text/javascript">
+    $('#datetimepicker').datetimepicker({lang: 'ch'});
+    $('#datetimepicker2').datetimepicker({lang: 'ch'});
+
+    $(function () {
+        $("#sjld").sjld("#shenfen", "#chengshi", "#quyu");
+        $("#sjld_2").sjld("#shenfen2", "#chengshi2", "#quyu2");
+    });
+</script>
+</body>
+
+</html>

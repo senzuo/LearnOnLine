@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="/ajxlk/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/ManageHomeChats.css">
+    <link rel="stylesheet" href="/css/manageHome.css">
+    <link rel="stylesheet" type="text/css" href="/css/Foot.css">
+    <link rel="stylesheet" type="text/css" href="/ajxlk/timer/jquery.datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/css/paperchats.css">
+    <div th:include="main/commonStyle :: style"/>
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+
+<div class="wrapper">
+    <div th:include="main/mainHeader :: header"/>
+    <div th:include="main/mainLeft :: left"/>
+
+    <div class="content-wrapper">
+        <div class="rightcontent">
+            <div class="toplead">
+                <ul>
+                    <li>
+                        <a href="../ManageHomeChats.html">试题管理</a>
+                    </li>
+                    <li>
+                        <a href="" class="active">试卷管理</a>
+                    </li>
+                    <li>
+                        <a href="">试题分类</a>
+                    </li>
+                    <li>
+                        <a href="">考点管理</a>
+                    </li>
+                    <li>
+                        <a href="">成绩查询</a>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="chartscont">
+                <div class="chartconthead ">
+                    <span class="papername">综合测评1</span>
+                    <span class="back">返回</span>
+                    <div class="clear"></div>
+                </div>
+                <div class="knowlege">
+                    <!-- 知识点分布 -->
+                    <div class="knowlegepoint" id="knowlegepoint">
+                    </div>
+                    <!-- 知识点正确率 -->
+                    <div class="knowlegeaccuracy" id="knowlegeaccuracy">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="branch">
+                    <!-- 部门分布情况 -->
+                    <div class="branchdis" id="branchdis">
+                    </div>
+                    <!-- 部门答卷正确率 -->
+                    <div class="branchaccuracy" id="branchaccuracy">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <!-- 每道题正确率 -->
+                <div class="paperitem">
+                    <div class="paperitembox" id="paperitembox">
+                    </div>
+                </div>
+                <!-- 参加考试人员统计表 -->
+                <div class="jionpeople">
+                    <div class="jionpeoplebox">
+                        <table class="table table-hover">
+                            <caption>考试人员名单</caption>
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>序号</th>
+                                <th>姓名</th>
+                                <th>部门</th>
+                                <th>岗位</th>
+                                <th>得分</th>
+                                <th>正确率</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>产品部</td>
+                                <td>产品经理</td>
+                                <td>80</td>
+                                <td>80%</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>产品部</td>
+                                <td>产品经理</td>
+                                <td>80</td>
+                                <td>80%</td>
+                            </tr>
+                            </tbody>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>产品部</td>
+                                <td>产品经理</td>
+                                <td>80</td>
+                                <td>80%</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="foot">
+        <div class="ico">
+            <ul class="icobox">
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/qq.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/wechat.png"></a>
+                </li>
+                <li class="icolist">
+                    <a href=""><img src="/img/foot/weibo.png"></a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="quiklink">
+            <ul class="linkbox">
+                <li class="linklist">
+                    <a href="">首页</a>
+                </li>
+                <li class="linklist">
+                    <a href="">关于我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">联系我们</a>
+                </li>
+                <li class="linklist">
+                    <a href="">讲师招募</a>
+                </li>
+                <li class="linklist">
+                    <a href="">常见问题</a>
+                </li>
+                <li class="linklist">
+                    <a href="">意见反馈</a>
+                </li>
+                <li class="linklist">
+                    <a href="">友情链接</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="copy">
+            <span style="margin-right: 6px;">西南交通大学</span>
+            <span>傲娇小龙坎版权所有</span>
+        </div>
+    </div>
+</div>
+<script src="/ajxlk/jquery/jquery-3.2.1.js"></script>
+<script src="/ajxlk/bootstrap/js/bootstrap.min.js"></script>
+<script src="/js/task.js"></script>
+<script type="text/javascript" src="/js/address.js"></script>
+<script src="/ajxlk/timer/build/jquery.datetimepicker.full.js"></script>
+<script src="/js/exampaper.js"></script>
+<script src="/ajxlk/echarts.common.min.js"></script>
+<div th:include="main/commonJs"::commonJs/>
+<script src="/js/paperchats.js"></script>
+<script type="text/javascript">
+    $('#datetimepicker').datetimepicker({ lang: 'ch' });
+    $('#datetimepicker2').datetimepicker({ lang: 'ch' });
+
+    $(function() {
+        $("#sjld").sjld("#shenfen", "#chengshi", "#quyu");
+        $("#sjld_2").sjld("#shenfen2", "#chengshi2", "#quyu2");
+    });
+</script>
+</body>
+
+</html>

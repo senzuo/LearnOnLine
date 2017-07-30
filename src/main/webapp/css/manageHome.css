@@ -1,3 +1,4 @@
+
 body::-webkit-scrollbar {/*滚动条整体样式*/
     width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
     height: 0;
@@ -10,87 +11,86 @@ body::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
 body::-webkit-scrollbar-track {/*滚动条里面轨道*/
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
     border-radius: 0;
-    background:#333
+	background:#333
 }
 
 ul{
-    margin: 0px;
+	margin: 0px;
 }
 .head{
-    width: 100%;
+	width: 100%;
     height: 70px;
     border-bottom: 1px solid #2f2e2e;
 }
 .leftcontrol{
     box-sizing: border-box;
-    width: 13%;
+	width: 13%;
     height: 730px;
     background: #2f2e2e;
     margin: 2px 0;
     float: left;
+
 }
 .leftlogo{
-    width: 13%;
-    height: 70px;
-    background: #2f2e2e;
-    line-height: 70px;
-    float: left;
+	width: 13%;
+	height: 70px;
+	background: #2f2e2e;
+	    line-height: 70px;
+	    float: left;
 }
 
 .leftlogo a img{
-    width: 100%;
+	width: 100%;
 }
 .rightlink{
-    width: 290px;
-    float: left;
+	width: 290px;
+	float: left;
     height: 70px;
     line-height: 70px;
 }
 
 .rightlinkbox{
-    margin: 0px;
+	margin: 0px;
 }
 .headlink a{
-    color: #000;
+	    color: #000;
     text-decoration: none;
     font-size: 14px;
     padding: 10px;
     font-family: "宋体";
 }
 .headlink a:hover{
-    text-decoration: none;
+	text-decoration: none;
 }
 .search{
-    width: 275px;
+	    width: 275px;
     float: right;
     height: 70px;
     line-height: 70px;
     /*margin-right: 20px;*/
 }
 .search form{
-    margin: 0px;
+	margin: 0px;
 }
 .searchform{
-    width: 100%;
+	width: 100%;
 }
 .searchbox{
-    width: 70%;
+	width: 70%;
 }
 .searchbtn{
-    width:20%;
+	width:20%;
 }
 .searchformbox{
-    background-color: #FFFFFF;
-    /*padding: 10px;*/
-    border-radius: 10px 10px 0 0;
+	    /*padding: 10px;*/
+    /*border-radius: 10px 10px 0 0;*/
     border: 1px solid #e2caca;
 }
 #myTab li{
-    width: 100%;
+	width: 100%;
 }
 .rightcontent{
-    height: 730px;
-    /*width: 87%;*/
+    /*height: 730px;*/
     width: 100%;
     float: left;
     overflow: scroll;
@@ -108,58 +108,58 @@ ul{
 .rightcontent::-webkit-scrollbar-track {/*滚动条里面轨道*/
     -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
     border-radius: 0;
-    background:#ab9d9d
+	background:#ab9d9d
 }
 #myTab li a{
-    color: #c3bfbf;
+	color: #c3bfbf;
 }
 #myTab li a span{
-    padding-right: 20px;
+	padding-right: 20px;
 }
 .rightadmin{
-    width: 110px;
+	width: 110px;
     float: right;
     height: 70px;
     line-height: 70px;
 }
 .rightadmin img{
-    border-radius: 50%;
-    margin-right: 10px;
+	border-radius: 50%;
+	margin-right: 10px;
 }
 .rightadmin a{
-    color: #000;
+	color: #000;
 }
 .rightadmin a:hover{
-    text-decoration: none;
+	text-decoration: none;
 }
 #dropdown{
-    width: 70px;
+	width: 70px;
     height: 70px;
     text-align: center;
     line-height: 40px;
 }
 .smsearch{
-    width: 70px;
+	 width: 70px;
     float: right;
 }
 .tips{
-    margin-top: 16px;
+	margin-top: 16px;
 }
 .tiplist{
-    padding: 5px 30px;
-    color: #736e6e;
+	padding: 5px 30px;
+	color: #736e6e;
 }
 .tiplist:hover{
-    cursor: pointer;
-    color: #000;
-    border-bottom: 2px solid #333;
+	cursor: pointer;
+	color: #000;
+	border-bottom: 2px solid #333;
 }
 .act{
-    border-bottom: 2px solid #333;
-    color: #000;
+	border-bottom: 2px solid #333;
+	color: #000;
 }
 #myTab{
-    width: 100%;
+	width: 100%;
     height: 100%;
     padding-top: 30px;
 }

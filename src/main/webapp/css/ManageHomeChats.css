@@ -1,0 +1,102 @@
+.toplead ul{
+    margin: 10px 20px;
+}
+.toplead ul li a{
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+    padding: 10px;
+    color: #2f2e2e;
+
+}
+.toplead ul li a.active{
+	border-bottom: 2px solid #333;
+}
+.toplead ul li a:hover{
+	border-bottom: 2px solid #333;
+	text-decoration: none;
+}
+
+.searchformbox, .serachcont{
+	    margin: 10px 60px;
+}
+.styleboxhead, .searchconthead{
+	width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid #e2caca;
+    margin-bottom: 12px;
+    padding: 5px 15px;
+    background: #f9f8f8;
+    /*border-radius: 10px 10px 0 0;*/
+}
+.serachcont{
+    border: 1px solid #e2caca;	
+}
+.addexamitem{
+	float: right;
+}
+.addexamitem:hover{
+	cursor: pointer;
+}
+
+.foBox{
+	padding: 0 15px;
+	display: inline-block;
+    width: 180px;
+    margin-bottom: 0px;
+}
+
+.form-control{
+	width: 60%;
+	float: left;
+}
+.foBox label{
+	height: 34px;
+    line-height: 34px;
+    float: left;
+    padding-right: 4px;
+}
+.foBox:first-child{
+	width: 400px;
+}
+.foBox:last-child{
+	width: 84px;
+}
+
+
+/*三级菜单样式*/
+
+.m_zlxg{z-index:2; width:93px; height:30px; line-height:30px;cursor:pointer;float:left;margin:0 15px 0 0;display:inline;background:url(images/zlxg2.jpg) no-repeat;}
+.m_zlxg:last-child{
+    margin: 0;
+}
+.m_zlxg p{z-index:2; width:71px; padding-left:10px; overflow:hidden; line-height:30px; color:#333333; font-size:12px; font-family:"微软雅黑";text-overflow:ellipsis; white-space:nowrap;}
+
+.m_zlxg2{z-index:2; position:absolute; top:29px; border:1px solid #ded3c1;background:#fff; width:91px; display:none; max-height:224px;-height:224px; overflow-x:hidden; overflow-y:auto;white-space:nowrap;}
+
+.m_zlxg2 li{
+    margin-left: -40px;
+    float: none;
+    z-index:2;
+    line-height:28px;
+    white-space:nowrap; 
+    padding-left:10px;
+    font-family:"微软雅黑";
+    color:#333333; font-size:12px;
+}
+
+.m_zlxg2 li:hover{z-index:2; color:#7a5a21;}
+.m_zlxg2 ul li{
+
+}
+.form-control, .btn-default{
+    border: 1px solid #dad5bf;
+    border-radius: 0;
+    height: 31px;
+}
+label{
+    text-align: left;
+}
+
+
+
