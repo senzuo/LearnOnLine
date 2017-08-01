@@ -275,6 +275,11 @@ public class AdminCourseManage {
         return restResponse;
     }
 
+    @RequestMapping(value = "/courseReport")
+    public String courseReport() {
+        return "admin/courseReport";
+    }
+
 
 
 }

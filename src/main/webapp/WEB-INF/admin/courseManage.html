@@ -26,58 +26,58 @@
     <div th:include="main/mainHeader :: header"/>
     <div th:include="main/mainLeft :: left"/>
     <!--<div class="head">-->
-        <!--<div class="leftlogo">-->
-            <!--<a href=""><img src="../img/managehome/logo.png"></a>-->
-        <!--</div>-->
-        <!--<div class="rightlink">-->
-            <!--<ul class="rightlinkbox">-->
-                <!--<li class="headlink">-->
-                    <!--<a href=""><span class="glyphicon glyphicon-list-alt"></span> 课程</a>-->
-                <!--</li>-->
-                <!--<li class="headlink">-->
-                    <!--<a href=""><span class="glyphicon glyphicon-road"></span> 职业路径</a>-->
-                <!--</li>-->
-                <!--<li class="headlink">-->
-                    <!--<a href=""><span class="glyphicon glyphicon-bell"></span> 论坛</a>-->
-                <!--</li>-->
-                <!--<div class="clear"></div>-->
-            <!--</ul>-->
-        <!--</div>-->
-        <!--<div class="rightadmin">-->
-            <!--<a href=""><img src="../img/managehome/user.jpg">admin</a>-->
-        <!--</div>-->
-        <!--<div class="search  hidden-sm">-->
-            <!--<form class="navbar-form navbar-left" role="search" style="width: 100%;padding: 0;">-->
-                <!--<div class="form-group searchbox">-->
-                    <!--<input type="text" class="form-control" placeholder="Search">-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default searchbtn"><span class="glyphicon glyphicon-search"></span>-->
-                <!--</button>-->
-            <!--</form>-->
-            <!--<div class="clear"></div>-->
-        <!--</div>-->
-        <!--<div class="smsearch visible-sm">-->
-            <!--<ul class="nav navbar-nav">-->
-                <!--<li class="dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown">-->
-                        <!--<span class="glyphicon glyphicon-search"></span>-->
-                    <!--</a>-->
-                    <!--<ul class="dropdown-menu" style="    width: 274px;">-->
-                        <!--<li>-->
-                            <!--<form class="navbar-form navbar-left" role="search">-->
-                                <!--<div class="form-group searchbox">-->
-                                    <!--<input type="text" class="form-control" placeholder="Search">-->
-                                <!--</div>-->
-                                <!--<button type="submit" class="btn btn-default"><span-->
-                                        <!--class="glyphicon glyphicon-search"></span></button>-->
-                            <!--</form>-->
-                        <!--</li>-->
+    <!--<div class="leftlogo">-->
+    <!--<a href=""><img src="../img/managehome/logo.png"></a>-->
+    <!--</div>-->
+    <!--<div class="rightlink">-->
+    <!--<ul class="rightlinkbox">-->
+    <!--<li class="headlink">-->
+    <!--<a href=""><span class="glyphicon glyphicon-list-alt"></span> 课程</a>-->
+    <!--</li>-->
+    <!--<li class="headlink">-->
+    <!--<a href=""><span class="glyphicon glyphicon-road"></span> 职业路径</a>-->
+    <!--</li>-->
+    <!--<li class="headlink">-->
+    <!--<a href=""><span class="glyphicon glyphicon-bell"></span> 论坛</a>-->
+    <!--</li>-->
+    <!--<div class="clear"></div>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="rightadmin">-->
+    <!--<a href=""><img src="../img/managehome/user.jpg">admin</a>-->
+    <!--</div>-->
+    <!--<div class="search  hidden-sm">-->
+    <!--<form class="navbar-form navbar-left" role="search" style="width: 100%;padding: 0;">-->
+    <!--<div class="form-group searchbox">-->
+    <!--<input type="text" class="form-control" placeholder="Search">-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-default searchbtn"><span class="glyphicon glyphicon-search"></span>-->
+    <!--</button>-->
+    <!--</form>-->
+    <!--<div class="clear"></div>-->
+    <!--</div>-->
+    <!--<div class="smsearch visible-sm">-->
+    <!--<ul class="nav navbar-nav">-->
+    <!--<li class="dropdown">-->
+    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown">-->
+    <!--<span class="glyphicon glyphicon-search"></span>-->
+    <!--</a>-->
+    <!--<ul class="dropdown-menu" style="    width: 274px;">-->
+    <!--<li>-->
+    <!--<form class="navbar-form navbar-left" role="search">-->
+    <!--<div class="form-group searchbox">-->
+    <!--<input type="text" class="form-control" placeholder="Search">-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-default"><span-->
+    <!--class="glyphicon glyphicon-search"></span></button>-->
+    <!--</form>-->
+    <!--</li>-->
 
-                    <!--</ul>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <!--<div class="clear"></div>-->
-        <!--</div>-->
+    <!--</ul>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<div class="clear"></div>-->
+    <!--</div>-->
 
     <!--</div>-->
 
@@ -166,6 +166,7 @@
                                 <th>课程分类</th>
                                 <th>适用人群</th>
                                 <th>操作</th>
+                                <th>统计分析</th>
                             </tr>
                             </thead>
                             <tbody id="table_course">
@@ -366,7 +367,7 @@
 
     }
 
-//    function addCourse() {
+    //    function addCourse() {
     function addCourse(data) {
         alert("addCourse");
         $.ajax({
@@ -460,10 +461,15 @@
                         data[i].courseName + '</td><td>' + data[i].teacherName +
                         '</td><td>' + data[i].category_name + '</td><td>' + data[i].difficulty +
                         '</td><td>' +
-                        '<span class="glyphicon glyphicon-remove" onclick="deleteCourse()"></span>' +
-                        '<a href="/course/editCourse/'+  data[i].courseId + '">&nbsp;&nbsp;' +
-                        '<span class="glyphicon glyphicon-edit" id="edit"></span>' +
-                        '</a>' +
+                        '<a href="/course/editCourse/'+  data[i].courseId + '">' +
+                        '<span id="edit">编辑</span>' +
+                        '</a>&nbsp;' +
+                        '<span onclick="deleteCourse()">删除&nbsp;</span>' +
+                        '<span onclick="deleteCourse()">权限&nbsp;</span>' +
+                        '<span onclick="deleteCourse()">章节&nbsp;</span>' +
+
+                        '</td><td>'+
+                        '<a href="/courseReport">统计报告&nbsp;&nbsp;</a>' +
                         '</td></tr>';
                 }
                 $('#table_course').append(tb_course);
