@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <div th:include="/main/commonJs" ::commonJs/>
+    <div th:include="/main/commonStyle :: style"/>
+
+    <script src="/framework/adminlte/js/app.min.js"></script>
+    <script type="text/javascript" src="/framework/assets/js/supersized.3.2.7.min.js"></script>
+    <script type="text/javascript" src="/framework/assets/js/supersized-init.js"></script>
+
+    <link rel='stylesheet' href='/framework/assets/css/700.css'/>
+    <link rel="stylesheet" href="/framework/assets/css/reset.css"/>
+    <link rel="stylesheet" href="/framework/assets/css/supersized.css"/>
+    <link rel="stylesheet" href="/framework/assets/css/style.css"/>
+
+    <style>
+        .forget-password {
+            margin-top: 10px;
+            color: #4d5e73;
+            font-size: 1em;
+        }
+    </style>
+    <title>创辉煌车云平台</title>
+</head>
+
+<body>
+
+<div class="modal fade" id="form_user_add" tabindex="-1" role="dialog" aria-labelledby="addroleLable">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">新增用户</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txt_departmentname">用户名</label>
+                    <input type="text" name="txt_departmentname" class="form-control"
+                           id="txt_user_username_add" placeholder="用户名" maxlength="18"/>
+                </div>
+                <div class="form-group">
+                    <label for="txt_departmentname">密码</label>
+                    <input type="password" name="txt_departmentname" class="form-control"
+                           id="txt_user_password_add" placeholder="密码" maxlength="18"/>
+                </div>
+                <div class="form-group">
+                    <label for="txt_departmentname">确认密码</label>
+                    <input type="password" name="txt_departmentname" class="form-control"
+                           id="txt_user_passwordConfirm_add" placeholder="确认密码" maxlength="18"/>
+                </div>
+                <div class="form-group">
+                    <label for="txt_parentdepartment">姓名</label>
+                    <input type="text" name="txt_parentdepartment" class="form-control"
+                           id="txt_user_name_add" placeholder="姓名" maxlength="18"/>
+                </div>
+                <div class="form-group">
+                    <label for="txt_parentdepartment">性别</label>
+                    <select class="form-control" id="txt_user_gender_add">
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="txt_parentdepartment">手机号</label>
+                    <input type="text" name="txt_parentdepartment" class="form-control"
+                           id="txt_user_mobile_add" placeholder="手机号" maxlength="18"/>
+                </div>
+                <div class="form-group">
+                    <label for="txt_parentdepartment">邮箱</label>
+                    <input type="text" name="txt_parentdepartment" class="form-control"
+                           id="txt_user_email_add" placeholder="邮箱" maxlength="18"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><span
+                        class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                </button>
+                <button type="button" onclick="addNewUser()" id="btn_user_save" class="btn btn-primary"><span
+                        class="glyphicon glyphicon-floppy-disk"></span>保存
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-container">
+    <img style="margin-top:2%" src="/framework/image/logo/logo_large.jpg" class="icon"/>
+    <h1 style="margin-top: 2%">创辉煌车云管理平台登录</h1>
+
+    <div class="form">
+        <div class="lable">用户名</div>
+        <input type="text" id="username" class="username" placeholder="用户名"/>
+        <div class="lable">密码</div>
+        <input type="password" id="password" class="password" placeholder="密码"/>
+
+        <div class="row">
+            <div class="col-xs-5">
+                <div class="checkbox icheck">
+                    <label class="">
+                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false"
+                             style="position: relative;">
+                        </div>
+                        忘记密码?
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <!--<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>-->
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <button id="submit">登&nbsp;&nbsp;陆</button>&nbsp;&nbsp;&nbsp;&nbsp;<button id="regist">注&nbsp;&nbsp;册</button>
+        <div class="error"><span>+</span></div>
+        <div class="errorText"></div>
+    </div>
+
+
+</div>
+
+</body>
+
+<script src="/framework/module/user.js">
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.page-container form .username, .page-container form .password').keyup(function () {
+            $(this).parent().find('.error').fadeOut('fast');
+        });
+
+        $("#submit").click(function () {
+            //validateCheckCode();
+            login();
+        });
+
+        $("#regist").click(function () {
+            showAddUserForm();
+        })
+
+        document.onkeydown = function (e) {
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode == 13) {
+                //validateCheckCode();
+                login();
+            }
+        }
+
+        function login() {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            if (username == '') {
+                $(".form").find('.error').fadeOut('fast', function () {
+                    $(".form").find(".error").css('top', '27px');
+                });
+                $(".form").find('.error').fadeIn('fast', function () {
+                    $(".form").parent().find('.username').focus();
+                });
+                return false;
+            }
+            if (password == '') {
+                $(".form").find('.error').fadeOut('fast', function () {
+                    $(".form").find(".error").css('top', '96px');
+                });
+                $(".form").find('.error').fadeIn('fast', function () {
+                    $(".form").parent().find('.password').focus();
+                });
+                return false;
+            }
+
+            $.post("/login/login",
+                {
+                    username: $("#username").val(),
+                    password: $("#password").val()
+                },
+                function (data, status) {
+                    if (status != "success") {
+                        alert("登陆失败，请检查网络和服务器运行情况！");
+                        return;
+                    }
+                    if (data.code != 200) {
+                        $(".form").find('.error').fadeOut('fast', function () {
+                            $(".form").find(".error").css('top', '27px');
+                        });
+                        $(".form").find('.error').fadeIn('fast', function () {
+                            $(".form").parent().find('.username').focus();
+                        });
+
+                        $(".form").find('.errorText').fadeOut('fast', function () {
+                            $(".form").find(".errorText").css('top', '27px');
+                        });
+                        $(".form").find('.errorText').fadeIn('fast', function () {
+                            $(".form").find('.errorText').text(data.msg);
+                        });
+
+                        return;
+                    }
+                    location.href = "/user/view/info";
+                },
+                "json"
+            );
+        }
+    });
+
+
+    //code为全局的
+    var code;
+    function createCheckCode() {
+        code = "";
+        var codeLength = 6;//验证码的长度
+        var checkCode = document.getElementById("getCheckCode");
+        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+        for (var i = 0; i < codeLength; i++) {
+            var index = Math.floor(Math.random() * 36);
+            code += random[index];
+        }
+        checkCode.value = code;
+    }
+    //校验验证码
+    function validateCheckCode() {
+        var checkCode = document.getElementById("getCheckCode");
+        var inputCode = "";
+        inputCode = document.getElementById("inputCheckCode").value.toUpperCase();
+        if (inputCode.length <= 0 || inputCode == "") {
+            alert("请输入验证码！");
+            location.href = "/login/view";
+        }
+        else if (inputCode != code) {
+            alert("验证码输入错误");
+            inputCode.value = "";
+            location.href = "/login/view";
+        }
+    }
+
+
+</script>
+</html>
