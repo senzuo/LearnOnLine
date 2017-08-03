@@ -281,5 +281,9 @@ public class AdminCourseManage {
     }
 
 
+    @RequestMapping(value = "/view/index")
+    public String index(){
+        return "admin/viewIndex";
+    }
 
 }
